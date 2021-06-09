@@ -1,0 +1,44 @@
+@charset "UTF-8";
+
+body{
+	background-color: #F5F5F5;
+}
+.box{
+	border: 3px solid#0000;
+	background-color: white;
+	width: 800px;
+	height: 900px;
+	margin: 0 auto 0 auto;
+}
+/*formを真ん中に配置する*/
+
+.profile {
+	margin: 0 auto 0 auto;
+}
+/*登録ボタンを真ん中に配置する*/
+.button {
+	text-align: center;
+	background: F4A460;
+}
+/*画像の大きさを100pxに変更*/
+img{
+	width: 45.98px;
+}
+/*記入項目の大きさを変更*/
+input{
+	width:300px;
+	height:40px;
+	margin: 10px;
+	border: 2px solid#F4A460;
+}
+/*textareaの大きさを変更*/
+textarea{
+	width:413.48px;
+	height:108.48px;
+	margin: 10px;
+	border: 2px solid#F4A460;
+}
+/*説明？を真ん中に配置*/
+p{
+	text-align:center;
+}
