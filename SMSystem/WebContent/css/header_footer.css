@@ -11,21 +11,6 @@ body {
 	color: black;
 }
 
-/* ナビゲーションバー全体のカーソル乗せたり、押した後の状態設定
-.nav a:link {
-	color: black;
-	text-decoration: none;
-}
-.nav a:visited {
-	color: black;
-	text-decoration: none;
-}
-.nav a:hover {
-	color:  #F4A460;
-	text-decoration: none;
-}
-*/
-
 /* ドロップダウンナビゲーションの設定 */
 #header {
   list-style-type: none;
@@ -92,9 +77,3 @@ body {
   height: 38px;
   border-bottom: 1px solid #fff;
 }
-/*#header li:hover ul li:first-child {
-  border-top: 0;
-}
-#header li:hover ul li:last-child {
-  border-bottom: 0;
-}*/
