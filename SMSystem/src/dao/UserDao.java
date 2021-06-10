@@ -79,7 +79,6 @@ public class UserDao {
 				pStmt.setString(8, null);
 			}
 
-
 			//INSERT文を実行（resultには追加された行数が代入される）
 			if(pStmt.executeUpdate() == 1) {
 				result = true;

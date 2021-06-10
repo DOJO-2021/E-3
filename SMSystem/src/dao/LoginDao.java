@@ -27,7 +27,7 @@ public class LoginDao {
 			// SELECT文を実行し、結果表を取得する
 			ResultSet rs = pStmt.executeQuery();
 
-			// ユーザーIDとパスワードが一致するユーザーがいたかどうかをチェックする
+			// ユーザーIDとパスワードが一致するユーザーがいたかどうかをチェック
 			rs.next();
 			if (rs.getInt("count(*)") == 1) {
 				loginResult = true;

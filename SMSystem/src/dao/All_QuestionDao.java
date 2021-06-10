@@ -23,7 +23,7 @@ public class All_QuestionDao {
 			Class.forName("org.h2.Driver");
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/SMSystem", "sa", "");
 			//INSERT文を準備
-			String sql = "INSERT INTO profile (ID, GENRE, QUESTION, ANSWER, FAQ, EMERGENT, DATE, USER_NAME) VALUE (null,?,?,?,?,?,?,?)";
+			String sql = "INSERT INTO profile (ID, GENRE, QUESTION, ANSWER, FAQ, EMERGENT, QUESTION_ID) VALUE (null,?,?,?,?,?,null)";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			//SQL文
@@ -60,20 +60,6 @@ public class All_QuestionDao {
 			}
 			else {
 				pStmt.setString(5, null);
-			}
-
-			if (all_question.getDate() != null && !all_question.getDate().equals("")) {
-				pStmt.setString(6, all_question.getDate());
-			}
-			else {
-				pStmt.setString(6, null);
-			}
-
-			if (all_question.getUser_name() != null && !all_question.getUser_name().equals("")) {
-				pStmt.setString(7, all_question.getUser_name());
-			}
-			else {
-				pStmt.setString(7, null);
 			}
 
 
@@ -115,7 +101,7 @@ public class All_QuestionDao {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/SMSystem", "sa", "");
 
 			// SELECT文を準備する
-			String sql = "SELECT GENRE, USER_NAME FROM ALL_QUESTION INNER JOIN USER ON ALL_QUESTION.ID=USER.ID WHERE USER_CLASS = ? AND emergent =0";
+			String sql = "SELECT GENRE, USER_NAME FROM ALL_QUESTION INNER JOIN USER ON ALL_QUESTION.ID=USER.ID WHERE USER_CLASS = ? AND emergent =0 ORDER BY QUESTION_ID DESC";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			if (user.getUser_class() != null && !user.getUser_class().equals("")) {
@@ -136,9 +122,8 @@ public class All_QuestionDao {
 				String answer = rs.getString("ANSWER");
 				String faq = rs.getString("FAQ");
 				String emergent = rs.getString("EMERGENT");
-				String date = rs.getString("DATE");
-				String user_name = rs.getString("USER_NAME");
-				All_Question all_Question = new All_Question(id, genre, question, answer, faq, emergent, date, user_name);
+				int question_id = rs.getInt("QUESTION_ID");
+				All_Question all_Question = new All_Question(id, genre, question, answer, faq, emergent, question_id);
 				all_questionList.add(all_Question);
 			}
 		}
@@ -199,9 +184,8 @@ public class All_QuestionDao {
 				String answer = rs.getString("ANSWER");
 				String faq = rs.getString("FAQ");
 				String emergent = rs.getString("EMERGENT");
-				String date = rs.getString("DATE");
-				String user_name = rs.getString("USER_NAME");
-				All_Question all_Question = new All_Question(id, genre, question, answer, faq, emergent, date, user_name);
+				int question_id = rs.getInt("QUESTION_ID");
+				All_Question all_Question = new All_Question(id, genre, question, answer, faq, emergent, question_id);
 				all_questionList.add(all_Question);
 			}
 		}
@@ -241,7 +225,7 @@ public class All_QuestionDao {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/SMSystem", "sa", "");
 
 			// UPDATE文を準備する
-			String sql = "INSERT INTO ALL_QUESTION value (null, ?, ?, ?, ?, ?, ?, ?)";
+			String sql = "INSERT INTO ALL_QUESTION value (null, ?, ?, ?, ?, ?, null)";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			if (all_question.getGenre() != null && !all_question.getGenre().equals("")) {
@@ -274,18 +258,6 @@ public class All_QuestionDao {
 			else {
 				pStmt.setString(5, null);
 			}
-			if (all_question.getDate() != null && !all_question.getDate().equals("")) {
-				pStmt.setString(6, all_question.getDate());
-			}
-			else {
-				pStmt.setString(6, null);
-			}
-			if (all_question.getUser_name() != null && !all_question.getUser_name().equals("")) {
-				pStmt.setString(7, all_question.getUser_name());
-			}
-			else {
-				pStmt.setString(7, null);
-			}
 
 			//UPDATE文を実行
 			if (pStmt.executeUpdate() == 1) {
@@ -315,7 +287,7 @@ public class All_QuestionDao {
 
 
 	//FAQ編集画面での削除→DB(update)
-	public boolean delete(int id) {
+	public boolean delete(int question_id) {
 		Connection conn = null;
 		boolean result = false;
 
@@ -325,11 +297,11 @@ public class All_QuestionDao {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/SMSystem", "sa", "");
 
 			// SQL文を準備する
-			String sql = "delete from All_question where id=?";
+			String sql = "delete from All_question where question_id=?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる
-			pStmt.setInt(1, id);
+			pStmt.setInt(1, question_id);
 
 			// SQL文を実行する
 			if (pStmt.executeUpdate() == 1) {

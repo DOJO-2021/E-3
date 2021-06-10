@@ -9,9 +9,8 @@
 <body>
 <footer class="footer">
 <p class="title1">受講者管理システム</p>
-<p>Copyright(C) 2021 SMSystem All rights reserved.<br>
-本サイトの掲載記事、写真、イラスト、問題コンテンツの無断転載を禁じます。<br>
-記載されているロゴ、システム名、製品名は各社及び商標権者の登録商標あるいは商標です。</p>
+<p class="sentence">Copyright(C) 2021 SMSystem All rights reserved.<br>
+本サイトの写真、イラストの無断転載を禁じます。記載されているロゴ、システム名、製品名は各社及び商標権者の登録商標あるいは商標です。</p>
 </footer>
 </body>
 </html>

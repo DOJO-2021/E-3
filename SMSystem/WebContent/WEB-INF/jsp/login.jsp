@@ -4,22 +4,32 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Login | SMSystem</title>
+<title>ログイン | SMSystem</title>
 <link rel="stylesheet" href="/SMSystem/css/login.css">
 </head>
 <body>
 
 <h1>受講者管理システム</h1>
+<div class="box">
+<p>ログイン</p>
+	<form method = "POST" action = "/SMSystem/LoginServlet">
+		<table class="profile">
+		<tr>
+		<th><img src ="img/id.png" alt = "ID"></th>
+			<td><input type = "text" name = "user_id" placeholder = "ID"></td>
+		</tr>
+		<tr>
+		<th><img src ="img/password.png" alt = "PW"></th>
+			<td><input type = "password" name = "user_pw" placeholder = "password"></td>
+		</tr>
+		</table>
+		<div class ="button">
+			<input type = "submit" name = "submit_create" value ="ログイン">
+		</div>
+			<p class="regist"><a href="/SMSystem/Create_IdServlet">新規登録はこちら</a></p>
 
-  <form method="POST" action="" id="form">
-    <div class="login_img">
-	  <img src="/SMSystem/img/id.png" width = "10%" height = "5%" alt="ID"><input type="text" name="newid"><br>
-	  <img src="/SMSystem/img/password.png" width = "10%" height = "5%" alt="PW"><input type="password" name="newpassword"><br>
+	</form>
 	</div>
-	<!-- <input type="submit" name="regist" value="新規登録"> -->
-	<input type="submit" name="login" value="ログイン">
-	<p class="regist"><a href="/SMSystem/Create_IdServlet.java">新規登録はこちら</a></p>
-  </form>
 
 </body>
 </html>

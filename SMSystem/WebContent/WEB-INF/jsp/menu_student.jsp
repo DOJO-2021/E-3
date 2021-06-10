@@ -15,14 +15,14 @@
 <main>
 <div class = "wrapper">
 	<form method = "GET" action = "/SMSystem/Menu_StudentServlet">
-		<p>クラスを入力してください
+		<p class="text">クラスを入力してください
 		<input type = "text" name = "class" placeholder = "A～E">
 		<input type = "submit" name = "search" value = "検索"></p>
 	</form>
 	<div class = "table-menu">
 		<table class = "mytable">
 			 <tr>
- 				<th>氏名</th><th>氏名(かな)</th><th>企業名</th>
+ 				<th class="n">氏名</th><th class="nk">氏名(かな)</th><th class="c">企業名</th>
 			 </tr>
 			 <tr>
  				<td>岡田</td><td>おかだ</td><td>日本システム</td>
@@ -33,6 +33,7 @@
 	<div class = "infomation-menu">
 	<h3>お知らせ</h3>
 	</div>
+	<jsp:include page="/WEB-INF/jsp/footer.jsp" />
 	</div>
 </main>
 <script src="http://code.jquery.com/jquery-1.9.0.min.js"></script>
