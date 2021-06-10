@@ -7,9 +7,9 @@
 <link rel="stylesheet" href="css/header_footer.css">
 </head>
 <body>
+<header>
 <p class="title">受講者管理システム</p>
-<nav class="nav">
-	<ul id="header">
+	<ul id="nav1">
 		<li><a href="/SMSystem/Menu_StudentServlet">メニュー</a></li>
 		<li><a href="/SMSystem/Faq_ListServlet">FAQ</a></li>
 		<li><a href="#">質問</a>
@@ -20,6 +20,6 @@
 		</li>
 		<li><a href="/SMSystem/LogoutServlet">ログアウト</a></li>
 	</ul>
-</nav>
+</header>
 </body>
 </html>

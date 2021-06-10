@@ -13,12 +13,10 @@ public class LoginDao {
 		Connection conn = null;
 		boolean loginResult = false;
 
+		//データベースへ接続
 		try {
-			// JDBCドライバを読み込む
 			Class.forName("org.h2.Driver");
-
-			// データベースに接続する
-			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/simpleBC", "sa", "");
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/SMSystem", "sa", "");
 
 			// SELECT文を準備する
 			String sql = "select count(*) from User where user_id = ? and user_pw = ?";

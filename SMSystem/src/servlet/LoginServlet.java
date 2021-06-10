@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.UserDao;
+import dao.LoginDao;
 import model.LoginUser;
 
 /**
@@ -40,7 +40,7 @@ public class LoginServlet extends HttpServlet {
 		String pw = request.getParameter("PW");
 
 		// ログイン処理を行う
-		UserDao iDao = new UserDao();
+		LoginDao iDao = new LoginDao();
 		if (iDao.isLoginOK(id, pw)) {
 			// セッションスコープにIDを格納する
 			HttpSession session = request.getSession();
@@ -50,12 +50,8 @@ public class LoginServlet extends HttpServlet {
 			response.sendRedirect("/SMSystem/MenuServlet");
 
 		} else {
-			request.setAttribute("result",
-			new Result("ログイン失敗！", "IDまたはPWに間違いがあります。", "/SMSystem/LoginServlet"));
+			response.sendRedirect("/SMSystem/LoginServlet");
 
-			// 結果ページにフォワードする
-			RequestDispatcher dispatcher = request.getRequetDispatcher("/WEB-INF/jsp/result.jsp");
-			dispatcher.forward(request, response);
 		}
 	}
 

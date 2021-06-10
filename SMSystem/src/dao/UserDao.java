@@ -17,7 +17,7 @@ public class UserDao {
 		//データベースへ接続
 		try {
 			Class.forName("org.h2.Driver");
-			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/simpleBC", "sa", "");
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/SMSystem", "sa", "");
 			//INSERT文を準備
 			String sql = "INSERT INTO user ( ID, USER_ID, USER_PW, USER_NAME, USER_NAME_KANA, USER_COMPANY, USER_COMPANY_KANA, USER_CLASS, USER_ROLE) VALUE (null,?,?,?,?,?,?,?,?)";
 			PreparedStatement pStmt = conn.prepareStatement(sql);

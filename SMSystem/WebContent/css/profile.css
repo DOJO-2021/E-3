@@ -1,8 +1,10 @@
 @charset "UTF-8";
 
+/*背景色*/
 body{
 	background-color: #F5F5F5;
 }
+/*画面の白い部分*/
 .box{
 	border: 3px solid#0000;
 	background-color: white;
@@ -10,15 +12,18 @@ body{
 	height: 900px;
 	margin: 0 auto 0 auto;
 }
-/*formを真ん中に配置する*/
-
+/*見出しを真ん中に表示する*/
+h1{
+	text-align: center;
+}
+/*プロフィール部分を中央に寄せる*/
 .profile {
 	margin: 0 auto 0 auto;
 }
 /*登録ボタンを真ん中に配置する*/
 .button {
 	text-align: center;
-	background: F4A460;
+
 }
 /*画像の大きさを100pxに変更*/
 img{
@@ -26,17 +31,49 @@ img{
 }
 /*記入項目の大きさを変更*/
 input{
-	width:300px;
+	width:413.48px;
 	height:40px;
 	margin: 10px;
-	border: 2px solid#F4A460;
 }
+/*テキスト入力時に枠線の色が変わる*/
+input[type="text"]:focus{
+	border: 4px solid #F4A460;
+	outline:none;
+}
+/*テキスト入力の文字サイズの変更*/
+input[type = "text"]{
+	font-size: 20px;
+}
+/*テキストエリアの文字サイズの変更*/
+textarea{
+	font-size: 20px;
+}
+/*テキストエリア入力時に枠線の色が変わる*/
+.textlines:focus{
+	border: 4px solid #F4A460;
+	outline:none;
+}
+
+/*登録ボタンの変更*/
+input[type = "submit"]{
+	border-radius: 10px;
+	width:100px;
+	height:50px;
+	transition: 0.5s;
+	cursor: pointer;
+}
+/*登録ボタンにカーソルが触れると色が変わるように変更*/
+input[type = "submit"]:hover{
+	background-color : #F4A460;
+}
+
+
 /*textareaの大きさを変更*/
 textarea{
 	width:413.48px;
 	height:108.48px;
 	margin: 10px;
-	border: 2px solid#F4A460;
+
 }
 /*説明？を真ん中に配置*/
 p{

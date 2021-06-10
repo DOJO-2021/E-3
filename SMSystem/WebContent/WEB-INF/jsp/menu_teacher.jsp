@@ -9,10 +9,11 @@
 
 </head>
 <body>
+<jsp:include page="/WEB-INF/jsp/header_teacher.jsp" />
 <form method = "POST" action = "/SMSystem/Menu_TeacherServlet">
-<p>クラスを入力してください</p>
-<input type = "text" name = "class">
-<input type = "submit" name = "search" value = "検索">
+<p>クラスを入力してください
+<input type = "text" name = "class" placeholder = "A～E">
+<input type = "submit" name = "search" value = "検索" ></p>
 </form>
 <div class = "table-menu">
 <table>
