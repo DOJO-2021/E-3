@@ -138,7 +138,7 @@ public List<User> select(User user) {
 			String user_id = rs.getString("USER_ID");
 			String user_pw = rs.getString("USER_PW");
 			String user_name = rs.getString("USER_NAME");
-			String user_name_kana = rs.getString("USER_NAMA_KANA");
+			String user_name_kana = rs.getString("USER_NAME_KANA");
 			String user_company = rs.getString("USER_COMPANY");
 			String user_company_kana = rs.getString("USER_COMPANY_KANA");
 			String user_class = rs.getString("USER_CLASS");
