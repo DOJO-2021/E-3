@@ -19,7 +19,7 @@ public class ProfileDao {
 			Class.forName("org.h2.Driver");
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/SMSystem", "sa", "");
 			//INSERT文を準備
-			String sql = "INSERT INTO profile VALUES (null,?,?,?,?,?,?,?,?,?)";
+			String sql = "INSERT INTO profile VALUES (null,?,?,?,?,?,?,?)";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			//SQL文
@@ -44,46 +44,32 @@ public class ProfileDao {
 				pStmt.setString(3, null);
 			}
 
-			if (profile.getUser_company() != null && !profile.getUser_company().equals("")) {
-				pStmt.setString(4, profile.getUser_company());
+			if (profile.getUser_career() != null && !profile.getUser_career().equals("")) {
+				pStmt.setString(4, profile.getUser_career());
 			}
 			else {
 				pStmt.setString(4, null);
 			}
 
-			if (profile.getUser_company_kana() != null && !profile.getUser_company_kana().equals("")) {
-				pStmt.setString(5, profile.getUser_company_kana());
+			if (profile.getUser_club() != null && !profile.getUser_club().equals("")) {
+				pStmt.setString(5, profile.getUser_club());
 			}
 			else {
 				pStmt.setString(5, null);
 			}
 
-			if (profile.getUser_career() != null && !profile.getUser_career().equals("")) {
-				pStmt.setString(6, profile.getUser_career());
+			if (profile.getUser_hobby() != null && !profile.getUser_hobby().equals("")) {
+				pStmt.setString(6, profile.getUser_hobby());
 			}
 			else {
 				pStmt.setString(6, null);
 			}
 
-			if (profile.getUser_club() != null && !profile.getUser_club().equals("")) {
-				pStmt.setString(7, profile.getUser_club());
+			if (profile.getUser_intro() != null && !profile.getUser_intro().equals("")) {
+				pStmt.setString(7, profile.getUser_intro());
 			}
 			else {
 				pStmt.setString(7, null);
-			}
-
-			if (profile.getUser_hobby() != null && !profile.getUser_hobby().equals("")) {
-				pStmt.setString(8, profile.getUser_hobby());
-			}
-			else {
-				pStmt.setString(8, null);
-			}
-
-			if (profile.getUser_intro() != null && !profile.getUser_intro().equals("")) {
-				pStmt.setString(9, profile.getUser_intro());
-			}
-			else {
-				pStmt.setString(9, null);
 			}
 
 

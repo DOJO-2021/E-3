@@ -13,8 +13,8 @@
 <form method ="post"action="/SMSystem/Create_IdServlet" class="form_createID">
 <br><br>
 <div class = "radio">
-<input type="radio" name="user_role" value="1">受講者
-<input type="radio" name="user_role" value="0">講師
+<label><input type="radio" name="user_role" value="1">受講者</label>
+<label><input type="radio" name="user_role" value="0">講師</label>
 </div>
 <br>
   <table class="profile">
@@ -29,12 +29,12 @@
 	</tr>
 
 	<tr>
-	<th>企業名</th>
+	<th><img src = "img/company.png"></th>
 		<td><input type="text" name="user_company" placeholder="企業名"></td>
 	</tr>
 
 	<tr>
-	<th>企業名（かな）</th>
+	<th><img src = "img/company.png"></th>
 		<td><input type="text" name="user_company_kana" placeholder="企業名（かな）"></td>
 	</tr>
 
@@ -49,7 +49,7 @@
 	</tr>
 
 	<tr>
-	<th>クラス名(A～Z)</th>
+	<th><img src = "img/class.png"></th>
 		<td><input type="text" name="user_class" placeholder="クラス名(A～Z)"></td>
 	</tr>
   </table>

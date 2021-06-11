@@ -119,7 +119,7 @@ public List<User> select(User user) {
 		conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/SMSystem", "sa", "");
 
 		// SELECT文を準備する
-		String sql = "SELECT * FROM USER  WHERE USER_CLASS = ?";
+		String sql = "SELECT * FROM USER  WHERE USER_CLASS = ? AND USER_ROLE = 0";
 		PreparedStatement pStmt = conn.prepareStatement(sql);
 
 		if (user.getUser_class() != null && !user.getUser_class().equals("")) {

@@ -23,50 +23,36 @@ public class All_QuestionDao {
 			Class.forName("org.h2.Driver");
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/SMSystem", "sa", "");
 			//INSERT文を準備
-			String sql = "INSERT INTO all_question VALUES (null,?,?,?,?,?,null,?)";
+			String sql = "INSERT INTO all_question VALUES (null,?,?,?,?,null)";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			//SQL文
-			if (all_question.getGenre() != null && !all_question.getGenre().equals("")) {
-				pStmt.setString(1, all_question.getGenre());
+			if (all_question.getUser_name() != null && !all_question.getUser_name().equals("")) {
+				pStmt.setString(1, all_question.getUser_name());
 			}
 			else {
 				pStmt.setString(1, null);
 			}
 
-			if (all_question.getQuestion() != null && !all_question.getQuestion().equals("")) {
-				pStmt.setString(2, all_question.getQuestion());
+			if (all_question.getGenre() != null && !all_question.getGenre().equals("")) {
+				pStmt.setString(2, all_question.getGenre());
 			}
 			else {
 				pStmt.setString(2, null);
 			}
 
-			if (all_question.getAnswer() != null && !all_question.getAnswer().equals("")) {
-				pStmt.setString(3, all_question.getAnswer());
+			if (all_question.getQuestion() != null && !all_question.getQuestion().equals("")) {
+				pStmt.setString(3, all_question.getQuestion());
 			}
 			else {
 				pStmt.setString(3, null);
 			}
 
-			if (all_question.getFaq() != null && !all_question.getFaq().equals("")) {
-				pStmt.setString(4, all_question.getFaq());
+			if (all_question.getEmergent() != null && !all_question.getEmergent().equals("")) {
+				pStmt.setString(4, all_question.getEmergent());
 			}
 			else {
 				pStmt.setString(4, null);
-			}
-
-			if (all_question.getEmergent() != null && !all_question.getEmergent().equals("")) {
-				pStmt.setString(5, all_question.getEmergent());
-			}
-			else {
-				pStmt.setString(5, null);
-			}
-
-			if (all_question.getUser_name() != null && !all_question.getUser_name().equals("")) {
-				pStmt.setString(6, all_question.getUser_name());
-			}
-			else {
-				pStmt.setString(6, null);
 			}
 
 
@@ -98,7 +84,7 @@ public class All_QuestionDao {
 
 
 	//クラスを検索して緊急の質問を表示→DB(select)
-	public List<All_Question> select_emergent(User user) {
+	public List<All_Question> select_emergent(User user, All_Question all_question) {
 		Connection conn = null;
 		List<All_Question> all_questionList = new ArrayList<All_Question>();
 
@@ -108,7 +94,7 @@ public class All_QuestionDao {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/SMSystem", "sa", "");
 
 			// SELECT文を準備する
-			String sql = "SELECT * FROM ALL_QUESTION INNER JOIN USER ON ALL_QUESTION.USER_NAME=USER.USER_NAME WHERE USER_CLASS = ? AND emergent =0 ORDER BY QUESTION_ID DESC";
+			String sql = "SELECT * FROM ALL_QUESTION INNER JOIN USER ON ALL_QUESTION.USER_NAME=USER.USER_NAME WHERE USER_CLASS = ? AND EMERGENT = 0 ORDER BY QUESTION_ID DESC";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			if (user.getUser_class() != null && !user.getUser_class().equals("")) {
@@ -172,7 +158,7 @@ public class All_QuestionDao {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/SMSystem", "sa", "");
 
 			// SELECT文を準備する
-			String sql = "SELECT * FROM ALL_QUESTION INNER JOIN USER ON ALL_QUESTION.USER_NAME =USER.USER_NAME WHERE USER_CLASS = ? AND emergent =1 ORDER BY QUESTION_ID DESC";
+			String sql = "SELECT * FROM ALL_QUESTION INNER JOIN USER ON ALL_QUESTION.USER_NAME =USER.USER_NAME WHERE USER_CLASS = ? AND EMERGENT =1 ORDER BY QUESTION_ID DESC";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			if (user.getUser_class() != null && !user.getUser_class().equals("")) {
@@ -235,64 +221,47 @@ public class All_QuestionDao {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/SMSystem", "sa", "");
 
 			// UPDATE文を準備する
-			String sql = "UPDATE ALL_QUESTION ";
+			String sql = "UPDATE ALL_QUESTION SET ANSWER = ?, FAQ = ? WHERE QUESTION_ID = ? ";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
-			if (all_question.getGenre() != null && !all_question.getGenre().equals("")) {
-				pStmt.setString(1, all_question.getGenre());
+			if (all_question.getAnswer() != null && !all_question.getAnswer().equals("")) {
+				pStmt.setString(1, all_question.getAnswer());
 			}
 			else {
 				pStmt.setString(1, null);
 			}
-			if (all_question.getQuestion() != null && !all_question.getQuestion().equals("")) {
-				pStmt.setString(2, all_question.getQuestion());
+			if (all_question.getFaq() != null && !all_question.getFaq().equals("")) {
+				pStmt.setString(2, all_question.getFaq());
 			}
 			else {
 				pStmt.setString(2, null);
 			}
-			if (all_question.getAnswer() != null && !all_question.getAnswer().equals("")) {
-				pStmt.setString(3, all_question.getAnswer());
-			}
-			else {
-				pStmt.setString(3, null);
-			}
-			if (all_question.getFaq() != null && !all_question.getFaq().equals("")) {
-				pStmt.setString(4, all_question.getFaq());
-			}
-			else {
-				pStmt.setString(4, null);
-			}
-			if (all_question.getEmergent() != null && !all_question.getEmergent().equals("")) {
-				pStmt.setString(5, all_question.getEmergent());
-			}
-			else {
-				pStmt.setString(5, null);
-			}
+
 
 			//UPDATE文を実行
 			if (pStmt.executeUpdate() == 1) {
 				result = true;
 			}
 			}
-			catch (SQLException e) {
-				e.printStackTrace();
-			}
-			catch (ClassNotFoundException e) {
-				e.printStackTrace();
-			}
-			finally {
-				// データベースを切断
-				if (conn != null) {
-					try {
-						conn.close();
-					}
-					catch (SQLException e) {
-						e.printStackTrace();
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
 				}
+				catch (SQLException e) {
+					e.printStackTrace();
 			}
 		}
+	}
 
-		return result;
+	return result;
 	}
 
 
@@ -307,7 +276,7 @@ public class All_QuestionDao {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/SMSystem", "sa", "");
 
 			// SQL文を準備する
-			String sql = "DELETE FROM all_question WHERE question_id=?";
+			String sql = "DELETE FROM all_question WHERE QUESTION_ID=?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる

@@ -47,7 +47,7 @@
 		</tr>
 		<tr>
 		<th><img src = "img/intro.png" alt = "自己紹介"></th>
-		<td class =""></td>
+		<td class ="textarea"></td>
 		</tr>
 		</table>
 		<div class ="button">

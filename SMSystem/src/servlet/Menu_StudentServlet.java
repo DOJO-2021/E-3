@@ -26,6 +26,8 @@ public class Menu_StudentServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/menu_student.jsp");
 		dispatcher.forward(request,response);
+
+
 	}
 
 	/**
@@ -41,8 +43,11 @@ public class Menu_StudentServlet extends HttpServlet {
 		List<User> studentList = uDao.select(new User(0,"","","","","","",user_class,""));
 		request.setAttribute("studentList", studentList);
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/menu_student.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/student.jsp");
 		dispatcher.forward(request,response);
+
+
+
 	}
 
 }
