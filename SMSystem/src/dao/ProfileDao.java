@@ -23,7 +23,7 @@ public class ProfileDao {
 			Class.forName("org.h2.Driver");
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/SMSystem", "sa", "");
 			//INSERT文を準備
-			String sql = "INSERT INTO profile (ID, USER_NAME, USER_NAME_KANA, USER_BLOOD, USER_COMPANY, USER_COMPANY_KANA, USER_CAREER, USER_CLUB, USER_HOBBY, USER_INTRO) VALUE (null,?,?,?,?,?,?,?,?,?)";
+			String sql = "INSERT INTO profile VALUES (null,?,?,?,?,?,?,?,?,?)";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			//SQL文

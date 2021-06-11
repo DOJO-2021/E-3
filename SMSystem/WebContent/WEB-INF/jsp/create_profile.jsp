@@ -11,7 +11,7 @@
 <h1>受講者管理システム</h1>
 <div class="box">
 <p>プロフィール記入</p>
-	<form method = "POST" action = "/SMSystem/Create_profileServlet">
+	<form method = "POST" action = "/SMSystem/Create_ProfileServlet">
 		<table class="profile">
 		<tr>
 		<th><img src ="img/name.png" alt = "氏名"></th>
@@ -39,7 +39,7 @@
 		</tr>
 		<tr>
 		<th><img src ="img/intro.png" alt = "自己紹介"></th>
-			<td><textarea class ="textlines" name ="user_info" placeholder = "自己紹介"></textarea></td>
+			<td><textarea class ="textlines" name ="user_intro" placeholder = "自己紹介"></textarea></td>
 		</tr>
 		</table>
 		<div class ="button">
