@@ -9,7 +9,7 @@ public class UserDaoTest {
 		UserDao dao = new UserDao();
 		// insert()のテスト
 		System.out.println("---------- insert()のテスト ----------");
-		User insRec = new User(0,"TEST", "TEST", "TEST", "TEST", "TEST", "TEST", "E", "0");
+		User insRec = new User(0,"TEST", "TEST", "TEST", "TEST", "TEST", "TEST", "E", "1");
 		if (dao.insert(insRec)) {
 			System.out.println("登録成功！");
 			List<User> UserList2 = dao.select(insRec);
@@ -32,7 +32,7 @@ public class UserDaoTest {
 
 		// select()のテスト(nameに名前を含んだデータを検索する)
 		System.out.println("---------- select()のテスト ----------");
-		List<User> cardList2 = dao.select(new User(0,"", "", "", "", "", "", "E", "0"));
+		List<User> cardList2 = dao.select(new User(0,"", "", "", "", "", "", "E", "1"));
 		for (User user : cardList2) {
 			System.out.println("id：" + user.getId());
 			System.out.println("user_id：" + user.getUser_id());
