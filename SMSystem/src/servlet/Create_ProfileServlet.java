@@ -26,7 +26,7 @@ public class Create_ProfileServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		//登録ページにフォワードする
+		//プロフィール登録ページにフォワードする
 		RequestDispatcher dispatcher =
 				request.getRequestDispatcher("/WEB-INF/jsp/create_profile.jsp");
 		dispatcher.forward(request, response);

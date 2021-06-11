@@ -3,7 +3,10 @@ package dao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import model.User;
 
@@ -105,4 +108,67 @@ public class UserDao {
 		return result;
 	}
 
+	//クラスを検索してプロフィールを表示→DB(select)
+public List<User> select(User user) {
+	Connection conn = null;
+	List<User> studentList = new ArrayList<User>();
+
+	//データベースへ接続
+	try {
+		Class.forName("org.h2.Driver");
+		conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/SMSystem", "sa", "");
+
+		// SELECT文を準備する
+		String sql = "SELECT * FROM USER  WHERE USER_CLASS = ?";
+		PreparedStatement pStmt = conn.prepareStatement(sql);
+
+		if (user.getUser_class() != null && !user.getUser_class().equals("")) {
+			pStmt.setString(1, user.getUser_class());
+		}
+		else {
+			pStmt.setString(1, null);
+		}
+
+		//SELECT文を実行
+		ResultSet rs = pStmt.executeQuery();
+
+		//SELECT文の結果をArrayListに格納
+		while(rs.next()){
+			int id = rs.getInt("ID");
+			String user_id = rs.getString("USER_ID");
+			String user_pw = rs.getString("USER_PW");
+			String user_name = rs.getString("USER_NAME");
+			String user_name_kana = rs.getString("USER_NAMA_KANA");
+			String user_company = rs.getString("USER_COMPANY");
+			String user_company_kana = rs.getString("USER_COMPANY_KANA");
+			String user_class = rs.getString("USER_CLASS");
+			String user_role = rs.getString("USER_ROLE");
+
+			User student = new User(id, user_id, user_pw, user_name, user_name_kana, user_company, user_company_kana, user_class, user_role);
+			studentList.add(student);
+		}
+	}
+	catch (SQLException e) {
+		e.printStackTrace();
+		studentList = null;
+	}
+	catch (ClassNotFoundException e) {
+		e.printStackTrace();
+		studentList = null;
+	}
+	finally {
+		// データベースを切断
+		if (conn != null) {
+			try {
+				conn.close();
+			}
+			catch (SQLException e) {
+				e.printStackTrace();
+				studentList = null;
+			}
+		}
+	}
+
+	return studentList;
+}
 }

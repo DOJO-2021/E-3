@@ -8,22 +8,18 @@ public class Profile implements Serializable {
 	private String user_name;
 	private String user_name_kana;
 	private String user_blood;
-	private String user_company;
-	private String user_company_kana;
 	private String user_career;
 	private String user_club;
 	private String user_hobby;
 	private String user_intro;
 
 	//引数があるコンストラクタ
-	public Profile(int id, String user_name, String user_name_kana, String user_blood, String user_company, String user_company_kana, String user_career, String user_club, String user_hobby, String user_intro) {
+	public Profile(int id, String user_name, String user_name_kana, String user_blood, String user_career, String user_club, String user_hobby, String user_intro) {
 		super();
 		this.id = id;
 		this.user_name = user_name;
 		this.user_name_kana = user_name_kana;
 		this.user_blood = user_blood;
-		this.user_company = user_company;
-		this.user_company_kana = user_company_kana;
 		this.user_career = user_career;
 		this.user_club = user_club;
 		this.user_hobby = user_hobby;
@@ -37,8 +33,6 @@ public class Profile implements Serializable {
 		this.user_name = "";
 		this.user_name_kana = "";
 		this.user_blood = "";
-		this.user_company = "";
-		this.user_company_kana = "";
 		this.user_career = "";
 		this.user_club = "";
 		this.user_hobby = "";
@@ -76,22 +70,6 @@ public class Profile implements Serializable {
 
 	public void setUser_blood(String user_blood) {
 		this.user_blood = user_blood;
-	}
-
-	public String getUser_company() {
-		return user_company;
-	}
-
-	public void setUser_company(String user_company) {
-		this.user_company = user_company;
-	}
-
-	public String getUser_company_kana() {
-		return user_company_kana;
-	}
-
-	public void setUser_company_kana(String user_company_kana) {
-		this.user_company_kana = user_company_kana;
 	}
 
 	public String getUser_career() {
