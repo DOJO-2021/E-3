@@ -1,0 +1,56 @@
+@charset "UTF-8";
+body {
+	background-color: #F5F5F5;
+}
+.wrapper {
+	margin: 0 auto;
+	max-width: 960px;
+}
+.text {
+	margin-top: 80px;
+	text-align: center;
+}
+p input {
+	width: 50px;
+}
+p input[type="submit"] {
+	cursor: pointer;
+}
+
+table {
+	border-collapse: collapse;
+	margin: 0 auto;
+	max-width: 700px;
+	border: 3px solid black;
+}
+.table-QuestionList {
+	padding: 0;
+}
+.orange {
+	background-color: #F4A460;
+	text-align: left;
+	padding: 0px 50px 0px 50px;
+	width: 700px;
+	border-collapse: collapse;
+	border-bottom: 3px solid black;
+}
+.white {
+	background-color: white;
+	padding:0px 50px 0px 50px;
+	border-collapse: collapse;
+	text-align: center;
+	width: 700px;
+}
+.table-QuestionList td {
+	background-color: white;
+	padding:0px 50px 0px 50px;
+	border-collapse: collapse;
+	text-align: center;
+	width: 700px;
+}
+.emergent {
+	margin-bottom: 50px;
+}
+.normal {
+	margin-bottom: 50px;
+}
