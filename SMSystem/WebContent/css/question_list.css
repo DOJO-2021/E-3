@@ -38,6 +38,7 @@ table {
 	background-color: white;
 	padding:0px 50px 0px 50px;
 	border-collapse: collapse;
+	border-bottom: 2px solid black;
 	text-align: center;
 	width: 700px;
 }
