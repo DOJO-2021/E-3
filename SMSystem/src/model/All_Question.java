@@ -6,38 +6,38 @@ public class All_Question implements Serializable {
 
 		//フィールド
 		private int id;
+		private int user_id;
 		private String genre;
 		private String question;
 		private String answer;
 		private String faq;
 		private String emergent;
 		private int question_id;
-		private String user_name;
 
 		//引数があるコンストラクタ
-		public All_Question(int id, String genre, String question, String answer, String faq, String emergent,	int question_id, String user_name) {
+		public All_Question(int id, int user_id, String genre, String question, String answer, String faq, String emergent,	int question_id) {
 			super();
 			this.id = id;
+			this.user_id = user_id;
 			this.genre = genre;
 			this.question = question;
 			this.answer = answer;
 			this.faq = faq;
 			this.emergent = emergent;
 			this.question_id = question_id;
-			this.user_name = user_name;
 		}
 
 		//引数がないコンストラクタ（デフォルトコンストラクタ）
 		public All_Question() {
 			super();
 			this.id = 0;
+			this.user_id = 0;
 			this.genre = "";
 			this.question = "";
 			this.answer = "";
 			this.faq = "";
 			this.emergent = "";
 			this.question_id = 0;
-			this.user_name = "";
 		}
 
 		//getter/setter
@@ -48,6 +48,15 @@ public class All_Question implements Serializable {
 		public void setId(int id) {
 			this.id = id;
 		}
+
+		public int getUser_id() {
+			return user_id;
+		}
+
+		public void setUser_id(int user_id) {
+			this.user_id = user_id;
+		}
+
 
 		public String getGenre() {
 			return genre;
@@ -95,14 +104,6 @@ public class All_Question implements Serializable {
 
 		public void setQuestion_id(int question_id) {
 			this.question_id = question_id;
-		}
-
-		public String getUser_name() {
-			return user_name;
-		}
-
-		public void setUser_name(String user_name) {
-			this.user_name = user_name;
 		}
 
 

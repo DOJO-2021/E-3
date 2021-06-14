@@ -5,8 +5,7 @@ public class Profile implements Serializable {
 
 	//フィールド
 	private int id;
-	private String user_name;
-	private String user_name_kana;
+	private int user_id;
 	private String user_blood;
 	private String user_career;
 	private String user_club;
@@ -14,11 +13,10 @@ public class Profile implements Serializable {
 	private String user_intro;
 
 	//引数があるコンストラクタ
-	public Profile(int id, String user_name, String user_name_kana, String user_blood, String user_career, String user_club, String user_hobby, String user_intro) {
+	public Profile(int id, int user_id, String user_blood, String user_career, String user_club, String user_hobby, String user_intro) {
 		super();
 		this.id = id;
-		this.user_name = user_name;
-		this.user_name_kana = user_name_kana;
+		this.user_id = user_id;
 		this.user_blood = user_blood;
 		this.user_career = user_career;
 		this.user_club = user_club;
@@ -30,8 +28,7 @@ public class Profile implements Serializable {
 	public Profile() {
 		super();
 		this.id = 0;
-		this.user_name = "";
-		this.user_name_kana = "";
+		this.user_id = 0;
 		this.user_blood = "";
 		this.user_career = "";
 		this.user_club = "";
@@ -48,20 +45,12 @@ public class Profile implements Serializable {
 		this.id = id;
 	}
 
-	public String getUser_name() {
-		return user_name;
+	public int getUser_id() {
+		return user_id;
 	}
 
-	public void setUser_name(String user_name) {
-		this.user_name = user_name;
-	}
-
-	public String getUser_name_kana() {
-		return user_name_kana;
-	}
-
-	public void setUser_name_kana(String user_name_kana) {
-		this.user_name_kana = user_name_kana;
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
 	}
 
 	public String getUser_blood() {
