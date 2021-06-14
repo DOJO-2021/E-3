@@ -12,6 +12,7 @@
 <div class="box">
 <form method ="post"action="/SMSystem/Create_IdServlet" class="form_createID">
 <br><br>
+
 <div class = "radio">
 <label><input type="radio" name="user_role" value="1">受講者</label>
 <label><input type="radio" name="user_role" value="0">講師</label>

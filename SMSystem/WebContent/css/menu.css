@@ -10,6 +10,7 @@ body{
 	margin-top: 80px;
 	text-align: center;
 }
+
 p input{
 	width: 50px;
 }
@@ -47,6 +48,7 @@ table{
 	border-collapse: collapse;
 	text-align: center;
 	width: 700px;
+	border-bottom:1px solid black
 }
 
 h3{

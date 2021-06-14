@@ -36,18 +36,22 @@ public class LoginServlet extends HttpServlet {
 
 		//リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
-		String id = request.getParameter("ID");
-		String pw = request.getParameter("PW");
+		String id = request.getParameter("user_id");
+		String pw = request.getParameter("user_pw");
+		String user_role = request.getParameter("user_role");
 
 		// ログイン処理を行う
 		LoginDao iDao = new LoginDao();
-		if (iDao.isLoginOK(id, pw)) {
+		if (iDao.isLoginOK(id, pw, user_role)) {
 			// セッションスコープにIDを格納する
 			HttpSession session = request.getSession();
 			session.setAttribute("id", new LoginUser(id));
+			if(user_role.equals("0")) {
+				response.sendRedirect("/SMSystem/Menu_TeacherServlet");
+			}else if(user_role.equals("1")) {
+				response.sendRedirect("/SMSystem/Menu_StudentServlet");
+			}
 
-			// メニューサーブレットにリダイレクトする
-			response.sendRedirect("/SMSystem/MenuServlet");
 
 		} else {
 			response.sendRedirect("/SMSystem/LoginServlet");

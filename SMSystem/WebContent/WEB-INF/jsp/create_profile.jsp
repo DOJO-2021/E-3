@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,6 +13,7 @@
 <div class="box">
 <p>プロフィール記入</p>
 	<form method = "POST" action = "/SMSystem/Create_ProfileServlet">
+	<input type = "hidden" name = "user_id" value = "あいうえお">
 		<table class="profile">
 		<tr>
 		<th><img src ="img/name.png" alt = "氏名"></th>

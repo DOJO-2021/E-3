@@ -48,11 +48,9 @@ public class Create_ProfileServlet extends HttpServlet {
 		String user_intro= request.getParameter("user_intro");
 		User user = new User();
 		String user_id = user.getUser_id();
-		String user_company = user.getUser_company();
-		String user_company_kana = user.getUser_company_kana();
 		//登録処理を行う
 		ProfileDao pDao= new ProfileDao();
-		 if(pDao.insert(new Profile(0, user_name, user_name_kana, user_blood, user_company, user_company_kana, user_career, user_club, user_hobby, user_intro))) {
+		 if(pDao.insert(new Profile(0, user_name, user_name_kana, user_blood,user_career, user_club, user_hobby, user_intro))) {
 			 //セッションスコープにIDを格納する
 			 HttpSession session = request.getSession();
 			 session.setAttribute("id", new LoginUser(user_id));

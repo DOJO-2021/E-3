@@ -9,7 +9,7 @@ import java.sql.SQLException;
 public class LoginDao {
 
 	//ログイン記入→DB(select)
-	public boolean isLoginOK(String user_id, String user_pw) {
+	public boolean isLoginOK(String user_id, String user_pw, String user_role) {
 		Connection conn = null;
 		boolean loginResult = false;
 
@@ -19,10 +19,11 @@ public class LoginDao {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/SMSystem", "sa", "");
 
 			// SELECT文を準備する
-			String sql = "select count(*) from User where user_id = ? and user_pw = ?";
+			String sql = "select count(*) from User where user_id = ? and user_pw = ? and user_role = ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			pStmt.setString(1, user_id);
 			pStmt.setString(2, user_pw);
+			pStmt.setString(3, user_role);
 
 			// SELECT文を実行し、結果表を取得する
 			ResultSet rs = pStmt.executeQuery();

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +12,7 @@
 <h1>受講者管理システム</h1>
 <div class="box">
 <p>プロフィール確認</p>
-	<form method = "POST" action = "/SMSystem/ProfileServlet">
+	<form method = "GET" action = "/SMSystem/ProfileServlet">
 		<table class="profile">
 		<tr>
 		<th><img src = "img/name.png" alt = "氏名"></th>
@@ -51,7 +52,7 @@
 		</tr>
 		</table>
 		<div class ="button">
-			<input type = "button" name = "submit_create" value ="メニュー">
+			<button formaction = "Menu_StudentServlet">メニュー</button>
 		</div>
 
 

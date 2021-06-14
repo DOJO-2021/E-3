@@ -23,6 +23,11 @@
 			<td><input type = "password" name = "user_pw" placeholder = "password"></td>
 		</tr>
 		</table>
+		<div class = "radio">
+		<label><input type="radio" name="user_role" value="1">受講者</label>
+		<label><input type="radio" name="user_role" value="0">講師</label>
+		</div>
+		<br>
 		<div class ="button">
 			<input type = "submit" name = "submit_create" value ="ログイン">
 		</div>

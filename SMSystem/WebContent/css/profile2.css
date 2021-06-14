@@ -9,7 +9,6 @@ body{
 	border: 3px solid#0000;
 	background-color: rgb(255, 255, 255);
 	max-width:820px;
-	height: 100vh;
 	margin: 0 auto 0 auto;
 }
 /*見出しを真ん中に表示する*/
@@ -22,7 +21,7 @@ h1{
 }
 
 /*メニューボタンの変更*/
-input[type = "button"]{
+button{
 	border-radius: 10px;
 	width:100px;
 	height:50px;
@@ -30,7 +29,7 @@ input[type = "button"]{
 	cursor: pointer;
 }
 /*メニューボタンにカーソルが触れると色が変わるように変更*/
-input[type = "button"]:hover{
+button:hover{
 	background-color : #F4A460;
 }
 /*メニューボタンを真ん中に配置する*/

@@ -11,7 +11,7 @@ public class LoginDaoTest {
 	// ユーザーが見つかる場合のテスト
 	public static void testIsLoginOK1() {
 		LoginDao dao = new LoginDao();
-		if (dao.isLoginOK("TEST", "TEST")) {
+		if (dao.isLoginOK("YONEDA", "YONEDA","1")) {
 			System.out.println("testIsLoginOK1：テストが成功しました");
 		}
 		else {
@@ -22,7 +22,7 @@ public class LoginDaoTest {
 	// ユーザーが見つからない場合のテスト
 	public static void testIsLoginOK2() {
 		LoginDao dao = new LoginDao();
-		if (!dao.isLoginOK("TEST", "T")) {
+		if (!dao.isLoginOK("DOJO", "pass","1")) {
 			System.out.println("testIsLoginOK2：テストが成功しました");
 		}
 		else {
