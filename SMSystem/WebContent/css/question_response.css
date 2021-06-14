@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 body {
-	background-color: #F5F5F5;
+	/*background-color: #F5F5F5;*/
 }
 .wrapper {
 	margin: 0 auto;
@@ -65,7 +65,7 @@ input[type=radio] {
     position: relative;
     width: auto;
 }
-.radio_f::before {
+.radio_f:before {
     background: #fff;
     border: 1px solid #183c30;
     border-radius: 50%;
@@ -78,7 +78,7 @@ input[type=radio] {
     top: 50%;
     width: 16px;
 }
-.radio_f::after {
+.radio_f:after {
     background: #F4A460;
     border-radius: 50%;
     content: '';
@@ -91,7 +91,7 @@ input[type=radio] {
     top: 50%;
     width: 10px;
 }
-input[type=radio]:checked + .radio_f::after {
+input[type=radio]:checked + .radio_f:after {
     opacity: 1;
 }
 input[type="radio"] {
