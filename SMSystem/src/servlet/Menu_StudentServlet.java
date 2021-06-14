@@ -41,9 +41,10 @@ public class Menu_StudentServlet extends HttpServlet {
 
 		UserDao uDao = new UserDao();
 		List<User> studentList = uDao.select(new User(0,"","","","","","",user_class,""));
+		request.setAttribute("studentClass", user_class);
 		request.setAttribute("studentList", studentList);
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/student.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/student_list1.jsp");
 		dispatcher.forward(request,response);
 
 

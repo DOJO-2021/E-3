@@ -13,16 +13,17 @@
 <div class="box">
 <p>プロフィール記入</p>
 	<form method = "POST" action = "/SMSystem/Create_ProfileServlet">
-	<input type = "hidden" name = "user_id" value = "あいうえお">
+	<input type = "hidden" name = "user_id" value = "${userId}">
 		<table class="profile">
 		<tr>
 		<th><img src ="img/name.png" alt = "氏名"></th>
-			<td><input type = "text" name = "user_name" placeholder = "氏名"></td>
+			<td><input type = "text" name = "user_name" value = "${studentName}" readonly></td>
 		</tr>
 		<tr>
 		<th><img src ="img/name.png" alt = "氏名かな"></th>
-			<td><input type = "text" name = "user_name_kana" placeholder = "氏名（かな）"></td>
+			<td><input type = "text" name = "user_name_kana" value = "${studentNameKana}" readonly></td>
 		</tr>
+
 		<tr>
 		<th><img src ="img/blood.png" alt = "血液型"></th>
 			<td><input type = "text" name = "user_blood" placeholder = "血液型"></td>

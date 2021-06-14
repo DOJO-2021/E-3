@@ -62,7 +62,12 @@ public class Create_IdServlet extends HttpServlet {
 				  session.setAttribute("id",new LoginUser(user_id));
 				  response.sendRedirect("/SMSystem/Menu_TeacherServlet");
 			  }else if (user_role.equals("1")) {
-				  response.sendRedirect("/SMSystem/Create_ProfileServlet");
+				  request.setAttribute("userName", user_name );
+				  request.setAttribute("userNameKana", user_name_kana);
+				  request.setAttribute("userID",user_id);
+
+				  RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/create_profile.jsp");
+				dispatcher.forward(request, response);
 			  }
 		  } else {
 			  response.sendRedirect("/SMSystem/LoginServlet");
