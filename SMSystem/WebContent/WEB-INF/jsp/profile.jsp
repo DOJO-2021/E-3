@@ -12,11 +12,10 @@
 <h1>受講者管理システム</h1>
 <div class="box">
 <p>プロフィール確認</p>
-	<form method = "GET" action = "/SMSystem/ProfileServlet">
 		<table class="profile">
 		<tr>
 		<th><img src = "img/name.png" alt = "氏名"></th>
-			<td></td>
+			<td><p>${userProfileList.user_name}</p></td>
 		</tr>
 		<tr>
 		<th><img src = "img/name.png" alt = "氏名かな"></th>
@@ -57,7 +56,7 @@
 
 
 
-	</form>
+
 	</div>
 	<jsp:include page="/WEB-INF/jsp/footer.jsp" />
 </body>

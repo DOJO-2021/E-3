@@ -6,7 +6,7 @@ public class All_Question implements Serializable {
 
 		//フィールド
 		private int id;
-		private int user_id;
+		private String user_id;
 		private String genre;
 		private String question;
 		private String answer;
@@ -15,7 +15,7 @@ public class All_Question implements Serializable {
 		private int question_id;
 
 		//引数があるコンストラクタ
-		public All_Question(int id, int user_id, String genre, String question, String answer, String faq, String emergent,	int question_id) {
+		public All_Question(int id, String user_id, String genre, String question, String answer, String faq, String emergent,	int question_id) {
 			super();
 			this.id = id;
 			this.user_id = user_id;
@@ -31,7 +31,7 @@ public class All_Question implements Serializable {
 		public All_Question() {
 			super();
 			this.id = 0;
-			this.user_id = 0;
+			this.user_id = "";
 			this.genre = "";
 			this.question = "";
 			this.answer = "";
@@ -49,11 +49,11 @@ public class All_Question implements Serializable {
 			this.id = id;
 		}
 
-		public int getUser_id() {
+		public String getUser_id() {
 			return user_id;
 		}
 
-		public void setUser_id(int user_id) {
+		public void setUser_id(String user_id) {
 			this.user_id = user_id;
 		}
 

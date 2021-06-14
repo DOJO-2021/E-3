@@ -8,7 +8,11 @@
 <link rel ="stylesheet" href ="css/question_fillin.css">
 </head>
 <body>
+<jsp:include page="/WEB-INF/jsp/header_student.jsp" />
+<br>
+<br>
 <div class = "box">
+<input class = "text" type = "text" name = "student_name" placeholder = "氏名">
 <p>ジャンルを選択してください</p>
 <form method = "GET" action = "/SMSystem/Question_ListServlet" id = form-genre>
 <select name = "select" >
@@ -22,7 +26,7 @@
 	<option value = "7">名刺管理アプリ</option>
 	<option value = "8">その他</option>
 </select>
-<input type = "submit" name = "search" value = "検索">
+
 </form>
 
 <form method = "POST" action = "/SMSystem/Question_ListServret">

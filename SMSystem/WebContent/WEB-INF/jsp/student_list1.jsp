@@ -13,7 +13,7 @@
 <div class = "wrapper">
 <br><br><br><br>
 <p>${studentClass}の受講者一覧</p>
-<form method = "GET" action = "/SMSystem/ProfileServlet" >
+<form method = "POST" action = "/SMSystem/Student_ListServlet" >
 	<div class = "table-menu" id = "table">
 		<table class = "mytable" id = "list">
 			 <tr>

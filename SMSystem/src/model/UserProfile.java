@@ -4,7 +4,6 @@ import java.io.Serializable;
 public class UserProfile implements Serializable{
 
 	//フィールド
-	private int id;
 	private String user_id;
 	private String user_blood;
 	private String user_career;
@@ -17,9 +16,8 @@ public class UserProfile implements Serializable{
 	private String user_company_kana;
 
 	//引数があるコンストラクタ
-	public UserProfile(int id, String user_id, String user_blood, String user_career, String user_club, String user_hobby, String user_intro, String user_name, String user_name_kana, String user_company, String user_company_kana) {
+	public UserProfile(String user_id, String user_blood, String user_career, String user_club, String user_hobby, String user_intro, String user_name, String user_name_kana, String user_company, String user_company_kana) {
 		super();
-		this.id = id;
 		this.user_id = user_id;
 		this.user_blood = user_blood;
 		this.user_career = user_career;
@@ -35,7 +33,6 @@ public class UserProfile implements Serializable{
 	//引数がないコンストラクタ（デフォルトコンストラクタ）
 	public UserProfile() {
 		super();
-		this.id = 0;
 		this.user_id = "";
 		this.user_blood = "";
 		this.user_career = "";
@@ -49,14 +46,6 @@ public class UserProfile implements Serializable{
 	}
 
 	//getter/setter
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
 	public String getUser_id() {
 		return user_id;
 	}

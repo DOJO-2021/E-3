@@ -9,7 +9,6 @@
 <body>
 <header>
 <p class="title">受講者管理システム</p>
-<!-- <nav class="nav"> -->
 	<ul id="nav">
 		<li><a href="/SMSystem/Menu_StudentServlet">メニュー</a></li>
 		<li><a href="#">FAQ</a>
@@ -21,7 +20,6 @@
 		<li><a href="/SMSystem/Question_ListServlet">質問</a></li>
 		<li><a href="/SMSystem/LogoutServlet">ログアウト</a></li>
 	</ul>
-<!-- </nav> -->
 </header>
 </body>
 </html>

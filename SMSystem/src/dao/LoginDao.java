@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 public class LoginDao {
 
-	//ログイン記入→DB(select)
+	//「ログイン画面」IDPW記入→DB(select)
 	public boolean isLoginOK(String user_id, String user_pw, String user_role) {
 		Connection conn = null;
 		boolean loginResult = false;

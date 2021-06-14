@@ -4,7 +4,7 @@ import java.io.Serializable;
 public class UserAll_Question implements Serializable{
 
 	//フィールド
-	private int user_id;
+	private String user_id;
 	private String user_name;
 	private String user_class;
 	private String genre;
@@ -12,7 +12,7 @@ public class UserAll_Question implements Serializable{
 	private String emergent;
 
 	//引数があるコンストラクタ
-	public UserAll_Question(int user_id, String user_name, String user_class, String genre, String question, String emergent) {
+	public UserAll_Question(String user_id, String user_name, String user_class, String genre, String question, String emergent) {
 		super();
 		this.user_id = user_id;
 		this.user_name = user_name;
@@ -25,7 +25,7 @@ public class UserAll_Question implements Serializable{
 	//引数がないコンストラクタ（デフォルトコンストラクタ）
 	public UserAll_Question() {
 		super();
-		this.user_id = 0;
+		this.user_id = "";
 		this.user_name = "";
 		this.user_class = "";
 		this.genre = "";
@@ -34,11 +34,11 @@ public class UserAll_Question implements Serializable{
 	}
 
 	//getter/setter
-	public int getUser_id() {
+	public String getUser_id() {
 		return user_id;
 	}
 
-	public void setUser_id(int user_id) {
+	public void setUser_id(String user_id) {
 		this.user_id = user_id;
 	}
 

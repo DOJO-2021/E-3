@@ -12,7 +12,7 @@ import model.UserAll_Question;
 
 public class UserAll_QuestionDao {
 
-	//クラスを検索して緊急の質問を表示→DB(select)
+	//「質問一覧画面(講師)」クラスを検索して緊急の質問を表示→DB(select)
 	public List<UserAll_Question> select_emergent(UserAll_Question userAll_question) {
 		Connection conn = null;
 		List<UserAll_Question> userAll_questionList = new ArrayList<UserAll_Question>();
@@ -38,7 +38,7 @@ public class UserAll_QuestionDao {
 
 			//SELECT文の結果をArrayListに格納
 			while(rs.next()){
-				int user_id = rs.getInt("USER_ID");
+				String user_id = rs.getString("USER_ID");
 				String user_name = rs.getString("USER_NAME");
 				String user_class = rs.getString("USER_CLASS");
 				String genre = rs.getString("GENRE");
@@ -72,7 +72,7 @@ public class UserAll_QuestionDao {
 		return userAll_questionList;
 	}
 
-	//クラスを検索して緊急の質問を表示→DB(select)
+	//「質問一覧画面（講師）」クラスを検索して緊急でない質問を表示→DB(select)
 		public List<UserAll_Question> select_not_emergent(UserAll_Question userAll_question) {
 			Connection conn = null;
 			List<UserAll_Question> userAll_questionList = new ArrayList<UserAll_Question>();
@@ -98,7 +98,7 @@ public class UserAll_QuestionDao {
 
 				//SELECT文の結果をArrayListに格納
 				while(rs.next()){
-					int user_id = rs.getInt("USER_ID");
+					String user_id = rs.getString("USER_ID");
 					String user_name = rs.getString("USER_NAME");
 					String user_class = rs.getString("USER_CLASS");
 					String genre = rs.getString("GENRE");

@@ -12,7 +12,7 @@ import model.UserProfile;
 
 public class UserProfileDao {
 
-	//クラスを検索して緊急の質問を表示→DB(select)
+	//「プロフィール画面」user_idに該当するプロフィールを表示→DB(select)
 	public List<UserProfile> select_profile(UserProfile userProfile) {
 		Connection conn = null;
 		List<UserProfile> userProfileList = new ArrayList<UserProfile>();
@@ -23,17 +23,22 @@ public class UserProfileDao {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/SMSystem", "sa", "");
 
 			// SELECT文を準備する
-			String sql = "SELECT * FROM PROFILE INNER JOIN USER ON PROFILE.USER_ID = USER.USER_ID WHERE  USER_ID = ? ";
+			String sql = "SELECT * FROM PROFILE INNER JOIN USER ON PROFILE.USER_ID = USER.USER_ID WHERE  USER.USER_ID = ? ";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
-
+			//SQL文
+			if (userProfile.getUser_id() != null && !userProfile.getUser_id().equals("")) {
+				pStmt.setString(1, userProfile.getUser_id());
+			}
+			else {
+				pStmt.setString(1, null);
+			}
 
 			//SELECT文を実行
 			ResultSet rs = pStmt.executeQuery();
 
 			//SELECT文の結果をArrayListに格納
 			while(rs.next()){
-				int id = rs.getInt("ID");
 				String user_id = rs.getString("USER_ID");
 				String user_blood = rs.getString("USER_BLOOD");
 				String user_career = rs.getString("USER_CAREER");
@@ -44,7 +49,7 @@ public class UserProfileDao {
 				String user_name_kana = rs.getString("USER_NAME_KANA");
 				String user_company = rs.getString("USER_COMPANY");
 				String user_company_kana = rs.getString("USER_COMPANY_KANA");
-				UserProfile UserProfile = new UserProfile(id, user_id, user_blood, user_career, user_club, user_hobby, user_intro, user_name, user_name_kana, user_company, user_company_kana);
+				UserProfile UserProfile = new UserProfile(user_id, user_blood, user_career, user_club, user_hobby, user_intro, user_name, user_name_kana, user_company, user_company_kana);
 				userProfileList.add(UserProfile);
 			}
 		}

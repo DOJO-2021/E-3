@@ -2,39 +2,25 @@ package test;
 
 import java.util.List;
 
-import model.All_Question;
+import model.UserProfile;
+import dao.UserProfileDao;
 
-public class UserProfileTest {
+public class UserProfileDaoTest {
 
 	// select()のテスト(nameに名前を含んだデータを検索する)
-	SystemS.out.println("---------- select()のテスト ----------");
-	List<All_Question> all_questionList2 = dao.select(new All_Question(0, "", "", "", "", "", insId, ""));
-	for (All_Question all_question : all_questionList) {
-		System.out.println("id：" + all_question.getId());
-		System.out.println("genre：" + all_question.getGenre());
-		System.out.println("question：" + all_question.getQuestion());
-		System.out.println("answer：" + all_question.getAnswer());
-		System.out.println("faq：" + all_question.getFaq());
-		System.out.println("emergent：" + all_question.getEmergent());
-		System.out.println("question_id：" + all_question.getQuestion_id());
-		System.out.println("user_name：" + all_question.getUser_name());
+	System.out.println("---------- select()のテスト ----------");
+	List<UserProfile> userProfileList2 = dao.select_profile(new UserProfile("", "", "", "", "", "", "", "", "", ""));
+	for (UserProfile userProfile : userProfileList) {
+		System.out.println("user_id：" + userProfile.getUser_id());
+		System.out.println("user_blood：" + userProfile.getUser_blood());
+		System.out.println("user_career：" + userProfile.getUser_career());
+		System.out.println("user_club：" + userProfile.getUser_club());
+		System.out.println("user_hobby：" + userProfile.getUser_hobby());
+		System.out.println("user_intro：" + userProfile.getUser_intro());
+		System.out.println("user_name：" + userProfile.getUser_name());
+		System.out.println("user_name_kana：" + userProfile.getUser_name_kana());
+		System.out.println("user_company：" + userProfile.getUser_company());
+		System.out.println("user_company_kana：" + userProfile.getUser_company_kana());
 		System.out.println();
 	}
-
-// select()のテスト(nameに名前を含んだデータを検索する)
-		SystemS.out.println("---------- select()のテスト ----------");
-		List<All_Question> all_questionList3 = dao.select(new All_Question(0,"", "", "", "", "", insId, ""));
-		for (All_Question all_question : all_questionList) {
-			System.out.println("id：" + all_question.getId());
-			System.out.println("genre：" + all_question.getGenre());
-			System.out.println("question：" + all_question.getQuestion());
-			System.out.println("answer：" + all_question.getAnswer());
-			System.out.println("faq：" + all_question.getFaq());
-			System.out.println("emergent：" + all_question.getEmergent());
-			System.out.println("question_id：" + all_question.getQuestion_id());
-			System.out.println("user_name：" + all_question.getUser_name());
-			System.out.println();
-		}
-
-
-}
+}}

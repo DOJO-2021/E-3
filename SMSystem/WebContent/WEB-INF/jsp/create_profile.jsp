@@ -17,11 +17,11 @@
 		<table class="profile">
 		<tr>
 		<th><img src ="img/name.png" alt = "氏名"></th>
-			<td><input type = "text" name = "user_name" value = "${studentName}" readonly></td>
+			<td><input type = "text" name = "user_name" value = "${userName}" readonly></td>
 		</tr>
 		<tr>
 		<th><img src ="img/name.png" alt = "氏名かな"></th>
-			<td><input type = "text" name = "user_name_kana" value = "${studentNameKana}" readonly></td>
+			<td><input type = "text" name = "user_name_kana" value = "${userNameKana}" readonly></td>
 		</tr>
 
 		<tr>

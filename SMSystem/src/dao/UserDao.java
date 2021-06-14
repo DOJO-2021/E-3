@@ -12,7 +12,7 @@ import model.User;
 
 public class UserDao {
 
-	//新規登録記入→DB(insert)
+	//「新規登録画面」新規登録記入→DB(insert)
 	public boolean insert(User user) {
 		Connection conn = null;
 		boolean result = false;
@@ -108,7 +108,7 @@ public class UserDao {
 		return result;
 	}
 
-	//クラスを検索してプロフィールを表示→DB(select)
+	//「メニュー画面（受講者）（講師）」クラスを検索してプロフィールを表示→DB(select)
 public List<User> select(User user) {
 	Connection conn = null;
 	List<User> studentList = new ArrayList<User>();

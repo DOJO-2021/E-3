@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.All_QuestionDao;
+import model.All_Question;
 /**
  * Servlet implementation class Faq_ListServlet
  */
@@ -21,7 +23,7 @@ public class Faq_ListServlet extends HttpServlet {
 	 */
 	// フォワード
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/faq_list.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/faq_list_2.jsp");
 		dispatcher.forward(request, response);
 	}
 
@@ -33,6 +35,9 @@ public class Faq_ListServlet extends HttpServlet {
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
 		String genre request.getParameter("genre");
+
+		RequestDispatcher dispatsher = request.getRequestDispatcher("/WEB-INF/jsp/faq_list_2");
+
 
 	}
 

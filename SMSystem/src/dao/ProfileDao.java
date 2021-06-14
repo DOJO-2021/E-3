@@ -9,7 +9,7 @@ import model.Profile;
 
 public class ProfileDao {
 
-	//profile記入→DB（insert）
+	//「初回プロフィール入力画面」profile記入→DB（insert）
 	public boolean insert(Profile profile) {
 		Connection conn = null;
 		boolean result = false;
@@ -19,43 +19,50 @@ public class ProfileDao {
 			Class.forName("org.h2.Driver");
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/SMSystem", "sa", "");
 			//INSERT文を準備
-			String sql = "INSERT INTO profile VALUES (null,null,?,?,?,?,?)";
+			String sql = "INSERT INTO profile VALUES (?,?,?,?,?,?)";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			//SQL文
-			if (profile.getUser_blood() != null && !profile.getUser_blood().equals("")) {
-				pStmt.setString(1, profile.getUser_blood());
+			if (profile.getUser_id() != null && !profile.getUser_id().equals("")) {
+				pStmt.setString(1, profile.getUser_id());
 			}
 			else {
 				pStmt.setString(1, null);
 			}
 
-			if (profile.getUser_career() != null && !profile.getUser_career().equals("")) {
-				pStmt.setString(2, profile.getUser_career());
+			if (profile.getUser_blood() != null && !profile.getUser_blood().equals("")) {
+				pStmt.setString(2, profile.getUser_blood());
 			}
 			else {
 				pStmt.setString(2, null);
 			}
 
-			if (profile.getUser_club() != null && !profile.getUser_club().equals("")) {
-				pStmt.setString(3, profile.getUser_club());
+			if (profile.getUser_career() != null && !profile.getUser_career().equals("")) {
+				pStmt.setString(3, profile.getUser_career());
 			}
 			else {
 				pStmt.setString(3, null);
 			}
 
-			if (profile.getUser_hobby() != null && !profile.getUser_hobby().equals("")) {
-				pStmt.setString(4, profile.getUser_hobby());
+			if (profile.getUser_club() != null && !profile.getUser_club().equals("")) {
+				pStmt.setString(4, profile.getUser_club());
 			}
 			else {
 				pStmt.setString(4, null);
 			}
 
-			if (profile.getUser_intro() != null && !profile.getUser_intro().equals("")) {
-				pStmt.setString(5, profile.getUser_intro());
+			if (profile.getUser_hobby() != null && !profile.getUser_hobby().equals("")) {
+				pStmt.setString(5, profile.getUser_hobby());
 			}
 			else {
 				pStmt.setString(5, null);
+			}
+
+			if (profile.getUser_intro() != null && !profile.getUser_intro().equals("")) {
+				pStmt.setString(6, profile.getUser_intro());
+			}
+			else {
+				pStmt.setString(6, null);
 			}
 
 
@@ -84,11 +91,6 @@ public class ProfileDao {
 
 		return result;
 	}
-
-
-
-
-
 
 
 

@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<form method="POST" action="/SMSystem/Faq/ListServlet">
+<form method="POST" action="/SMSystem/Faq_ListServlet">
   <select name="genre">
     <option value="drill">ドリル</option>
     <option value="html">HTML</option>

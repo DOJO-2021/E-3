@@ -9,7 +9,7 @@
 <body>
 <header>
 <p class="title">受講者管理システム</p>
-	<ul id="nav1">
+	<ul id="nav">
 		<li><a href="/SMSystem/Menu_StudentServlet">メニュー</a></li>
 		<li><a href="/SMSystem/Faq_ListServlet">FAQ</a></li>
 		<li><a href="#">質問</a>
