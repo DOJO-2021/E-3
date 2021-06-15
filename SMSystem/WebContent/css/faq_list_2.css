@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+/*背景色*/
+body{
+	background-color: #F5F5F5;
+}
+/*画面の白い部分*/
+h1 {
+	text-align: center;
+}
+
+#faq_table {
+	width: 100%;
+	font-family: メイリオ;
+	font-size: 14px; /*全体のフォントサイズ*/
+}
+
+#faq_table {
+	border: 3px solid #0000;
+
+	max-width: 820px;
+	margin: 0 auto 0 auto;
+}
+
+#faq_table dt {
+	padding: 8px;
+	border-radius: 2px;
+}
+#faq_table dt:before {
+	content: "Q.";
+	font-weight: bold;
+	margin-right: 8px;
+}
+#faq_table dd {
+	margin: 24px 16px 40px 32px;
+	line-height: 140%;
+	text-indent: -24px;
+}
+#faq_table dd:before {
+	content: "A.";
+	font-weight: bold;
+	margin-right: 8px;
+}
+
+.back {
+	text-align: center;
+}
