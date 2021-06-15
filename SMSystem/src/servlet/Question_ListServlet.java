@@ -36,9 +36,9 @@ public class Question_ListServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		String user_class = request.getParameter("class");
 
-		UserAll_QuestionDao aqDao = new UserAll_QuestionDao();
-		List<UserAll_Question> userAll_questionList = aqDao.select_emergent(new UserAll_Question("0", "", user_class, "",  "", "", "", 0));
-		List<UserAll_Question> userAll_questionList2 = aqDao.select_not_emergent(new UserAll_Question("0", "", user_class, "", "", "", "", 0));
+		UserAll_QuestionDao uaqDao = new UserAll_QuestionDao();
+		List<UserAll_Question> userAll_questionList = uaqDao.select_emergent(new UserAll_Question("",  "", user_class,  "", "", "", 0));
+		List<UserAll_Question> userAll_questionList2 = uaqDao.select_not_emergent(new UserAll_Question("", "", user_class,  "", "", "", 0));
 		request.setAttribute("emergent", userAll_questionList);
 		request.setAttribute("not_emergent", userAll_questionList2);
 

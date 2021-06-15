@@ -14,10 +14,10 @@ import dao.UserProfileDao;
 import model.UserProfile;
 
 /**
- * Servlet implementation class Student_ListServlet2
+ * Servlet implementation class Student_ListServlet
  */
-@WebServlet("/Student_ListServlet2")
-public class Student_ListServlet2 extends HttpServlet {
+@WebServlet("/Student_ListServlet")
+public class Student_ListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -36,7 +36,7 @@ public class Student_ListServlet2 extends HttpServlet {
 		List<UserProfile> userProfileList = upDao.select_profile(new UserProfile(user_id,"","","","","","","","",""));
 		request.setAttribute("userProfileList", userProfileList);
 		//プロフィール一覧ページにフォワードする
-		RequestDispatcher dispatcher =request.getRequestDispatcher("/WEB-INF/jsp/profile2.jsp");
+		RequestDispatcher dispatcher =request.getRequestDispatcher("/WEB-INF/jsp/profile.jsp");
 		dispatcher.forward(request, response);
 	}
 

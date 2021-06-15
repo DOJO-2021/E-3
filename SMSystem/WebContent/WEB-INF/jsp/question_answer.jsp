@@ -12,14 +12,14 @@
 <div class="wrapper">
 	<form method="GET" action="/SMSystem/Question_ResponseServlet">
 		<div class="question">
-			<p>質問</p>
-			<input type>
+			<p><span class="under">質問</span></p>
+			<input type ="text" class="question" readonly>
 		</div>
 	</form>
 	<form method="GET" action="/SMSystem/Question_ResponseServlet">
 		<div class="answer">
-			<p>回答</p>
-			<textarea class="textAnswer" name="answer"></textarea>
+			<p><span class="under">回答</span></p>
+			<input type ="text" class="Answer" readonly>
 		</div>
 	</form>
 		<div class="button">

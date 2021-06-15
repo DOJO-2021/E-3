@@ -36,9 +36,12 @@ public class Menu_TeacherServlet extends HttpServlet {
 		String user_class = request.getParameter("user_class");
 
 		UserDao uDao = new UserDao();
-		List<User> studentList = uDao.select(new User(0,"","","","","","",user_class,""));
-		request.setAttribute("studentClass",user_class);
+		User u = new User(0,"","","","","","",user_class,"");
+		List<User> studentList = uDao.select(u);
+		request.setAttribute("studentClass", user_class);
 		request.setAttribute("studentList", studentList);
+		int count = uDao.select_count(u);
+		request.setAttribute("count", count);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/student_list2.jsp");
 		dispatcher.forward(request,response);

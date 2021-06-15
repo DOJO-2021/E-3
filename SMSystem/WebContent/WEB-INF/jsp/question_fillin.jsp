@@ -13,8 +13,9 @@
 <br>
 <div class = "box">
 <input class = "text" type = "text" name = "student_name" placeholder = "氏名">
+
+<form method = "POST" action = "/SMSystem/Question_FillinServlet">
 <p>ジャンルを選択してください</p>
-<form method = "GET" action = "/SMSystem/Question_ListServlet" id = form-genre>
 <select name = "select" >
 	<option value = "0">ドリル</option>
 	<option value = "1">HTML</option>
@@ -27,9 +28,6 @@
 	<option value = "8">その他</option>
 </select>
 
-</form>
-
-<form method = "POST" action = "/SMSystem/Question_ListServret">
 <p>質問</p>
 <textarea  name = "question" ></textarea>
 	<div class = "radio">

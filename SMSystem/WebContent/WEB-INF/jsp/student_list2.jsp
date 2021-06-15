@@ -12,7 +12,7 @@
 <jsp:include page="/WEB-INF/jsp/header_teacher.jsp" />
 <div class = "wrapper">
 <br><br><br><br>
-<p>${studentClass}の受講者一覧</p>
+<p>${studentClass}の受講者一覧(全${count}人)</p>
 
 	<div class = "table-menu" id = "table">
 		<table class = "mytable" id = "list">

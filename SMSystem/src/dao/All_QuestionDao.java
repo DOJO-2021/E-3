@@ -13,7 +13,7 @@ import model.All_Question;
 public class All_QuestionDao {
 
 
-	//「FAQ画面（受講者）」質問と回答を表示→DB(select)
+	//「FAQ画面（受講者）」質問と回答を表示→DB(select) OK
 	public List<All_Question> select_faq(All_Question all_question) {
 		Connection conn = null;
 		List<All_Question> all_questionList = new ArrayList<All_Question>();
@@ -24,11 +24,11 @@ public class All_QuestionDao {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/SMSystem", "sa", "");
 
 			// SELECT文を準備する
-			String sql = "SELECT * FROM ALL_QUESTION WHERE GENRE = ? ";
+			String sql = "SELECT * FROM ALL_QUESTION WHERE GENRE = ? AND FAQ = '1'";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			if (all_question.getGenre() != null && !all_question.getGenre().equals("")) {
-				pStmt.setString(1, all_question.getEmergent());
+				pStmt.setString(1, all_question.getGenre());
 			}
 			else {
 				pStmt.setString(1, null);
@@ -76,11 +76,10 @@ public class All_QuestionDao {
 	}
 
 
-
-	//「FAQ画面（受講者）」件数を表示→DB(select)
-	public List<All_Question> select_count(All_Question all_question) {
+	//「FAQ画面（受講者）」件数を表示→DB(select) OK
+	public int select_count(All_Question all_question) {
 		Connection conn = null;
-		List<All_Question> all_questionList = new ArrayList<All_Question>();
+		int count = 0;
 
 		//データベースへ接続
 		try {
@@ -88,11 +87,11 @@ public class All_QuestionDao {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/SMSystem", "sa", "");
 
 			// SELECT文を準備する
-			String sql = "SELECT COUNT(QUESTION_ID) FROM ALL_QUESTION WHERE GENRE = ? ";
+			String sql = "SELECT COUNT(QUESTION_ID) FROM ALL_QUESTION WHERE GENRE = ? AND FAQ = '1'";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			if (all_question.getGenre() != null && !all_question.getGenre().equals("")) {
-				pStmt.setString(1, all_question.getEmergent());
+				pStmt.setString(1, all_question.getGenre());
 			}
 			else {
 				pStmt.setString(1, null);
@@ -100,30 +99,17 @@ public class All_QuestionDao {
 
 			//SELECT文を実行
 			ResultSet rs = pStmt.executeQuery();
-
-
-			//SELECT文の結果をArrayListに格納
-			while(rs.next()){
-				int id = rs.getInt("ID");
-				String user_id = rs.getString("USER_ID");
-				String genre = rs.getString("GENRE");
-				String question = rs.getString("QUESTION");
-				String answer = rs.getString("ANSWER");
-				String faq = rs.getString("FAQ");
-				String emergent = rs.getString("EMERGENT");
-				int question_id = rs.getInt("QUESTION_ID");
-				All_Question All_Question = new All_Question(id, user_id, genre, question, answer, faq, emergent, question_id);
-				all_questionList.add(All_Question);
-			}
+			rs.next();
+			count = rs.getInt("COUNT(QUESTION_ID)");
 
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
-			all_questionList = null;
+			count = (Integer) null;
 		}
 		catch (ClassNotFoundException e) {
 			e.printStackTrace();
-			all_questionList = null;
+			count =(Integer) null;
 		}
 		finally {
 			// データベースを切断
@@ -133,15 +119,15 @@ public class All_QuestionDao {
 				}
 				catch (SQLException e) {
 					e.printStackTrace();
-					all_questionList = null;
+					count = (Integer) null;
 				}
 			}
 		}
 
-		return all_questionList;
+		return count;
 	}
 
-	//「FAQ登録画面（講師）」講師がFAQを登録→DB（insert）
+	//「FAQ登録画面（講師）」講師がFAQを登録→DB（insert）OK
 	public boolean insert_faq(All_Question all_question) {
 		Connection conn = null;
 		boolean result = false;
@@ -297,7 +283,7 @@ public class All_QuestionDao {
 
 
 
-	//「質問記入画面（受講者）」受講者が質問を記入→DB（insert）
+	//「質問記入画面（受講者）」受講者が質問を記入→DB（insert） OK
 	public boolean insert_question(All_Question all_question) {
 		Connection conn = null;
 		boolean result = false;

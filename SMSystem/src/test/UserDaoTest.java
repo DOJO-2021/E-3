@@ -51,21 +51,8 @@ public class UserDaoTest {
 		// 「メニュー画面（受講者）（講師）」件数カウント select()のテスト
 		//(id,"user_id","genre","question","answer","faq","emergent",question_id)
 		System.out.println("---------- select()のテスト ----------");
-		List<User> user_selectCountList = dao.select_count(new User(0, "", "", "", "", "", "", "" ,""));
-		for (User select_count : user_selectCountList) {
-			System.out.println("id：" + select_count.getId());
-			System.out.println("user_id：" + select_count.getUser_id());
-			System.out.println("user_pw：" + select_count.getUser_pw());
-			System.out.println("user_name：" + select_count.getUser_name());
-			System.out.println("user_name_kana：" + select_count.getUser_name_kana());
-			System.out.println("user_company：" + select_count.getUser_company());
-			System.out.println("user_company_kana：" + select_count.getUser_company_kana());
-			System.out.println("user_class：" + select_count.getUser_class());
-			System.out.println("user_role：" + select_count.getUser_role());
-			System.out.println();
-		}
-
-
+		int count = dao.select_count(new User(0, "", "", "", "", "", "", "E", "1"));
+		System.out.println(count);
 
 
 }}

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,6 +15,7 @@
 		<div class="question">
 			<p><span class="under">質問</span></p>
 			<input type="text" class="textquestion" readonly>
+			<p>${e.question}</p>
 		</div>
 	</form>
 	<form method="POST" action="/SMSystem/Question_ResponseServlet">

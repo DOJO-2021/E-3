@@ -22,7 +22,6 @@
 			<c:forEach var="e" items="${userAll_questionList}" >
 			<form method="POST" action="/SMSystem/Question_ResponseServlet">
 				<tr>
-					<td>綿貫</td><td>Java</td>
 					<td><input type="hidden" name="question_id" value="${e.question_id}"></td>
 					<td>${e.user_name}</td>
 					<td>${e.genre}</td>
@@ -41,7 +40,6 @@
 			<c:forEach var="e" items="${userAll_questionList2}" >
 			<form method="POST" action="/SMSystem/Question_ResponseServlet">
 				<tr>
-					<td>綿貫</td><td>Java</td>
 					<td><input type="hidden" name="question_id" value="${e.question_id}"></td>
 					<td>${e.user_name}</td>
 					<td>${e.genre}</td>

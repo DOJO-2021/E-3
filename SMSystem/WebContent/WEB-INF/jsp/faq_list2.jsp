@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,16 +11,17 @@
 <body>
 <h1>FAQ</h1>
 
-<div id="faq_table">
-  <dl>
-    <dt></dt>
-    <dd><br></dd>
-    <dt></dt>
-    <dd><br></dd>
-  </dl>
-</div>
-
+<main>
+<c:forEach var="f" items="\${faqList}">
+  <div id="faq_table">
+    <dl>
+      <dt>\${f.question}</dt>
+      <dd>\${f.answer}</dd>
+    </dl>
+  </div>
+</c:forEach>
+</main>
 <p class="back"><a href="/SMSystem/Menu_StudentServlet">メニューに戻る</a></p>
-
+<jsp:include page="/WEB-INF/jsp/footer.jsp"></jsp:include>
 </body>
 </html>

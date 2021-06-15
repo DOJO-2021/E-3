@@ -174,9 +174,9 @@ public List<User> select(User user) {
 
 
 //「メニュー画面（受講者）（講師）」件数を表示→DB(select)
-public List<User> select_count(User user) {
+public int select_count(User user) {
 	Connection conn = null;
-	List<User> studentList = new ArrayList<User>();
+	int count = 0;
 
 	//データベースへ接続
 	try {
@@ -184,7 +184,7 @@ public List<User> select_count(User user) {
 		conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/SMSystem", "sa", "");
 
 		// SELECT文を準備する
-		String sql = "SELECT COUNT(USER_ID) FROM USER  WHERE USER_CLASS = ?";
+		String sql = "SELECT COUNT(USER_ID) FROM USER  WHERE USER_CLASS = ? AND USER_ROLE = '1'";
 		PreparedStatement pStmt = conn.prepareStatement(sql);
 
 		if (user.getUser_class() != null && !user.getUser_class().equals("")) {
@@ -196,30 +196,17 @@ public List<User> select_count(User user) {
 
 		//SELECT文を実行
 		ResultSet rs = pStmt.executeQuery();
+		rs.next();
+		count = rs.getInt("COUNT(USER_ID)");
 
-		//SELECT文の結果をArrayListに格納
-		while(rs.next()){
-			int id = rs.getInt("ID");
-			String user_id = rs.getString("USER_ID");
-			String user_pw = rs.getString("USER_PW");
-			String user_name = rs.getString("USER_NAME");
-			String user_name_kana = rs.getString("USER_NAME_KANA");
-			String user_company = rs.getString("USER_COMPANY");
-			String user_company_kana = rs.getString("USER_COMPANY_KANA");
-			String user_class = rs.getString("USER_CLASS");
-			String user_role = rs.getString("USER_ROLE");
-
-			User student = new User(id, user_id, user_pw, user_name, user_name_kana, user_company, user_company_kana, user_class, user_role);
-			studentList.add(student);
-		}
 	}
 	catch (SQLException e) {
 		e.printStackTrace();
-		studentList = null;
+		count = (Integer) null;
 	}
 	catch (ClassNotFoundException e) {
 		e.printStackTrace();
-		studentList = null;
+		count =(Integer) null;
 	}
 	finally {
 		// データベースを切断
@@ -229,12 +216,12 @@ public List<User> select_count(User user) {
 			}
 			catch (SQLException e) {
 				e.printStackTrace();
-				studentList = null;
+				count = (Integer) null;
 			}
 		}
 	}
 
-	return studentList;
+	return count;
 }
 
 }
