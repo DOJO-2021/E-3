@@ -12,11 +12,11 @@
 <h1>FAQ</h1>
 
 <main>
-<c:forEach var="f" items="\${faqList}">
+<c:forEach var="f" items="${faqList}">
   <div id="faq_table">
     <dl>
-      <dt>\${f.question}</dt>
-      <dd>\${f.answer}</dd>
+      <dt><textarea>${f.question}></textarea></dt>
+      <dd><textarea>${f.answer}</textarea></dd>
     </dl>
   </div>
 </c:forEach>

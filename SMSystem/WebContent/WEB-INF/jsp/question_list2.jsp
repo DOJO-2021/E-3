@@ -17,7 +17,7 @@
 				<th class="orange">緊急</th><th class="orange"> </th>
 			</tr>
 			<tr>
-				<th class="white">氏名</th><th class="white">ジャンル</th>
+				<th></th><th class="white">氏名</th><th class="white">ジャンル</th>
 			</tr>
 			<c:forEach var="e" items="${userAll_questionList}" >
 			<form method="POST" action="/SMSystem/Question_ResponseServlet">

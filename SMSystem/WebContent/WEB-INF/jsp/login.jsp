@@ -10,7 +10,6 @@
 <body>
 
 <h1>受講者管理システム</h1>
-<div class="box">
 <p>ログイン</p>
 	<form method = "POST" action = "/SMSystem/LoginServlet">
 		<table class="profile">
@@ -34,7 +33,7 @@
 			<p class="regist"><a href="/SMSystem/Create_IdServlet">新規登録はこちら</a></p>
 
 	</form>
-	</div>
+
 
 </body>
 </html>

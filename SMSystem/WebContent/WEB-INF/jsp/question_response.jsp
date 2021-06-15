@@ -11,13 +11,11 @@
 <body>
 <jsp:include page="/WEB-INF/jsp/header_teacher.jsp" />
 <div class="wrapper">
-	<form method="GET" action="/SMSystem/Question_ResponseServlet">
-		<div class="question">
-			<p><span class="under">質問</span></p>
-			<input type="text" class="textquestion" readonly>
-			<p>${e.question}</p>
-		</div>
-	</form>
+	<div class="question">
+	<p><span class="under">質問</span></p>
+		<input type="text" class="textquestion" name="getQuestion" readonly>
+		<p>${e.question}</p>
+	</div>
 	<form method="POST" action="/SMSystem/Question_ResponseServlet">
 		<div class="answer">
 			<p><span class="under">回答</span></p>

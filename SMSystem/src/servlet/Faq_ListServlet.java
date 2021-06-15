@@ -42,7 +42,7 @@ public class Faq_ListServlet extends HttpServlet {
 		All_QuestionDao AQDao = new All_QuestionDao();
 		List<All_Question> faqList = AQDao.select_faq(new All_Question(0, "", genre, "", "", "", "", 0));
 		request.setAttribute("faqList", faqList);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/faq_list_2.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/faq_list2.jsp");
 		dispatcher.forward(request, response);
 
 

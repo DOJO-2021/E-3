@@ -8,6 +8,7 @@
 </head>
 <body>
 
+<jsp:include page="/WEB-INF/jsp/header_student.jsp"></jsp:include>
 <main>
   <form method="POST" action="/SMSystem/Faq_ListServlet">
     <select name="genre">

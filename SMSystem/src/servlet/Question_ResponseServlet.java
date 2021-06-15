@@ -35,11 +35,14 @@ public class Question_ResponseServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
-		String question = request.getParameter("textquestion");
+		String question_id1 = request.getParameter("question_id");
+		int question_id = Integer.parseInt(question_id1);
+		String question = request.getParameter("getQuestion");
 
 		All_QuestionDao aqDao = new All_QuestionDao();
-		List<All_Question> all_question = aqDao.update_question(new All_Question(0, "", "", "", "", "", "", ));
+		List<All_Question> all_question = aqDao.select_question(new All_Question(0, "", "", question, "", "", "", question_id));
 		request.setAttribute("question", all_question);
+
 
 		RequestDispatcher dispacher = request.getRequestDispatcher("/WEB-INF/jsp/question_response.jsp");
 		dispacher.forward(request, response);

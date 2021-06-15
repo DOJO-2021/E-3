@@ -211,6 +211,20 @@ public class All_QuestionDao {
 				pStmt.setString(1, null);
 			}
 
+			pStmt.setInt(2, all_question.getQuestion_id());
+
+
+			/*
+			String question_id = String.valueOf(all_question.getQuestion_id());
+			if (question_id != null && !question_id.equals("")) {
+				pStmt.setString(2, question_id);
+			}
+			else {
+				pStmt.setString(2, null);
+			}
+			*/
+
+
 			//UPDATE文を実行
 			if (pStmt.executeUpdate() == 1) {
 				result = true;
@@ -346,9 +360,67 @@ public class All_QuestionDao {
 		return result;
 	}
 
+	//「質問回答記入画面（講師）」質問を表示→DB(select) OK
+	public List<All_Question> select_question(All_Question all_question) {
+		Connection conn = null;
+		List<All_Question> all_questionList = new ArrayList<All_Question>();
+
+		//データベースへ接続
+		try {
+			Class.forName("org.h2.Driver");
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/SMSystem", "sa", "");
+
+			// SELECT文を準備する
+			String sql = "SELECT * FROM ALL_QUESTION WHERE QUESTION_ID = ?";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+			pStmt.setInt(1, all_question.getQuestion_id());
 
 
-	//「質問回答記入画面（講師）」質問に対しての回答を更新→DB(update)
+			//SELECT文を実行
+			ResultSet rs = pStmt.executeQuery();
+
+			//SELECT文の結果をArrayListに格納
+			while(rs.next()){
+				int id = rs.getInt("ID");
+				String user_id = rs.getString("USER_ID");
+				String genre = rs.getString("GENRE");
+				String question = rs.getString("QUESTION");
+				String answer = rs.getString("ANSWER");
+				String faq = rs.getString("FAQ");
+				String emergent = rs.getString("EMERGENT");
+				int question_id = rs.getInt("QUESTION_ID");
+				All_Question All_Question = new All_Question(id, user_id, genre, question, answer, faq, emergent, question_id);
+				all_questionList.add(All_Question);
+			}
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+			all_questionList = null;
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			all_questionList = null;
+		}
+		finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				}
+				catch (SQLException e) {
+					e.printStackTrace();
+					all_questionList = null;
+				}
+			}
+		}
+
+		return all_questionList;
+	}
+
+
+
+	//「質問回答記入画面（講師）」質問に対しての回答を更新→DB(update) OK
 	public boolean update_question(All_Question all_question) {
 		Connection conn = null;
 		boolean result = false;
@@ -375,6 +447,18 @@ public class All_QuestionDao {
 				pStmt.setString(2, null);
 			}
 
+			pStmt.setInt(3, all_question.getQuestion_id());
+
+			/*
+			String question_id = String.valueOf(all_question.getQuestion_id());
+			if (question_id != null && !question_id.equals("")) {
+				pStmt.setString(2, question_id);
+			}
+			else {
+				pStmt.setString(2, null);
+			}
+			*/
+
 
 			//UPDATE文を実行
 			if (pStmt.executeUpdate() == 1) {
@@ -400,6 +484,75 @@ public class All_QuestionDao {
 	}
 
 	return result;
+	}
+
+
+
+
+
+
+
+
+	//「」表示→DB(select)
+	public List<All_Question> select_questionUser_id(All_Question all_question) {
+		Connection conn = null;
+		List<All_Question> all_questionIdList = new ArrayList<All_Question>();
+
+		//データベースへ接続
+		try {
+			Class.forName("org.h2.Driver");
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/SMSystem", "sa", "");
+
+			// SELECT文を準備する
+			String sql = "SELECT * FROM ALL_QUESTION WHERE USER_ID = ?";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+			if (all_question.getUser_id() != null && !all_question.getUser_id().equals("")) {
+				pStmt.setString(1, all_question.getUser_id());
+			}
+			else {
+				pStmt.setString(1, null);
+			}
+
+			//SELECT文を実行
+			ResultSet rs = pStmt.executeQuery();
+
+			//SELECT文の結果をArrayListに格納
+			while(rs.next()){
+				int id = rs.getInt("ID");
+				String user_id = rs.getString("USER_ID");
+				String genre = rs.getString("GENRE");
+				String question = rs.getString("QUESTION");
+				String answer = rs.getString("ANSWER");
+				String faq = rs.getString("FAQ");
+				String emergent = rs.getString("EMERGENT");
+				int question_id = rs.getInt("QUESTION_ID");
+				All_Question All_Question = new All_Question(id, user_id, genre, question, answer, faq, emergent, question_id);
+				all_questionIdList.add(All_Question);
+			}
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+			all_questionIdList = null;
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			all_questionIdList = null;
+		}
+		finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				}
+				catch (SQLException e) {
+					e.printStackTrace();
+					all_questionIdList = null;
+				}
+			}
+		}
+
+		return all_questionIdList;
 	}
 
 

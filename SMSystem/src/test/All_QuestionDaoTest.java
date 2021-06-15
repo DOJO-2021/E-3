@@ -35,7 +35,7 @@ public class All_QuestionDaoTest {
 	// 「FAQ登録画面（講師）」insert()のテスト OK
 	//(id,"user_id","genre","question","answer","faq","emergent",question_id)
 	System.out.println("---「FAQ登録画面（講師）」insert()のテスト---");
-	All_Question insertFaq = new All_Question(0, null, "T", "TEST", "TEST", "1", null,  0);
+	All_Question insertFaq = new All_Question(1, "TEST", "3", "TEST", "TEST", "1", null,  0);
 	if (dao.insert_faq(insertFaq)) {
 		System.out.println("登録成功！");
 
@@ -51,28 +51,23 @@ public class All_QuestionDaoTest {
 		System.out.println("登録失敗！");
 	}
 
+/*
+ID  	USER_ID  	GENRE  	QUESTION  	ANSWER  	FAQ  	EMERGENT  	QUESTION_ID
+0					T		TEST							T			0
+1		TEST		3		test		test		1		1			1
+*/
+
 	// 「FAQ編集画面（講師）」update()のテスト
 	//(id,"user_id","genre","question","answer","faq","emergent",question_id)
 	System.out.println("---「FAQ編集画面（講師）」update()のテスト---");
-	All_Question updateFaq = new All_Question(0, "あ", "3", null, "TESTTEST", "1", "1", 0);
+	All_Question updateFaq = new All_Question(0, null, "3", null, "TEST", null, null, 0);
 	if (dao.update_faq(updateFaq)) {
 		System.out.println("更新成功！");
-		List<All_Question> all_questionFaq_updateList = dao.select_faq(updateFaq);
-		for (All_Question faq_update : all_questionFaq_updateList) {
-			System.out.println("id：" + faq_update.getId());
-			System.out.println("user_id：" + faq_update.getUser_id());
-			System.out.println("genre：" + faq_update.getGenre());
-			System.out.println("question：" + faq_update.getQuestion());
-			System.out.println("answer：" + faq_update.getAnswer());
-			System.out.println("faq：" + faq_update.getFaq());
-			System.out.println("emergent：" + faq_update.getEmergent());
-			System.out.println("question_id：" + faq_update.getQuestion_id());
-			System.out.println();
-		}
 	}
 	else {
 		System.out.println("更新失敗！");
 	}
+
 
 	// 「FAQ編集画面（講師）」delete()のテスト
 	System.out.println("---「FAQ編集画面（講師）」delete()のテスト---");
@@ -87,8 +82,8 @@ public class All_QuestionDaoTest {
 
 	// 「質問記入画面（受講者））」insert()のテスト OK
 	//(id,"user_id","genre","question","answer","faq","emergent",question_id)
-	System.out.println("---------- insert()のテスト ----------");
-	All_Question insertQuestion = new All_Question(0, null, "T", "TEST", null, null, "T",  0);
+	System.out.println("---「質問記入画面（受講者））」insert()のテスト---");
+	All_Question insertQuestion = new All_Question(0, null, "3", "TEST", null, null, "T",  0);
 	if (dao.insert_question(insertQuestion)) {
 		System.out.println("登録成功！");
 		List<All_Question> all_questionQuestion_insertList = dao.select_faq(insertQuestion);
@@ -109,24 +104,28 @@ public class All_QuestionDaoTest {
 	}
 
 
+	//「質問回答記入画面（講師）」select()のテスト
+	System.out.println("---「質問回答記入画面（講師）」select()のテスト---");
+	List<All_Question> all_questionQuestion_selectList = dao.select_faq(new All_Question(0, "", "3", "", "", "1", "", 0));
+	for (All_Question question_select : all_questionQuestion_selectList) {
+		System.out.println("id：" + question_select.getId());
+		System.out.println("user_id: " + question_select.getUser_id());
+		System.out.println("genre：" + question_select.getGenre());
+		System.out.println("question：" + question_select.getQuestion());
+		System.out.println("answer：" + question_select.getAnswer());
+		System.out.println("faq：" + question_select.getFaq());
+		System.out.println("emergent：" + question_select.getEmergent());
+		System.out.println("question_id：" + question_select.getQuestion_id());
+		System.out.println();
+	}
+
+
 	//「質問回答記入画面（講師）」update()のテスト
 	//(id,"user_id","genre","question","answer","faq","emergent",question_id)
-	System.out.println("---------- update()のテスト ----------");
-	All_Question updateQuestion = new All_Question(0, null, "T", null, "TEST", "1", null, 0);
+	System.out.println("---「質問回答記入画面（講師）」update()のテスト---");
+	All_Question updateQuestion = new All_Question(0, null, "3", null, "TEST", "1", null, 0);
 	if (dao.update_question(updateQuestion)) {
 		System.out.println("更新成功！");
-		List<All_Question> all_questionQuestion_updateList = dao.select_faq(updateQuestion);
-		for (All_Question faq_update : all_questionQuestion_updateList) {
-			System.out.println("id：" + faq_update.getId());
-			System.out.println("user_id：" + faq_update.getUser_id());
-			System.out.println("genre：" + faq_update.getGenre());
-			System.out.println("question：" + faq_update.getQuestion());
-			System.out.println("answer：" + faq_update.getAnswer());
-			System.out.println("faq：" + faq_update.getFaq());
-			System.out.println("emergent：" + faq_update.getEmergent());
-			System.out.println("question_id：" + faq_update.getQuestion_id());
-			System.out.println();
-		}
 	}
 	else {
 		System.out.println("更新失敗！");
@@ -134,6 +133,21 @@ public class All_QuestionDaoTest {
 
 
 
+	// 「」select()のテスト
+	//(id,"user_id","genre","question","answer","faq","emergent",question_id)
+	System.out.println("---「」select()のテスト---");
+	List<All_Question> all_questionIdList = dao.select_faq(new All_Question(0, "", "", "", "", "", "", 0));
+	for (All_Question question_select : all_questionIdList) {
+		System.out.println("id：" + question_select.getId());
+		System.out.println("user_id: " + question_select.getUser_id());
+		System.out.println("genre：" + question_select.getGenre());
+		System.out.println("question：" + question_select.getQuestion());
+		System.out.println("answer：" + question_select.getAnswer());
+		System.out.println("faq：" + question_select.getFaq());
+		System.out.println("emergent：" +question_select.getEmergent());
+		System.out.println("question_id：" +question_select.getQuestion_id());
+		System.out.println();
+	}
 
 	}
 

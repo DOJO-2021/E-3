@@ -23,7 +23,7 @@ public class UserAll_QuestionDao {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/SMSystem", "sa", "");
 
 			// SELECT文を準備する
-			String sql = "SELECT * FROM USER INNER JOIN ALL_QUESTION ON USER.USER_ID = ALL_QUESTION.USER_ID WHERE USER_CLASS = ? EMERGENT = 0 ORDER BY QUESTION_ID DESC";
+			String sql = "SELECT * FROM USER INNER JOIN ALL_QUESTION ON USER.USER_ID = ALL_QUESTION.USER_ID WHERE USER_CLASS = ? AND EMERGENT = 0 ORDER BY QUESTION_ID DESC";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			if (userAll_question.getUser_class() != null && !userAll_question.getEmergent().equals("")) {
@@ -84,7 +84,7 @@ public class UserAll_QuestionDao {
 				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/SMSystem", "sa", "");
 
 				// SELECT文を準備する
-				String sql = "SELECT * FROM USER INNER JOIN ALL_QUESTION ON USER.USER_ID = ALL_QUESTION.USER_ID WHERE USER_CLASS = ? EMERGENT = 1 ORDER BY QUESTION_ID DESC";
+				String sql = "SELECT * FROM USER INNER JOIN ALL_QUESTION ON USER.USER_ID = ALL_QUESTION.USER_ID WHERE USER_CLASS = ? AND EMERGENT = 1 ORDER BY QUESTION_ID DESC";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
 				if (userAll_question.getUser_class() != null && !userAll_question.getEmergent().equals("")) {
