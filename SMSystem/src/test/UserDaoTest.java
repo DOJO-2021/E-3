@@ -7,13 +7,14 @@ import model.User;
 public class UserDaoTest {
 	public static void main(String[] args) {
 		UserDao dao = new UserDao();
-		// insert()のテスト
+		//「新規登録画面」新規登録記入→DB(insert)
+		//(id,"user_id","user_pw","user_name","user_name_kana","user_company","user_company_kana","user_class","user_role")
 		System.out.println("---------- insert()のテスト ----------");
 		User insRec = new User(0,"TEST", "TEST", "TEST", "TEST", "TEST", "TEST", "E", "1");
 		if (dao.insert(insRec)) {
 			System.out.println("登録成功！");
-			List<User> UserList2 = dao.select(insRec);
-			for (User user : UserList2) {
+			List<User> user_insertList = dao.select(insRec);
+			for (User user : user_insertList) {
 				System.out.println("id：" + user.getId());
 				System.out.println("user_id：" + user.getUser_id());
 				System.out.println("user_pw：" + user.getUser_pw());
@@ -30,10 +31,11 @@ public class UserDaoTest {
 			System.out.println("登録失敗！");
 		}
 
-		// select()のテスト(nameに名前を含んだデータを検索する)
+		//「メニュー画面（受講者）（講師）」クラスを検索してプロフィールを表示→DB(select)
+		//(id,"user_id","user_pw","user_name","user_name_kana","user_company","user_company_kana","user_class","user_role")
 		System.out.println("---------- select()のテスト ----------");
-		List<User> cardList2 = dao.select(new User(0,"", "", "", "", "", "", "E", "1"));
-		for (User user : cardList2) {
+		List<User> user_selectList = dao.select(new User(0,"", "", "", "", "", "", "E", "1"));
+		for (User user : user_selectList) {
 			System.out.println("id：" + user.getId());
 			System.out.println("user_id：" + user.getUser_id());
 			System.out.println("user_pw：" + user.getUser_pw());
@@ -46,6 +48,22 @@ public class UserDaoTest {
 			System.out.println();
 		}
 
+		// 「メニュー画面（受講者）（講師）」件数カウント select()のテスト
+		//(id,"user_id","genre","question","answer","faq","emergent",question_id)
+		System.out.println("---------- select()のテスト ----------");
+		List<User> user_selectCountList = dao.select_count(new User(0, "", "", "", "", "", "", "" ,""));
+		for (User select_count : user_selectCountList) {
+			System.out.println("id：" + select_count.getId());
+			System.out.println("user_id：" + select_count.getUser_id());
+			System.out.println("user_pw：" + select_count.getUser_pw());
+			System.out.println("user_name：" + select_count.getUser_name());
+			System.out.println("user_name_kana：" + select_count.getUser_name_kana());
+			System.out.println("user_company：" + select_count.getUser_company());
+			System.out.println("user_company_kana：" + select_count.getUser_company_kana());
+			System.out.println("user_class：" + select_count.getUser_class());
+			System.out.println("user_role：" + select_count.getUser_role());
+			System.out.println();
+		}
 
 
 

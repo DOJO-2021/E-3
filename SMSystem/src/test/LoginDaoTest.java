@@ -8,7 +8,8 @@ public class LoginDaoTest {
 		testIsLoginOK2();	// ユーザーが見つからない場合のテスト
 	}
 
-	// ユーザーが見つかる場合のテスト
+	//「ログイン画面」IDPW記入→DB(select) ユーザーが見つかるテスト
+	//("user_id","user_pw","user_role")
 	public static void testIsLoginOK1() {
 		LoginDao dao = new LoginDao();
 		if (dao.isLoginOK("YONEDA", "YONEDA","1")) {
@@ -19,7 +20,8 @@ public class LoginDaoTest {
 		}
 	}
 
-	// ユーザーが見つからない場合のテスト
+	// 「ログイン画面」IDPW記入→DB(select) ユーザーが見つからないテスト
+	//("user_id","user_pw","user_role")
 	public static void testIsLoginOK2() {
 		LoginDao dao = new LoginDao();
 		if (!dao.isLoginOK("DOJO", "pass","1")) {

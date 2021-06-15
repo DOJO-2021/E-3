@@ -9,30 +9,32 @@
 <link rel = "stylesheet" href = "css/student.css">
 </head>
 <body>
-<jsp:include page="/WEB-INF/jsp/header_student.jsp" />
+<jsp:include page="/WEB-INF/jsp/header_teacher.jsp" />
 <div class = "wrapper">
 <br><br><br><br>
 <p>${studentClass}の受講者一覧</p>
-<form method = "GET" action = "/SMSystem/ProfileServlet2" >
+
 	<div class = "table-menu" id = "table">
 		<table class = "mytable" id = "list">
 			 <tr>
- 				<th class="n">氏名</th><th class="nk">氏名(かな)</th><th class="c">企業名</th><th></th>
+ 				<th></th><th class="n">氏名</th><th class="nk">氏名(かな)</th><th class="c">企業名</th><th></th>
 			 </tr>
-			 <c:forEach var="e" items="${studentList}" >
-			 <input type = "hidden" name = "user_id" value = "${e.user_id }">
-			 <tr class = "data_row">
 
+			<c:forEach var="e" items="${studentList}" >
+			<form method = "POST" action = "/SMSystem/Student_ListServlet2">
+			 <tr class = "data_row">
+ 				<td><input type = "hidden" name = "user_id" value = "${e.user_id }"></td>
  				<td>${e.user_name}</td>
  				<td>${e.user_name_kana}</td>
  				<td>${e.user_company}</td>
  				<td><input type = "submit" name = "search" value = "プロフィールへ"></td>
  			<tr>
+ 			  </form>
  			</c:forEach>
 
  		</table>
- 		</div>
-  </form>
+ 	</div>
+
   </div>
   <jsp:include page="/WEB-INF/jsp/footer.jsp" />
 </body>

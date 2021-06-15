@@ -29,7 +29,7 @@
  				<td>${e.user_company}</td>
  				<td><input type = "submit" name = "search" value = "プロフィールへ"></td>
  			<tr>
- 			  </form>
+ 			</form>
  			</c:forEach>
 
  		</table>

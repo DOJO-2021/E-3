@@ -7,12 +7,13 @@
 <meta charset="UTF-8">
 <title>プロフィール確認 | SMSystem</title>
 <link rel ="stylesheet" href ="css/profile2.css">
-<link rel ="stylesheet" href ="css/header_footer">
+
 </head>
 <body>
+
 <h1>受講者管理システム</h1>
-<div class="box">
-<p>プロフィール確認</p>
+
+<h3>プロフィール確認</h3>
 <c:forEach var = "e" items = "${userProfileList}">
 		<table class="profile">
 		<tr>
@@ -53,15 +54,15 @@
 		</tr>
 		</table>
 		</c:forEach>
-		<p><a href = "/SMSystem/Menu_StudentServlet">メニューへ</a></p>
 		<div class ="button">
-			<button type = "submit" formaction = "/SMSystem/Menu_StudentServlet">メニュー</button>
+			<button onclick = "location.href = '/SMSystem/Menu_StudentServlet'">メニュー</button>
 		</div>
 
 
 
 
-	</div>
+
 	<jsp:include page="/WEB-INF/jsp/footer.jsp" />
+
 </body>
 </html>

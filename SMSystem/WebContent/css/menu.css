@@ -16,6 +16,11 @@ p input{
 }
 p input[type = "submit"]{
 	cursor: pointer;
+	border-radius: 10px;
+	transition: 0.5s;
+}
+p input[type = "submit"]:hover{
+	background-color : #F4A460;
 }
 table{
 	border-collapse: collapse;
@@ -55,3 +60,4 @@ h3{
 	max-width: 700px;
 	margin: 20px auto;
 }
+

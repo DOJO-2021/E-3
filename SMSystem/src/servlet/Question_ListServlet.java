@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,6 +9,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import dao.UserAll_QuestionDao;
+import model.UserAll_Question;
 
 /**
  * Servlet implementation class Question_ListServlet
@@ -20,18 +24,25 @@ public class Question_ListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		/*// 検索処理を行う（質問）
-		All_QuestionDao qDao = new All_QuestionDao();
-		List<All_Question> questionList = qDao.select_emergent(new All_Question());
-
-		// 検索結果をリクエストスコープに格納する
-		request.setAttribute("quesrionList", questionList);
-		*/
-
-		// 質問一覧画面にフォワードする
 		RequestDispatcher dispacher = request.getRequestDispatcher("/WEB-INF/jsp/question_list.jsp");
 		dispacher.forward(request, response);
+	}
 
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// リクエストパラメータを取得する
+		request.setCharacterEncoding("UTF-8");
+		String user_class = request.getParameter("class");
+
+		UserAll_QuestionDao aqDao = new UserAll_QuestionDao();
+		List<UserAll_Question> userAll_questionList = aqDao.select_emergent(new UserAll_Question("0", "", user_class, "",  "", "", "", 0));
+		List<UserAll_Question> userAll_questionList2 = aqDao.select_not_emergent(new UserAll_Question("0", "", user_class, "", "", "", "", 0));
+		request.setAttribute("emergent", userAll_questionList);
+		request.setAttribute("not_emergent", userAll_questionList2);
+
+		RequestDispatcher dispacher = request.getRequestDispatcher("/WEB-INF/jsp/question_list2.jsp");
+		dispacher.forward(request, response);
 	}
 }

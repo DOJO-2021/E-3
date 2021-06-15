@@ -44,7 +44,8 @@ public class UserAll_QuestionDao {
 				String genre = rs.getString("GENRE");
 				String question = rs.getString("QUESTION");
 				String emergent = rs.getString("EMERGENT");
-				UserAll_Question UserAll_Question = new UserAll_Question(user_id, user_name, user_class, genre, question, emergent);
+				int question_id = rs.getInt("QUESTION_ID");
+				UserAll_Question UserAll_Question = new UserAll_Question(user_id, user_name, user_class, genre, question, emergent, question_id);
 				userAll_questionList.add(UserAll_Question);
 			}
 		}
@@ -104,7 +105,8 @@ public class UserAll_QuestionDao {
 					String genre = rs.getString("GENRE");
 					String question = rs.getString("QUESTION");
 					String emergent = rs.getString("EMERGENT");
-					UserAll_Question UserAll_Question = new UserAll_Question(user_id, user_name, user_class, genre, question, emergent);
+					int question_id = rs.getInt("QUESTION_ID");
+					UserAll_Question UserAll_Question = new UserAll_Question(user_id, user_name, user_class, genre, question, emergent, question_id);
 					userAll_questionList.add(UserAll_Question);
 				}
 			}

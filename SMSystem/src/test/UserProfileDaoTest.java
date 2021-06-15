@@ -2,14 +2,17 @@ package test;
 
 import java.util.List;
 
-import model.UserProfile;
 import dao.UserProfileDao;
+import model.UserProfile;
 
 public class UserProfileDaoTest {
+	public static void main(String[] args) {
+		UserProfileDao dao = new UserProfileDao();
 
-	// select()のテスト(nameに名前を含んだデータを検索する)
+	// //「プロフィール画面」user_idに該当するプロフィールを表示→DB(select)
+	//("user_id","user_blood","user_career","user_club","user_hobby","user_intro","user_name","user_name_kana","user_company","user_company_kana")
 	System.out.println("---------- select()のテスト ----------");
-	List<UserProfile> userProfileList2 = dao.select_profile(new UserProfile("", "", "", "", "", "", "", "", "", ""));
+	List<UserProfile> userProfileList = dao.select_profile(new UserProfile("TEST", "", "", "", "", "", "", "", "", ""));
 	for (UserProfile userProfile : userProfileList) {
 		System.out.println("user_id：" + userProfile.getUser_id());
 		System.out.println("user_blood：" + userProfile.getUser_blood());
