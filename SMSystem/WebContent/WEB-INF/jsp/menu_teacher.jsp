@@ -12,7 +12,7 @@
 <body>
 
 
-<jsp:include page="/WEB-INF/jsp/header_student.jsp" />
+<jsp:include page="/WEB-INF/jsp/header_teacher.jsp" />
 <main>
 <div class = "wrapper">
 

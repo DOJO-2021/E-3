@@ -64,7 +64,7 @@ public class Create_IdServlet extends HttpServlet {
 			  }else if (user_role.equals("1")) {
 				  request.setAttribute("userName", user_name);
 				  request.setAttribute("userNameKana", user_name_kana);
-				  request.setAttribute("userID",user_id);
+				  request.setAttribute("userId",user_id);
 
 				  RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/create_profile.jsp");
 				dispatcher.forward(request, response);

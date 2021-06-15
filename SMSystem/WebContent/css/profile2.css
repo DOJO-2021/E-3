@@ -55,6 +55,7 @@ td{
 	height:40px;
 	margin: 10px;
 	border: 1px solid rgb(0, 0, 0);
+	background:white;
 }
 
 /*自己紹介の大きさを変更*/
@@ -62,6 +63,7 @@ td{
 	width:413.48px;
 	height:108.48px;
 	margin: 10px;
+	background:white;
 }
 
 /*画像の大きさを100pxに変更*/

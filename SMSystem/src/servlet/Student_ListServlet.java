@@ -34,11 +34,10 @@ public class Student_ListServlet extends HttpServlet {
 		String user_id = request.getParameter("user_id");
 
 		UserProfileDao upDao = new UserProfileDao();
-		List<UserProfile> userProfileList = upDao.select_profile(new UserProfile(0,user_id,"","","","","","","","",""));
+		List<UserProfile> userProfileList = upDao.select_profile(new UserProfile(user_id,"","","","","","","","",""));
 		request.setAttribute("userProfileList", userProfileList);
 		//プロフィール一覧ページにフォワードする
-		RequestDispatcher dispatcher =
-				request.getRequestDispatcher("/WEB-INF/jsp/profile.jsp");
+		RequestDispatcher dispatcher =request.getRequestDispatcher("/WEB-INF/jsp/profile.jsp");
 		dispatcher.forward(request, response);
 
 	}

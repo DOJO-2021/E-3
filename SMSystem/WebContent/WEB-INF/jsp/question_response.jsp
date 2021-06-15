@@ -23,8 +23,8 @@
 		</div>
 	</form>
 	<div class="radio">
-		<label class="radio_f"><input type="radio" name="emergent" value="1">FAQに登録する</label>
-		<label class="radio_f"><input type="radio" name="emergent" value="0">FAQに登録しない</label>
+		<label><input type="radio" name="emergent" value="1">FAQに登録する</label>
+		<label><input type="radio" name="emergent" value="0">FAQに登録しない</label>
 	</div>
 	<div class="button">
 		<input type="submit" name="submit_response" value="登録">
