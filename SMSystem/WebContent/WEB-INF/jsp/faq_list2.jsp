@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>FAQ一覧 | SMSystem</title>
-<link rel="stylesheet" href="/SMSystem/css/faq_list_2.css">
+<link rel="stylesheet" href="/SMSystem/css/faq_list2.css">
 </head>
 <body>
 <h1>FAQ</h1>
@@ -21,7 +21,11 @@
   </div>
 </c:forEach>
 </main>
-<p class="back"><a href="/SMSystem/Menu_StudentServlet">メニューに戻る</a></p>
+
+		<div class ="button">
+			<button onclick = "location.href = '/SMSystem/Menu_StudentServlet'">メニュー</button>
+		</div>
+
 <jsp:include page="/WEB-INF/jsp/footer.jsp"></jsp:include>
 </body>
 </html>

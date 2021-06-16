@@ -6,12 +6,13 @@
 <meta charset="UTF-8">
 <title>ログイン | SMSystem</title>
 <link rel="stylesheet" href="/SMSystem/css/login.css">
+
 </head>
 <body>
 
 <h1>受講者管理システム</h1>
 <p>ログイン</p>
-	<form method = "POST" action = "/SMSystem/LoginServlet">
+	<form method = "POST" action = "/SMSystem/LoginServlet" id="form">
 		<table class="profile">
 		<tr>
 		<th><img src ="img/id.png" alt = "ID"></th>
@@ -31,9 +32,10 @@
 			<input type = "submit" name = "submit_create" value ="ログイン">
 		</div>
 			<p class="regist"><a href="/SMSystem/Create_IdServlet">新規登録はこちら</a></p>
+			<p id="output"></p>
 
 	</form>
 
-
+<script src="/SMSystem/js/login.js"></script>
 </body>
 </html>

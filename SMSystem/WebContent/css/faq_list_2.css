@@ -9,6 +9,7 @@ h1 {
 	text-align: center;
 }
 
+/* fawqの表示関係 */
 #faq_table {
 	width: 100%;
 	font-family: メイリオ;
@@ -42,6 +43,30 @@ h1 {
 	margin-right: 8px;
 }
 
-.back {
+/* テキストエリア */
+textarea {
+	display: block;
+	font-size: 20px;
+	max-width: 700px;
+	width: 99%;
+	height: 150px;
+	margin: 8px auto 15px;
+}
+
+/*メニューボタンの変更*/
+button{
+	border-radius: 10px;
+	width:100px;
+	height:50px;
+	transition: 0.5s;
+	cursor: pointer;
+}
+	/*メニューボタンにカーソルが触れると色が変わるように変更*/
+button:hover{
+	background-color : #F4A460;
+}
+
+/* メニューボタンを真ん中に配置する */
+.button {
 	text-align: center;
 }
