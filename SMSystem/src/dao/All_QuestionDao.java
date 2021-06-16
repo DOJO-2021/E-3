@@ -137,7 +137,7 @@ public class All_QuestionDao {
 			Class.forName("org.h2.Driver");
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/SMSystem", "sa", "");
 			//INSERT文を準備
-			String sql = "INSERT INTO all_question VALUES (0,'',?,?,?,'1','',0)";
+			String sql = "INSERT INTO all_question VALUES (null,'',?,?,?,'1','',null)";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			//SQL文
@@ -190,7 +190,7 @@ public class All_QuestionDao {
 
 
 
-	//「FAQ編集画面（講師）」FAQの内容を編集する→DB(update)
+	//「FAQ編集画面（講師）」FAQの内容を編集する→DB(update) OK
 	public boolean update_faq(All_Question all_question) {
 		Connection conn = null;
 		boolean result = false;
@@ -251,7 +251,7 @@ public class All_QuestionDao {
 	}
 
 
-	//「FAQ編集画面（講師）」削除→DB(delete)
+	//「FAQ編集画面（講師）」削除→DB(delete) OK
 	public boolean delete_faq(int question_id) {
 		Connection conn = null;
 		boolean result = false;
@@ -489,11 +489,7 @@ public class All_QuestionDao {
 
 
 
-
-
-
-
-	//「」表示→DB(select)
+	//「」表示→DB(select) OK
 	public List<All_Question> select_questionUser_id(All_Question all_question) {
 		Connection conn = null;
 		List<All_Question> all_questionIdList = new ArrayList<All_Question>();

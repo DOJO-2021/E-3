@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,22 +11,25 @@
 <body>
 <jsp:include page="/WEB-INF/jsp/header_student.jsp" />
 <div class="wrapper">
-	<form method="GET" action="/SMSystem/Question_ResponseServlet">
-		<div class="question">
-			<p><span class="under">質問</span></p>
-			<input type ="text" class="textquestion" readonly>
-		</div>
-	</form>
-	<form method="GET" action="/SMSystem/Question_ResponseServlet">
-		<div class="answer">
-			<p><span class="under">回答</span></p>
-			<input type ="text" class="textAnswer" readonly>
-		</div>
-	</form>
+
+	<c:forEach var = "e" items = "Alist">
+				<div class="question">
+					<p><span class="under">質問</span></p>
+					<input type ="text" class="textquestion" name = "question" value = "${e.question}"readonly>
+
+				</div>
+
+				<div class="answer">
+					<p><span class="under">回答</span></p>
+					<input type ="text" class="textAnswer" name ="answer" value = "${e.answer}" readonly>
+				</div>
+
+</c:forEach>
+
 		<div class="button">
-		<button onclick = "location.href = '/SMSystem/Menu_TeacherServlet'">メニュー</button>
-	</div>
-	</div>
+			<button onclick = "location.href = '/SMSystem/Menu_TeacherServlet'">メニュー</button>
+		</div>
+</div>
 	<jsp:include page="/WEB-INF/jsp/footer.jsp" />
 </body>
 </html>

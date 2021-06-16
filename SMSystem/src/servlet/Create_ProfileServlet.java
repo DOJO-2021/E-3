@@ -51,7 +51,7 @@ public class Create_ProfileServlet extends HttpServlet {
 			 HttpSession session = request.getSession();
 			 session.setAttribute("id", new LoginUser(user_id));
 			 		//メニュー受講生サーブレットにリダイレクトする
-					 response.sendRedirect("/SMSystem/Menu_StudentServlet");
+					response.sendRedirect("/SMSystem/Menu_StudentServlet");
 		 }
 
 

@@ -10,7 +10,7 @@ public class UserDaoTest {
 		//「新規登録画面」新規登録記入→DB(insert)
 		//(id,"user_id","user_pw","user_name","user_name_kana","user_company","user_company_kana","user_class","user_role")
 		System.out.println("---------- insert()のテスト ----------");
-		User insRec = new User(0,"TEST", "TEST", "TEST", "TEST", "TEST", "TEST", "E", "1");
+		User insRec = new User(0,"TESTTEST", "TESTTEST", "TEST", "TEST", "TEST", "TEST", "E", "1");
 		if (dao.insert(insRec)) {
 			System.out.println("登録成功！");
 			List<User> user_insertList = dao.select(insRec);

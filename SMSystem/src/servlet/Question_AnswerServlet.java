@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.All_QuestionDao;
 import model.All_Question;
@@ -26,14 +27,15 @@ public class Question_AnswerServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
-		String question = request.getParameter("QUESTION");
-		String answer = request.getParameter("ANSWER");
+		HttpSession session = request.getSession();
 
-		All_QuestionDao ADao=new All_Question();
-		List<All_Question> Alist = ADao.
+		String user_id = (String)session.getAttribute("id");
+		All_QuestionDao ADao=new All_QuestionDao();
+		List<All_Question> Alist = ADao.select_questionUser_id(new All_Question(0,user_id,"","","","","",0));
+		request.setAttribute("Alist",Alist);
+		//セッションIDを取得する
 
-		//質問回答をリクエストスコープに格納する
-		request.setAttribute(question, answer);
+
 
 		// フォワードする
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/question_answer.jsp");

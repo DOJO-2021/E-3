@@ -14,18 +14,18 @@
 	<div class="table-QuestionList">
 		<table class="emergent">
 			<tr>
-				<th class="orange">緊急</th><th class="orange"> </th>
+				<th class="orange">緊急</th><th class="orange"> </th><th class="orange"> </th><th class="orange"> </th>
 			</tr>
 			<tr>
-				<th></th><th class="white">氏名</th><th class="white">ジャンル</th>
+				<th class="white"></th><th class="white">氏名</th><th class="white">ジャンル</th><th class="white"></th>
 			</tr>
-			<c:forEach var="e" items="${userAll_questionList}" >
+			<c:forEach var="e" items="${emergent}" >
 			<form method="POST" action="/SMSystem/Question_ResponseServlet">
 				<tr>
-					<td><input type="hidden" name="question_id" value="${e.question_id}"></td>
-					<td>${e.user_name}</td>
-					<td>${e.genre}</td>
-					<td><input type="submit" name="search" value="回答する"></td>
+					<td class="white"><input type="hidden" name="question_id" value="${e.question_id}"></td>
+					<td class="white">${e.user_name}</td>
+					<td class="white">${e.genre}</td>
+					<td class="white"><input type="submit" name="search" value="回答する"></td>
 				</tr>
 			</form>
 			</c:forEach>
@@ -35,15 +35,15 @@
 	<div class="table-QuestionList">
 		<table class="normal">
 			<tr>
-				<th class="white">氏名</th><th class="white">ジャンル</th>
+				<th class="white"></th><th class="white">氏名</th><th class="white">ジャンル</th><th class="white"></th>
 			</tr>
-			<c:forEach var="e" items="${userAll_questionList2}" >
+			<c:forEach var="e" items="${not_emergent}" >
 			<form method="POST" action="/SMSystem/Question_ResponseServlet">
 				<tr>
-					<td><input type="hidden" name="question_id" value="${e.question_id}"></td>
-					<td>${e.user_name}</td>
-					<td>${e.genre}</td>
-					<td><input type="submit" name="search" value="回答する"></td>
+					<td class="white"><input type="hidden" name="question_id" value="${e.question_id}"></td>
+					<td class="white">${e.user_name}</td>
+					<td class="white">${e.genre}</td>
+					<td class="white"><input type="submit" name="search" value="回答する"></td>
 				</tr>
 			</form>
 			</c:forEach>

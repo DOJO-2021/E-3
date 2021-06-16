@@ -15,6 +15,7 @@
 <input class = "text" type = "text" name = "student_name" placeholder = "氏名">
 
 <form method = "POST" action = "/SMSystem/Question_FillinServlet">
+<input type = "hidden" name = "user_id" value = "${id}">
 <p>ジャンルを選択してください</p>
 <select name = "select" >
 	<option value = "0">ドリル</option>

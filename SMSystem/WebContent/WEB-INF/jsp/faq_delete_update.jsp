@@ -8,6 +8,7 @@
 <title>FAQ編集 | SMSystem</title>
 </head>
 <body>
+<p>${ganre}に関するFAQ一覧(全${count}件)</p>
 <form method = "POST" action = "/SMSystem/Faq_Delete_UpdateServlete">
 <c:forEach var = "e" items = "${faqList}">
 <input type = "hidden" name = "question_id" value = "${e.question_id}">

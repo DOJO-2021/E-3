@@ -12,7 +12,7 @@
 <div class="wrapper">
 	<form method="POST" action="/SMSystem/Question_ListServlet">
 		<p class="text">
-		<input type="text" name="class" placeholder="A～E">
+		<input type="text" name="user_class" placeholder="A～E">
 		<input type="submit" name="search" value="検索">
 		</p>
 	</form>

@@ -20,6 +20,7 @@ public class UserAll_QuestionDaoTest {
 		System.out.println("genre：" + userAll_question.getGenre());
 		System.out.println("question：" + userAll_question.getQuestion());
 		System.out.println("emergent：" + userAll_question.getEmergent());
+		System.out.println("question_id：" + userAll_question.getQuestion_id());
 		System.out.println();
 	}
 
@@ -34,6 +35,7 @@ public class UserAll_QuestionDaoTest {
 		System.out.println("genre：" + userAll_question.getGenre());
 		System.out.println("question：" + userAll_question.getQuestion());
 		System.out.println("emergent：" + userAll_question.getEmergent());
+		System.out.println("question_id：" + userAll_question.getQuestion_id());
 		System.out.println();
 	}
 

@@ -15,7 +15,7 @@ public class UserAll_QuestionDao {
 	//「質問一覧画面(講師)」クラスを検索して緊急の質問を表示→DB(select)
 	public List<UserAll_Question> select_emergent(UserAll_Question userAll_question) {
 		Connection conn = null;
-		List<UserAll_Question> userAll_questionList = new ArrayList<UserAll_Question>();
+		List<UserAll_Question> userAll_questionEmergentList = new ArrayList<UserAll_Question>();
 
 		//データベースへ接続
 		try {
@@ -23,11 +23,11 @@ public class UserAll_QuestionDao {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/SMSystem", "sa", "");
 
 			// SELECT文を準備する
-			String sql = "SELECT * FROM USER INNER JOIN ALL_QUESTION ON USER.USER_ID = ALL_QUESTION.USER_ID WHERE USER_CLASS = ? AND EMERGENT = 0 ORDER BY QUESTION_ID DESC";
+			String sql = "SELECT * FROM USER INNER JOIN ALL_QUESTION ON USER.USER_ID = ALL_QUESTION.USER_ID WHERE USER_CLASS = ? AND EMERGENT = '0' ORDER BY ALL_QUESTION.QUESTION_ID DESC";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
-			if (userAll_question.getUser_class() != null && !userAll_question.getEmergent().equals("")) {
-				pStmt.setString(1, userAll_question.getEmergent());
+			if (userAll_question.getUser_class() != null && !userAll_question.getUser_class().equals("")) {
+				pStmt.setString(1, userAll_question.getUser_class());
 			}
 			else {
 				pStmt.setString(1, null);
@@ -46,16 +46,16 @@ public class UserAll_QuestionDao {
 				String emergent = rs.getString("EMERGENT");
 				int question_id = rs.getInt("QUESTION_ID");
 				UserAll_Question UserAll_Question = new UserAll_Question(user_id, user_name, user_class, genre, question, emergent, question_id);
-				userAll_questionList.add(UserAll_Question);
+				userAll_questionEmergentList.add(UserAll_Question);
 			}
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
-			userAll_questionList = null;
+			userAll_questionEmergentList = null;
 		}
 		catch (ClassNotFoundException e) {
 			e.printStackTrace();
-			userAll_questionList = null;
+			userAll_questionEmergentList = null;
 		}
 		finally {
 			// データベースを切断
@@ -65,18 +65,18 @@ public class UserAll_QuestionDao {
 				}
 				catch (SQLException e) {
 					e.printStackTrace();
-					userAll_questionList = null;
+					userAll_questionEmergentList = null;
 				}
 			}
 		}
 
-		return userAll_questionList;
+		return userAll_questionEmergentList;
 	}
 
 	//「質問一覧画面（講師）」クラスを検索して緊急でない質問を表示→DB(select)
 		public List<UserAll_Question> select_not_emergent(UserAll_Question userAll_question) {
 			Connection conn = null;
-			List<UserAll_Question> userAll_questionList = new ArrayList<UserAll_Question>();
+			List<UserAll_Question> userAll_questionNotEmergentList = new ArrayList<UserAll_Question>();
 
 			//データベースへ接続
 			try {
@@ -84,11 +84,11 @@ public class UserAll_QuestionDao {
 				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/SMSystem", "sa", "");
 
 				// SELECT文を準備する
-				String sql = "SELECT * FROM USER INNER JOIN ALL_QUESTION ON USER.USER_ID = ALL_QUESTION.USER_ID WHERE USER_CLASS = ? AND EMERGENT = 1 ORDER BY QUESTION_ID DESC";
+				String sql = "SELECT * FROM USER INNER JOIN ALL_QUESTION ON USER.USER_ID = ALL_QUESTION.USER_ID WHERE USER_CLASS = ? AND EMERGENT = '1' ORDER BY ALL_QUESTION.QUESTION_ID DESC";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
-				if (userAll_question.getUser_class() != null && !userAll_question.getEmergent().equals("")) {
-					pStmt.setString(1, userAll_question.getEmergent());
+				if (userAll_question.getUser_class() != null && !userAll_question.getUser_class().equals("")) {
+					pStmt.setString(1, userAll_question.getUser_class());
 				}
 				else {
 					pStmt.setString(1, null);
@@ -107,16 +107,16 @@ public class UserAll_QuestionDao {
 					String emergent = rs.getString("EMERGENT");
 					int question_id = rs.getInt("QUESTION_ID");
 					UserAll_Question UserAll_Question = new UserAll_Question(user_id, user_name, user_class, genre, question, emergent, question_id);
-					userAll_questionList.add(UserAll_Question);
+					userAll_questionNotEmergentList.add(UserAll_Question);
 				}
 			}
 			catch (SQLException e) {
 				e.printStackTrace();
-				userAll_questionList = null;
+				userAll_questionNotEmergentList = null;
 			}
 			catch (ClassNotFoundException e) {
 				e.printStackTrace();
-				userAll_questionList = null;
+				userAll_questionNotEmergentList = null;
 			}
 			finally {
 				// データベースを切断
@@ -126,12 +126,12 @@ public class UserAll_QuestionDao {
 					}
 					catch (SQLException e) {
 						e.printStackTrace();
-						userAll_questionList = null;
+						userAll_questionNotEmergentList = null;
 					}
 				}
 			}
 
-			return userAll_questionList;
+			return userAll_questionNotEmergentList;
 		}
 
 

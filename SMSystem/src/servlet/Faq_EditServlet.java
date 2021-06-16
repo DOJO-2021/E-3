@@ -33,9 +33,35 @@ public class Faq_EditServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String ganre = request.getParameter("ganre");
 
+
 		All_QuestionDao ADao = new All_QuestionDao();
-		List<All_Question> faqList = ADao.select_faq(new All_Question(0,"",ganre,"","","","",0));
+		All_Question aQ = new All_Question(0,"",ganre,"","","","",0);
+		List<All_Question> faqList = ADao.select_faq(aQ);
+		int count = ADao.select_count(aQ);
+		request.setAttribute("count", count);
 		request.setAttribute("faqList", faqList);
+
+		if(ganre.equals("0")) {
+			ganre = "ドリル";
+		}else if (ganre.equals("1")) {
+			ganre = "HTML";
+		}else if (ganre.equals("2")) {
+			ganre = "CSS";
+		}else if (ganre.equals("3")) {
+			ganre = "JavaScript";
+		}else if (ganre.equals("4")){
+				ganre = "Java";
+		}else if (ganre.equals("5")) {
+			ganre = "データベース";
+		}else if (ganre.equals("6")) {
+			ganre = "サーブレット＆JSP";
+		}else if (ganre.equals("7")) {
+			ganre = "名刺管理アプリ";
+		}else if (ganre.equals("8")) {
+			ganre = "その他";
+		}
+
+		request.setAttribute("ganre", ganre);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/faq_delete_update.jsp");
 		dispatcher.forward(request,response);
 	}

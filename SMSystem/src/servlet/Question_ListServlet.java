@@ -24,6 +24,7 @@ public class Question_ListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// フォワード
 		RequestDispatcher dispacher = request.getRequestDispatcher("/WEB-INF/jsp/question_list.jsp");
 		dispacher.forward(request, response);
 	}
@@ -34,14 +35,22 @@ public class Question_ListServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
-		String user_class = request.getParameter("class");
+		String user_class = request.getParameter("user_class");
+		//String emergent = request.getParameter("emergent");
 
 		UserAll_QuestionDao uaqDao = new UserAll_QuestionDao();
-		List<UserAll_Question> userAll_questionList = uaqDao.select_emergent(new UserAll_Question("",  "", user_class,  "", "", "", 0));
-		List<UserAll_Question> userAll_questionList2 = uaqDao.select_not_emergent(new UserAll_Question("", "", user_class,  "", "", "", 0));
-		request.setAttribute("emergent", userAll_questionList);
-		request.setAttribute("not_emergent", userAll_questionList2);
+		UserAll_Question uaq = new UserAll_Question("", "", user_class,  "", "", "", 0);
+		List<UserAll_Question> userAll_questionList = uaqDao.select_emergent(uaq);
+		List<UserAll_Question> userAll_questionList2 = uaqDao.select_not_emergent(uaq);
 
+		//if (emergent.equals("0")) {
+			request.setAttribute("emergent", userAll_questionList);
+		//}
+		//if (emergent.equals("1")) {
+			request.setAttribute("not_emergent", userAll_questionList2);
+		//}
+
+		// 質問一覧ページにフォワードする
 		RequestDispatcher dispacher = request.getRequestDispatcher("/WEB-INF/jsp/question_list2.jsp");
 		dispacher.forward(request, response);
 	}
