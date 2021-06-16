@@ -9,7 +9,7 @@
 <body>
 <p>ジャンルを選択してください
 <form method = "POST" action = "/SMSystem/Faq_RegistServlet">
-<select name = "select">
+<select name = "genre">
 	<option value = "0">ドリル</option>
 	<option value = "1">HTML</option>
 	<option value = "2">CSS</option>
