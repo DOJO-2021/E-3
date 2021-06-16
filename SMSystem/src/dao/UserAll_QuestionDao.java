@@ -45,6 +45,27 @@ public class UserAll_QuestionDao {
 				String question = rs.getString("QUESTION");
 				String emergent = rs.getString("EMERGENT");
 				int question_id = rs.getInt("QUESTION_ID");
+
+				if(genre.equals("0")) {
+					genre = "ドリル";
+				}else if (genre.equals("1")) {
+					genre = "HTML";
+				}else if (genre.equals("2")) {
+					genre = "CSS";
+				}else if (genre.equals("3")) {
+					genre = "JavaScript";
+				}else if (genre.equals("4")){
+						genre = "Java";
+				}else if (genre.equals("5")) {
+					genre = "データベース";
+				}else if (genre.equals("6")) {
+					genre = "サーブレット＆JSP";
+				}else if (genre.equals("7")) {
+					genre = "名刺管理アプリ";
+				}else if (genre.equals("8")) {
+					genre = "その他";
+				}
+
 				UserAll_Question UserAll_Question = new UserAll_Question(user_id, user_name, user_class, genre, question, emergent, question_id);
 				userAll_questionEmergentList.add(UserAll_Question);
 			}
@@ -106,6 +127,27 @@ public class UserAll_QuestionDao {
 					String question = rs.getString("QUESTION");
 					String emergent = rs.getString("EMERGENT");
 					int question_id = rs.getInt("QUESTION_ID");
+
+					if(genre.equals("0")) {
+						genre = "ドリル";
+					}else if (genre.equals("1")) {
+						genre = "HTML";
+					}else if (genre.equals("2")) {
+						genre = "CSS";
+					}else if (genre.equals("3")) {
+						genre = "JavaScript";
+					}else if (genre.equals("4")){
+							genre = "Java";
+					}else if (genre.equals("5")) {
+						genre = "データベース";
+					}else if (genre.equals("6")) {
+						genre = "サーブレット＆JSP";
+					}else if (genre.equals("7")) {
+						genre = "名刺管理アプリ";
+					}else if (genre.equals("8")) {
+						genre = "その他";
+					}
+
 					UserAll_Question UserAll_Question = new UserAll_Question(user_id, user_name, user_class, genre, question, emergent, question_id);
 					userAll_questionNotEmergentList.add(UserAll_Question);
 				}

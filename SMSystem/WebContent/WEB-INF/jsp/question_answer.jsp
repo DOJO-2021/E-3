@@ -12,10 +12,10 @@
 <jsp:include page="/WEB-INF/jsp/header_student.jsp" />
 <div class="wrapper">
 
-	<c:forEach var = "e" items = "Alist">
+<c:forEach var = "e" items = "${Alist}">
 				<div class="question">
 					<p><span class="under">質問</span></p>
-					<input type ="text" class="textquestion" name = "question" value = "${e.question}"readonly>
+					<input type ="text" class="textquestion" name = "question" value = "${e.question}" readonly>
 
 				</div>
 
@@ -23,11 +23,11 @@
 					<p><span class="under">回答</span></p>
 					<input type ="text" class="textAnswer" name ="answer" value = "${e.answer}" readonly>
 				</div>
-
 </c:forEach>
 
+
 		<div class="button">
-			<button onclick = "location.href = '/SMSystem/Menu_TeacherServlet'">メニュー</button>
+			<button onclick = "location.href = '/SMSystem/Menu_StudentServlet'">メニュー</button>
 		</div>
 </div>
 	<jsp:include page="/WEB-INF/jsp/footer.jsp" />

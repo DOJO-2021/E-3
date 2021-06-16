@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.LoginDao;
-import model.LoginUser;
 
 /**
  * Servlet implementation class LoginServlet
@@ -45,7 +44,7 @@ public class LoginServlet extends HttpServlet {
 		if (iDao.isLoginOK(id, pw, user_role)) {
 			// セッションスコープにIDを格納する
 			HttpSession session = request.getSession();
-			session.setAttribute("id", new LoginUser(id));
+			session.setAttribute("id",id);
 			if(user_role.equals("0")) {
 				response.sendRedirect("/SMSystem/Menu_TeacherServlet");
 			}else if(user_role.equals("1")) {

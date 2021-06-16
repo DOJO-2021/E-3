@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.All_QuestionDao;
 import model.All_Question;
@@ -24,6 +25,9 @@ public class Question_FillinServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//
+		HttpSession session = request.getSession();
+		session.getAttribute("id");
 		//質問記入ページにフォワードする
 		RequestDispatcher dispatcher =
 				request.getRequestDispatcher("/WEB-INF/jsp/question_fillin.jsp");
@@ -37,14 +41,14 @@ public class Question_FillinServlet extends HttpServlet {
 
 		//リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
-
+		String user_id = request.getParameter("user_id");
 		String genre = request.getParameter("select");
 		String question = request.getParameter("question");
 		String emergent = request.getParameter("emergent");
 
 		//登録処理を行う
 		All_QuestionDao qDao = new All_QuestionDao();
-		if(qDao.insert_question(new All_Question(0, "", genre, question, "", "", emergent, 0))) {
+		if(qDao.insert_question(new All_Question(0, user_id, genre, question, "", "", emergent, 0))) {
 			//質問投稿画面にリダイレクト
 			response.sendRedirect("/SMSystem/Question_UpServlet");
 }

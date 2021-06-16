@@ -307,30 +307,37 @@ public class All_QuestionDao {
 			Class.forName("org.h2.Driver");
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/SMSystem", "sa", "");
 			//INSERT文を準備
-			String sql = "INSERT INTO all_question VALUES (0,'',?,?,'','',?,0)";
+			String sql = "INSERT INTO all_question VALUES (null,?,?,?,'','',?,null)";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			//SQL文
 
-			if (all_question.getGenre() != null && !all_question.getGenre().equals("")) {
-				pStmt.setString(1, all_question.getGenre());
+			if (all_question.getUser_id() != null && !all_question.getUser_id().equals("")) {
+				pStmt.setString(1, all_question.getUser_id());
 			}
 			else {
 				pStmt.setString(1, null);
 			}
 
-			if (all_question.getQuestion() != null && !all_question.getQuestion().equals("")) {
-				pStmt.setString(2, all_question.getQuestion());
+			if (all_question.getGenre() != null && !all_question.getGenre().equals("")) {
+				pStmt.setString(2, all_question.getGenre());
 			}
 			else {
 				pStmt.setString(2, null);
 			}
 
-			if (all_question.getEmergent() != null && !all_question.getEmergent().equals("")) {
-				pStmt.setString(3, all_question.getEmergent());
+			if (all_question.getQuestion() != null && !all_question.getQuestion().equals("")) {
+				pStmt.setString(3, all_question.getQuestion());
 			}
 			else {
 				pStmt.setString(3, null);
+			}
+
+			if (all_question.getEmergent() != null && !all_question.getEmergent().equals("")) {
+				pStmt.setString(4, all_question.getEmergent());
+			}
+			else {
+				pStmt.setString(4, null);
 			}
 
 

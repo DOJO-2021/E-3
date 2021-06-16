@@ -13,7 +13,6 @@ import javax.servlet.http.HttpSession;
 
 import dao.All_QuestionDao;
 import model.All_Question;
-
 /**
  * Servlet implementation class Question_AnswerServlet
  */
@@ -25,11 +24,13 @@ public class Question_AnswerServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 		//リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
+		Object O = session.getAttribute("id");
+		String user_id = O.toString();
 
-		String user_id = (String)session.getAttribute("id");
 		All_QuestionDao ADao=new All_QuestionDao();
 		List<All_Question> Alist = ADao.select_questionUser_id(new All_Question(0,user_id,"","","","","",0));
 		request.setAttribute("Alist",Alist);

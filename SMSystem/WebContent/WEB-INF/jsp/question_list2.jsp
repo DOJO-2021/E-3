@@ -14,10 +14,10 @@
 	<div class="table-QuestionList">
 		<table class="emergent">
 			<tr>
-				<th class="orange">緊急</th><th class="orange"> </th><th class="orange"> </th><th class="orange"> </th>
+				<th class="orange"></th><th class="orange0">緊急</th><th class="orange0"> </th><th class="orange0"> </th>
 			</tr>
 			<tr>
-				<th class="white"></th><th class="white">氏名</th><th class="white">ジャンル</th><th class="white"></th>
+				<th class="white0"></th><th class="white">氏名</th><th class="white">ジャンル</th><th class="white0"></th>
 			</tr>
 			<c:forEach var="e" items="${emergent}" >
 			<form method="POST" action="/SMSystem/Question_ResponseServlet">
@@ -37,12 +37,12 @@
 			<tr>
 				<th class="white"></th><th class="white">氏名</th><th class="white">ジャンル</th><th class="white"></th>
 			</tr>
-			<c:forEach var="e" items="${not_emergent}" >
+			<c:forEach var="f" items="${not_emergent}" >
 			<form method="POST" action="/SMSystem/Question_ResponseServlet">
 				<tr>
-					<td class="white"><input type="hidden" name="question_id" value="${e.question_id}"></td>
-					<td class="white">${e.user_name}</td>
-					<td class="white">${e.genre}</td>
+					<td class="white"><input type="hidden" name="question_id" value="${f.question_id}"></td>
+					<td class="white">${f.user_name}</td>
+					<td class="white">${f.genre}</td>
 					<td class="white"><input type="submit" name="search" value="回答する"></td>
 				</tr>
 			</form>

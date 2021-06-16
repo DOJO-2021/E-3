@@ -13,6 +13,7 @@ document.getElementById('form').onsubmit = function(event) {
 */
   const id = document.getElementById('form').user_id.value;
   const pw = document.getElementById('form').user_pw.value;
+  const role = document.getElementById('form').user_role.value;
   if (id === "" && pw === "" ) {
   event.preventDefault();
   document.getElementById('output').textContent = 'IDとPWを入力してください';
@@ -25,6 +26,9 @@ document.getElementById('form').onsubmit = function(event) {
   event.preventDefault();
   document.getElementById('output').textContent = 'PWを入力してください';
   //window.alert('PWを入力してください');
+} else if(role === "") {
+  event.preventDefault();
+  document.getElementById('output').textContent = '受講者か講師のどちらかを選択してください';
 }
 };
   document.getElementById('output').style.color = 'red';

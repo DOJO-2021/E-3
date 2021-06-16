@@ -10,13 +10,14 @@
 <body>
 <h1>受講者管理システム</h1>
 <div class="box">
-<form method ="post"action="/SMSystem/Create_IdServlet" class="form_createID">
+<form method ="post"action="/SMSystem/Create_IdServlet" class="form_createID" id="form">
 <br><br>
 
 <div class = "radio">
 <label><input type="radio" name="user_role" value="1">受講者</label>
 <label><input type="radio" name="user_role" value="0">講師</label>
 </div>
+<p id="role_op"></p>
 <br>
   <table class="profile">
 	<tr>
@@ -54,11 +55,12 @@
 		<td><input type="text" name="user_class" placeholder="クラス名(A～Z)"></td>
 	</tr>
   </table>
-
+  <p id="op"></p>
   <div class ="button">
 	<input type = "submit" name = "submit_regist" value ="登録">
   </div>
 </form>
 </div>
+<script src="/SMSystem/js/create_id.js"></script>
 </body>
 </html>
