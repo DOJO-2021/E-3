@@ -13,12 +13,16 @@
 
 <main>
 <c:forEach var="f" items="${faqList}">
-  <div id="faq_table">
-    <dl>
-      <dt><textarea readonly>${f.question} </textarea></dt>
-      <dd><textarea readonly>${f.answer}</textarea></dd>
-    </dl>
+  <div class="question">
+ 	<p><span class="under">質問</span></p>
+	<input type ="text" class="textquestion" name = "question" value = "${f.question}" readonly>
   </div>
+
+  <div class="answer">
+	<p><span class="under">回答</span></p>
+	<input type ="text" class="textAnswer" name ="answer" value = "${f.answer}" readonly>
+  </div>
+
 </c:forEach>
 </main>
 

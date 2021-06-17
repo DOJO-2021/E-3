@@ -8,8 +8,9 @@
 <link rel ="stylesheet" href ="css/question_fillin.css">
 </head>
 <body>
-<jsp:include page="/WEB-INF/jsp/header_student.jsp" />
+<jsp:include page="/WEB-INF/jsp/header_teacher.jsp" />
 <div class = "box">
+<br><br>
 <p>ジャンルを選択してください
 <form method = "POST" action = "/SMSystem/Faq_RegistServlet">
 <select name = "genre">

@@ -29,11 +29,19 @@ public class Question_UpdateServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		// リクエストパラメータを取得する
+		request.setCharacterEncoding("UTF-8");
+		String question = request.getParameter("question");
+		String answer = request.getParameter("answer");
+		String faq = request.getParameter("faq");
 		String question_id1 = request.getParameter("question_id");
 		int question_id = Integer.parseInt(question_id1);
 
+		// 更新処理を行う
 		All_QuestionDao aqDao = new All_QuestionDao();
-		if (aqDao.update_question(new All_Question(0, "", "", "", "", "", "", question_id))) {
+		if (aqDao.update_question(new All_Question(0, "", "", question, answer, faq, "", question_id))) {
+			// 質問一覧画面にリダイレクト
 			response.sendRedirect("/SMSystem/Question_ListServlet");
 		}
 

@@ -33,13 +33,13 @@ public class Faq_Delete_UpdateServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		String QUESTION_ID= request.getParameter("question_id");
 		int question_id = Integer.parseInt(QUESTION_ID);
-
+		String question = request.getParameter("question");
 		String answer = request.getParameter("answer");
 		String submit = request.getParameter("SUBMIT");
 
 		All_QuestionDao ADao = new All_QuestionDao();
 		if(submit.equals("登録"))  {
-			if(ADao.update_faq(new All_Question(0,"","","",answer,"","",question_id))) {
+			if(ADao.update_faq(new All_Question(0,"","",question,answer,"","",question_id))) {
 				response.sendRedirect("/SMSystem/Menu_TeacherServlet");
 			}
 

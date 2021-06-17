@@ -8,49 +8,44 @@ body{
 h1 {
 	text-align: center;
 }
-
-/* fawqの表示関係 */
-#faq_table {
-	width: 100%;
-	font-family: メイリオ;
-	font-size: 14px; /*全体のフォントサイズ*/
+/* 質問 */
+.question p {
+	font-size: 25px;
+	margin: 80px auto 13px;
+	max-width: 700px;
+	text-align: center;
+}
+/* 回答 */
+.answer p {
+	font-size: 25px;
+	margin: 0 auto 13px;
+	max-width: 700px;
+	text-align: center;
+}
+.under {
+	border-bottom: dashed 3px #F4A460;
 }
 
-#faq_table {
-	border: 3px solid #0000;
-
-	max-width: 820px;
-	margin: 0 auto 0 auto;
-}
-
-#faq_table dt {
-	padding: 8px;
-	border-radius: 2px;
-}
-#faq_table dt:before {
-	content: "Q.";
-	font-weight: bold;
-	margin-right: 8px;
-}
-#faq_table dd {
-	margin: 24px 16px 40px 32px;
-	line-height: 140%;
-	text-indent: -24px;
-}
-#faq_table dd:before {
-	content: "A.";
-	font-weight: bold;
-	margin-right: 8px;
-}
-
-/* テキストエリア */
-textarea {
+/* 質問の枠 */
+.textquestion {
 	display: block;
 	font-size: 20px;
 	max-width: 700px;
 	width: 99%;
 	height: 150px;
-	margin: 8px auto 15px;
+	margin: 8px auto 35px;
+	outline: none;
+}
+
+/* 回答の枠 */
+.textAnswer {
+	display: block;
+	font-size: 20px;
+	max-width: 700px;
+	width: 99%;
+	height: 150px;
+	margin: 8px auto 35px;
+	outline: none;
 }
 
 /*メニューボタンの変更*/

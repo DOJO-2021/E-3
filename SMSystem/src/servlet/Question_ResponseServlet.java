@@ -1,7 +1,6 @@
 package servlet;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -37,13 +36,13 @@ public class Question_ResponseServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		String question_id1 = request.getParameter("question_id");
 		int question_id = Integer.parseInt(question_id1);
-		String question = request.getParameter("getQuestion");
+		//String question = request.getParameter("getQuestion");
 
 		All_QuestionDao aqDao = new All_QuestionDao();
-		List<All_Question> all_question = aqDao.select_question(new All_Question(0, "", "", question, "", "", "", question_id));
-		request.setAttribute("question", all_question);
+		String question = aqDao.select_question(new All_Question(0,"","","","","","",question_id));
+		request.setAttribute("all_question", question);
 
-
+		// フォワードする
 		RequestDispatcher dispacher = request.getRequestDispatcher("/WEB-INF/jsp/question_response.jsp");
 		dispacher.forward(request, response);
 	}

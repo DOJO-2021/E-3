@@ -12,23 +12,23 @@
 <jsp:include page="/WEB-INF/jsp/header_teacher.jsp" />
 <div class="wrapper">
 	<div class="question">
-	<p><span class="under">質問</span></p>
-		<input type="text" class="textquestion" name="getQuestion" readonly>
-		<p>${e.question}</p>
+		<p><span class="under">質問</span></p>
+		<!-- <input type="hidden" name="question_id" value="${question_id}"> -->
+		<input type="text" class="textquestion" name="question" value="${all_question}" readonly>
 	</div>
 	<form method="POST" action="/SMSystem/Question_ResponseServlet">
 		<div class="answer">
 			<p><span class="under">回答</span></p>
 			<textarea class="textAnswer" name="answer"></textarea>
 		</div>
+		<div class="radio">
+			<label><input type="radio" name="faq" value="1">FAQに登録する</label>
+			<label><input type="radio" name="faq" value="0">FAQに登録しない</label>
+		</div>
+		<div class="button">
+			<input type="submit" name="submit_response" value="登録">
+		</div>
 	</form>
-	<div class="radio">
-		<label><input type="radio" name="emergent" value="1">FAQに登録する</label>
-		<label><input type="radio" name="emergent" value="0">FAQに登録しない</label>
-	</div>
-	<div class="button">
-		<input type="submit" name="submit_response" value="登録">
-	</div>
 	<jsp:include page="/WEB-INF/jsp/footer.jsp" />
 </div>
 </body>
