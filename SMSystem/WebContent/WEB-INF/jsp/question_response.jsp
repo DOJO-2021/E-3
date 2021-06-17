@@ -3,23 +3,25 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
+
 <head>
 <meta charset="UTF-8">
 <title>回答記入｜SMSystem</title>
+<link rel="stylesheet" href="css/common.css">
 <link rel="stylesheet" href="css/question_response.css">
 </head>
+
 <body>
 <jsp:include page="/WEB-INF/jsp/header_teacher.jsp" />
 <div class="wrapper">
-<form method="POST" action="/SMSystem/Question_ResponseServlet">
-	<div class="question">
-		<p><span class="under">質問</span></p>
-		<input type="text" class="textquestion" name="question" value="${all_question}" readonly>
-	</div>
+	<form method="POST" action="/SMSystem/Question_UpdateServlet">
+		<div class="question">
+			<p><span class="under">質問</span></p>
+			<input type="text" class="textquestion" name="question" value="${all_question}" readonly>
+		</div>
 		<div class="answer">
 			<p><span class="under">回答</span></p>
-			<!-- <input type="hidden" name="question_id" value="${question_id}"> -->
-			<input type="text" class="textAnswer" name="answer">
+			<textarea name="answer"></textarea>
 		</div>
 		<div class="radio">
 			<label><input type="radio" name="faq" value="1">FAQに登録する</label>

@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>受講者一覧 | SMSystem</title>
+<link rel="stylesheet" href="css/common.css">
 <link rel = "stylesheet" href = "css/student.css">
 </head>
 <body>
@@ -35,11 +36,16 @@
 
  		</table>
 
-	 	<nav id=pagefeed>
-			<span id="prev"></span>
-			<span id="page"></span>
-			<span id="next"></span>
-		</nav>
+	<ul class="pagination">
+		<form method = "GET" action = "/SMSystem/Student_ListServlet">
+			<li id="prev">＜</li>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li id="next">＞</li>
+		</form>
+    </ul>
+
 
  	</div>
 
@@ -47,40 +53,6 @@
 </main>
 <jsp:include page="/WEB-INF/jsp/footer.jsp" />
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
 
-<script>
-'use strict';
-​
-$(function() {
-  var page = 0;
-  function draw() {
-    $('#page').html(page + 1);
-    $('tr').hide();
-    $('tr:first,tr:gt(' + page * 23 + '):lt(23)').show();
-  }
-  function draw2() {
-    $('#page').html(page + 1);
-    $('tr').hide();
-    $('tr:first,tr:gt(' + page * 24 + '):lt(24)').show();
-  }
-​
-  $('#prev').click(function() {
-    if (page > 0) {
-      page--;
-      draw2();
-    }
-  });
-  $('#next').click(function() {
-    if (page < ($('tr').size() - 1) / 23 - 1) {
-      page++;
-      draw2();
-    }
-  });
-  draw();
-});
-
-
-</script>
 </body>
 </html>

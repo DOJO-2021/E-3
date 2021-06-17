@@ -5,12 +5,13 @@
 <head>
 <meta charset="UTF-8">
 <title>ログイン | SMSystem</title>
-<link rel="stylesheet" href="/SMSystem/css/login.css">
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/login.css">
 
 </head>
 <body>
 
-<h1>受講者管理システム</h1>
+<p class="title">受講者管理システム</p>
 <p>ログイン</p>
 	<form method = "POST" action = "/SMSystem/LoginServlet" id="form">
 		<table class="profile">

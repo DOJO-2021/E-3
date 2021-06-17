@@ -6,12 +6,13 @@
 <head>
 <meta charset="UTF-8">
 <title>プロフィール確認 | SMSystem</title>
+<link rel="stylesheet" href="css/common.css">
 <link rel ="stylesheet" href ="css/profile2.css">
 
 </head>
 <body>
 
-<h1>受講者管理システム</h1>
+<p class="title">受講者管理システム</p>
 
 <h3>プロフィール確認</h3>
 <c:forEach var = "e" items = "${userProfileList}">

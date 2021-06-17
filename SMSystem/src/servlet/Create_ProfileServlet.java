@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,8 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.ProfileDao;
-import model.LoginUser;
+import dao.UserDao;
 import model.Profile;
+import model.User;
 /**
  * Servlet implementation class Create_profileServlet
  */
@@ -49,7 +51,11 @@ public class Create_ProfileServlet extends HttpServlet {
 		 if(pDao.insert(new Profile(user_id, user_blood,user_career, user_club, user_hobby, user_intro))) {
 			 //セッションスコープにIDを格納する
 			 HttpSession session = request.getSession();
-			 session.setAttribute("id", new LoginUser(user_id));
+			 session.setAttribute("id", user_id);
+			 UserDao UDao = new UserDao();
+			 List<User> userInfo = UDao.select_user(new User(0,user_id,"","","","","","",""));
+			 session.setAttribute("usrInfo", userInfo);
+
 			 		//メニュー受講生サーブレットにリダイレクトする
 					response.sendRedirect("/SMSystem/Menu_StudentServlet");
 		 }

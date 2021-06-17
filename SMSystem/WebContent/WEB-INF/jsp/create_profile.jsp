@@ -6,10 +6,11 @@
 <head>
 <meta charset="UTF-8">
 <title>プロフィール記入 | SMSystem</title>
+<link rel="stylesheet" href="css/common.css">
 <link rel ="stylesheet" href ="css/profile.css">
 </head>
 <body>
-<h1>受講者管理システム</h1>
+<p class="title">受講者管理システム</p>
 <div class="box">
 <p>プロフィール記入</p>
 	<form method = "POST" action = "/SMSystem/Create_ProfileServlet">
@@ -48,9 +49,6 @@
 		<div class ="button">
 			<input type = "submit" name = "submit_create" value ="登録">
 		</div>
-
-
-
 	</form>
 	</div>
 </body>

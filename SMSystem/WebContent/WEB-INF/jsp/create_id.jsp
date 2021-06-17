@@ -4,11 +4,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Create_id | SMSystem</title>
+<title>ユーザ登録 | SMSystem</title>
+<link rel="stylesheet" href="css/common.css">
 <link rel ="stylesheet" href ="css/profile.css">
 </head>
 <body>
-<h1>受講者管理システム</h1>
+<p class=title>受講者管理システム</p>
 <div class="box">
 <form method ="post"action="/SMSystem/Create_IdServlet" class="form_createID" id="form">
 <br><br>

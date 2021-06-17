@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>質問記入 | SMSystem</title>
+<link rel="stylesheet" href="css/common.css">
 <link rel ="stylesheet" href ="css/question_fillin.css">
 </head>
 <body>
@@ -13,7 +14,9 @@
 <br>
 <br>
 <div class = "box">
-<input class = "text" type = "text" name = "student_name" placeholder = "氏名">
+<c:forEach var = "e" items = "userInfo">
+<input class = "text" type = "text" name = "student_name" value = "${e.user_name}" readonly>
+</c:forEach>
 
 <form method = "POST" action = "/SMSystem/Question_FillinServlet">
 <input type = "hidden" name = "user_id" value = "${sessionScope.id}">

@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>FAQ登録 | SMSystem</title>
+<link rel="stylesheet" href="css/common.css">
 <link rel ="stylesheet" href ="css/question_fillin.css">
 </head>
 <body>

@@ -44,8 +44,8 @@ public class Question_UpdateServlet extends HttpServlet {
 		All_QuestionDao aqDao = new All_QuestionDao();
 		if (submit.equals("登録")) {
 			if (aqDao.update_question(new All_Question(0, "", "", question, answer, faq, "", 0, ""))) {
-				// 質問一覧画面にリダイレクト
-				response.sendRedirect("/SMSystem/Question_ListServlet");
+					// 質問一覧画面にリダイレクト
+					response.sendRedirect("/SMSystem/Question_ListServlet");
 			}
 		}
 

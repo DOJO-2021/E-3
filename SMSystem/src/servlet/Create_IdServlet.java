@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.regex.Pattern;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -52,9 +53,16 @@ public class Create_IdServlet extends HttpServlet {
 	String user_pw = request.getParameter("user_pw");
 	String user_class = request.getParameter("user_class");
 
+	// 正規化
+	  String pass = user_pw;
+	  Pattern pattern = Pattern.compile("^[a-zA-Z0-9]{8,16}$");
+	 if(pattern.matcher(pass).matches()) {
+
+
+
 	// 登録を行う
 	  UserDao uDao = new UserDao();
-	  if(uDao.insert(new User(0,user_id,user_pw, user_name, user_name_kana, user_company, user_company_kana, user_class,user_role))) {
+	    if(uDao.insert(new User(0, user_id, user_pw, user_name, user_name_kana, user_company, user_company_kana, user_class,user_role))) {
 
 
 			  if(user_role.equals("0")) {
@@ -69,9 +77,13 @@ public class Create_IdServlet extends HttpServlet {
 				  RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/create_profile.jsp");
 				dispatcher.forward(request, response);
 			  }
-		  } else {
+		   else {
 			  response.sendRedirect("/SMSystem/LoginServlet");
 		  }
+	    }
+	} else {
+		response.sendRedirect("/SMSystem/LoginServlet");
+	}
 	}
 }
 

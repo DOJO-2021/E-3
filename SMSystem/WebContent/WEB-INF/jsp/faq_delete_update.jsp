@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>FAQ編集 | SMSystem</title>
+<link rel="stylesheet" href="css/common.css">
 <link rel ="stylesheet" href ="css/faq_delete_update.css">
 </head>
 <body>

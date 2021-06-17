@@ -439,7 +439,7 @@ public class All_QuestionDao {
 
 			// UPDATE文を準備する
 			//String sql = "UPDATE ALL_QUESTION SET ANSWER = ?, FAQ = ?, ANSWERED = '1' WHERE QUESTION_ID = ? ";
-			String sql = "UPDATE ALL_QUESTION SET ANSWER = ?, FAQ = ? , ANSWER = '1' WHERE QUESTION = ? ";
+			String sql = "UPDATE ALL_QUESTION SET ANSWER = ?, FAQ = ? , ANSWERED = '1' WHERE QUESTION = ? ";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			if (all_question.getAnswer() != null && !all_question.getAnswer().equals("")) {

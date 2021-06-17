@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>受講者一覧 | SMSystem</title>
+<link rel="stylesheet" href="css/common.css">
 <link rel = "stylesheet" href = "css/student.css">
 </head>
 <body>

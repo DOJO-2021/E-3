@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>質問回答確認 | SMSystem</title>
+<link rel="stylesheet" href="css/common.css">
 <link rel ="stylesheet" href ="css/question_answer.css">
 </head>
 <body>

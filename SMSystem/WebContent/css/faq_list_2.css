@@ -1,10 +1,5 @@
 @charset "UTF-8";
 
-/*背景色*/
-body{
-	background-color: #F5F5F5;
-}
-/*画面の白い部分*/
 h1 {
 	text-align: center;
 }

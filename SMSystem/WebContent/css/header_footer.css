@@ -1,17 +1,5 @@
 @charset "UTF-8";
 
-/* 全体に適用 */
-body {
-	background-color: #F5F5F5;
-}
-
-/* 受講者管理システム の文字 */
-.title {
-	text-align: center;
-	font-size: 30px;
-	color: black;
-}
-
 /* ドロップダウンナビゲーションの設定 */
 #nav {
 	list-style-type: none;

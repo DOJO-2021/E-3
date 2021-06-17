@@ -74,51 +74,17 @@ public class All_QuestionDaoTest {
 		System.out.println("削除失敗！");
 	}
 
-
-	// 「質問記入画面（受講者））」insert()のテスト OK
-	//(id,"user_id","genre","question","answer","faq","emergent",question_id)
-	System.out.println("---「質問記入画面（受講者））」insert()のテスト---");
-	All_Question insertQuestion = new All_Question(0, "", "3", "QUESTION", "", "", "0",  0, "");
-	if (dao.insert_question(insertQuestion)) {
-		System.out.println("登録成功！");
-		List<All_Question> all_questionQuestion_insertList = dao.select_question(insertQuestion);
-		for (All_Question question_insert : all_questionQuestion_insertList) {
-			System.out.println("id：" + question_insert.getId());
-			System.out.println("user_id：" + question_insert.getUser_id());
-			System.out.println("genre：" + question_insert.getGenre());
-			System.out.println("question：" + question_insert.getQuestion());
-			System.out.println("answer：" + question_insert.getAnswer());
-			System.out.println("faq：" + question_insert.getFaq());
-			System.out.println("emergent：" + question_insert.getEmergent());
-			System.out.println("question_id：" + question_insert.getQuestion_id());
-			System.out.println();
-		}
-	}
-	else {
-		System.out.println("登録失敗！");
-	}
-
-
 	//「質問回答記入画面（講師）」select()のテスト OK
 	System.out.println("---「質問回答記入画面（講師）」select()のテスト---");
-	List<All_Question> all_questionQuestion_selectList = dao.select_question(new All_Question(0, "", "", "", "", "", "", 0, ""));
-	for (All_Question question_select : all_questionQuestion_selectList) {
-		System.out.println("id：" + question_select.getId());
-		System.out.println("user_id: " + question_select.getUser_id());
-		System.out.println("genre：" + question_select.getGenre());
-		System.out.println("question：" + question_select.getQuestion());
-		System.out.println("answer：" + question_select.getAnswer());
-		System.out.println("faq：" + question_select.getFaq());
-		System.out.println("emergent：" + question_select.getEmergent());
-		System.out.println("question_id：" + question_select.getQuestion_id());
-		System.out.println();
-	}
+	All_Question aq = new All_Question(0, "", "", "", "", "", "", 1,"");
+	String all_questionQuestion_select = dao.select_question(aq);
+	System.out.println("question:" + aq.getQuestion());
 
 
 	//「質問回答記入画面（講師）」update()のテスト OK
 	//(id,"user_id","genre","question","answer","faq","emergent",question_id)
 	System.out.println("---「質問回答記入画面（講師）」update()のテスト---");
-	All_Question updateQuestion = new All_Question(0, "", "", "", "ANSWER", "1", "", 0, "");
+	All_Question updateQuestion = new All_Question(0, "", "", "", "ANSWER", "1", "", 0, "1");
 	if (dao.update_question(updateQuestion)) {
 		System.out.println("更新成功！");
 	}
@@ -127,10 +93,10 @@ public class All_QuestionDaoTest {
 	}
 
 
-	// 「」select()のテスト OK
+	// 「質問回答画面（受講者）」select()のテスト OK
 	//(id,"user_id","genre","question","answer","faq","emergent",question_id)
 	System.out.println("---「」select()のテスト---");
-	List<All_Question> all_questionIdList = dao.select_questionUser_id(new All_Question(0, "a", "", "", "", "", "", 0, ""));
+	List<All_Question> all_questionIdList = dao.select_questionUser_id(new All_Question(0, "YAMADA", "", "", "", "", "", 0, ""));
 	for (All_Question questionId_select : all_questionIdList) {
 		System.out.println("id：" + questionId_select.getId());
 		System.out.println("user_id: " + questionId_select.getUser_id());

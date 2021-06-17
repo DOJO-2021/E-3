@@ -4,8 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="css/question_list.css">
 <title>質問一覧｜SMSystem</title>
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/question_list.css">
 </head>
 <body>
 <jsp:include page="/WEB-INF/jsp/header_teacher.jsp" />

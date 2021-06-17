@@ -3,14 +3,16 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
+
 <head>
 <meta charset="UTF-8">
 <title>FAQ一覧 | SMSystem</title>
-<link rel="stylesheet" href="/SMSystem/css/faq_list_2.css">
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/faq_list_2.css">
 </head>
-<body>
-<h1>FAQ</h1>
 
+<body>
+<p class="title">FAQ</p>
 <main>
 <c:forEach var="f" items="${faqList}">
   <div class="question">

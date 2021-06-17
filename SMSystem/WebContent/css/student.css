@@ -1,7 +1,5 @@
 @charset "UTF-8";
-body{
-	background-color:F5F5F5;
-}
+
 .wrapper{
 	margin: 0 auto 0 auto;
 	max-width: 960px;
@@ -84,4 +82,21 @@ input[type = "text"]{
 p{
 	margin: 0 auto 0 auto;
 	max-width:700px;
+}
+
+
+
+
+
+
+
+/* ページャー */
+.pagination {
+    list-style: none;
+}
+
+.pagination li {
+    display: inline-block;
+    margin: 0 0.5em;
+    cursor: pointer;
 }
