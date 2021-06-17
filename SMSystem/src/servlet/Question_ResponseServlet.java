@@ -39,7 +39,7 @@ public class Question_ResponseServlet extends HttpServlet {
 		//String question = request.getParameter("getQuestion");
 
 		All_QuestionDao aqDao = new All_QuestionDao();
-		String question = aqDao.select_question(new All_Question(0,"","","","","","",question_id));
+		String question = aqDao.select_question(new All_Question(0,"","","","","","",question_id,""));
 		request.setAttribute("all_question", question);
 
 		// フォワードする

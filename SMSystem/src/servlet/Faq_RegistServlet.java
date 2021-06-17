@@ -37,7 +37,7 @@ public class Faq_RegistServlet extends HttpServlet {
 		String answer = request.getParameter("answer");
 
 		All_QuestionDao aDao = new All_QuestionDao();
-		if(aDao.insert_faq(new All_Question(0,"",genre,question,answer,"1","",0))) {
+		if(aDao.insert_faq(new All_Question(0,"",genre,question,answer,"1","",0,""))) {
 			response.sendRedirect("/SMSystem/Menu_TeacherServlet");
 		}
 	}

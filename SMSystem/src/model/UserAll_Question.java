@@ -11,9 +11,10 @@ public class UserAll_Question implements Serializable{
 	private String question;
 	private String emergent;
 	private int question_id;
+	private String answered;
 
 	//引数があるコンストラクタ
-	public UserAll_Question(String user_id, String user_name, String user_class, String genre, String question, String emergent, int question_id) {
+	public UserAll_Question(String user_id, String user_name, String user_class, String genre, String question, String emergent, int question_id, String answered) {
 		super();
 		this.user_id = user_id;
 		this.user_name = user_name;
@@ -22,6 +23,7 @@ public class UserAll_Question implements Serializable{
 		this.question = question;
 		this.emergent = emergent;
 		this.question_id = question_id;
+		this.answered = answered;
 	}
 
 	//引数がないコンストラクタ（デフォルトコンストラクタ）
@@ -34,6 +36,7 @@ public class UserAll_Question implements Serializable{
 		this.question = "";
 		this.emergent = "";
 		this.question_id = 0;
+		this .answered = "";
 	}
 
 	//getter/setter
@@ -91,6 +94,14 @@ public class UserAll_Question implements Serializable{
 
 	public void setQuestion_id(int question_id) {
 		this.question_id = question_id;
+	}
+
+	public String getAnswered() {
+		return answered;
+	}
+
+	public void setAnswered(String answered) {
+		this.answered = answered;
 	}
 
 }

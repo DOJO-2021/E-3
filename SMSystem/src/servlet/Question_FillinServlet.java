@@ -54,7 +54,7 @@ public class Question_FillinServlet extends HttpServlet {
 
 		//登録処理を行う
 		All_QuestionDao qDao = new All_QuestionDao();
-		if(qDao.insert_question(new All_Question(0, user_id, genre, question, "", "", emergent, 0))) {
+		if(qDao.insert_question(new All_Question(0, user_id, genre, question, "", "", emergent, 0, ""))) {
 			//質問投稿画面にリダイレクト
 			response.sendRedirect("/SMSystem/Question_UpServlet");
 }

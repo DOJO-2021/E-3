@@ -2,6 +2,7 @@ package servlet;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,7 +23,9 @@ public class Question_UpdateServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		// フォワードする
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/question_response.jsp");
+		dispatcher.forward(request, response);
 	}
 
 	/**
@@ -35,15 +38,17 @@ public class Question_UpdateServlet extends HttpServlet {
 		String question = request.getParameter("question");
 		String answer = request.getParameter("answer");
 		String faq = request.getParameter("faq");
-		String question_id1 = request.getParameter("question_id");
-		int question_id = Integer.parseInt(question_id1);
+		String submit = request.getParameter("submit_response");
 
 		// 更新処理を行う
 		All_QuestionDao aqDao = new All_QuestionDao();
-		if (aqDao.update_question(new All_Question(0, "", "", question, answer, faq, "", question_id))) {
-			// 質問一覧画面にリダイレクト
-			response.sendRedirect("/SMSystem/Question_ListServlet");
+		if (submit.equals("登録")) {
+			if (aqDao.update_question(new All_Question(0, "", "", question, answer, faq, "", 0, ""))) {
+				// 質問一覧画面にリダイレクト
+				response.sendRedirect("/SMSystem/Question_ListServlet");
+			}
 		}
+
 
 	}
 

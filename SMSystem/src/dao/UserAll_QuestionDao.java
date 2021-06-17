@@ -23,7 +23,7 @@ public class UserAll_QuestionDao {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/SMSystem", "sa", "");
 
 			// SELECT文を準備する
-			String sql = "SELECT * FROM USER INNER JOIN ALL_QUESTION ON USER.USER_ID = ALL_QUESTION.USER_ID WHERE USER_CLASS = ? AND EMERGENT = '0' ORDER BY ALL_QUESTION.QUESTION_ID DESC";
+			String sql = "SELECT * FROM USER INNER JOIN ALL_QUESTION ON USER.USER_ID = ALL_QUESTION.USER_ID WHERE USER_CLASS = ? AND EMERGENT = '0' AND ANSWERED = '0' ORDER BY ALL_QUESTION.QUESTION_ID DESC";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			if (userAll_question.getUser_class() != null && !userAll_question.getUser_class().equals("")) {
@@ -45,6 +45,7 @@ public class UserAll_QuestionDao {
 				String question = rs.getString("QUESTION");
 				String emergent = rs.getString("EMERGENT");
 				int question_id = rs.getInt("QUESTION_ID");
+				String answered = rs.getString("ANSWERED");
 
 				if(genre.equals("0")) {
 					genre = "ドリル";
@@ -66,7 +67,7 @@ public class UserAll_QuestionDao {
 					genre = "その他";
 				}
 
-				UserAll_Question UserAll_Question = new UserAll_Question(user_id, user_name, user_class, genre, question, emergent, question_id);
+				UserAll_Question UserAll_Question = new UserAll_Question(user_id, user_name, user_class, genre, question, emergent, question_id, answered);
 				userAll_questionEmergentList.add(UserAll_Question);
 			}
 		}
@@ -105,7 +106,7 @@ public class UserAll_QuestionDao {
 				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/SMSystem", "sa", "");
 
 				// SELECT文を準備する
-				String sql = "SELECT * FROM USER INNER JOIN ALL_QUESTION ON USER.USER_ID = ALL_QUESTION.USER_ID WHERE USER_CLASS = ? AND EMERGENT = '1' ORDER BY ALL_QUESTION.QUESTION_ID DESC";
+				String sql = "SELECT * FROM USER INNER JOIN ALL_QUESTION ON USER.USER_ID = ALL_QUESTION.USER_ID WHERE USER_CLASS = ? AND EMERGENT = '1' AND ANSWERED = '0' ORDER BY ALL_QUESTION.QUESTION_ID DESC";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
 				if (userAll_question.getUser_class() != null && !userAll_question.getUser_class().equals("")) {
@@ -127,6 +128,7 @@ public class UserAll_QuestionDao {
 					String question = rs.getString("QUESTION");
 					String emergent = rs.getString("EMERGENT");
 					int question_id = rs.getInt("QUESTION_ID");
+					String answered = rs.getString("ANSWERED");
 
 					if(genre.equals("0")) {
 						genre = "ドリル";
@@ -148,7 +150,7 @@ public class UserAll_QuestionDao {
 						genre = "その他";
 					}
 
-					UserAll_Question UserAll_Question = new UserAll_Question(user_id, user_name, user_class, genre, question, emergent, question_id);
+					UserAll_Question UserAll_Question = new UserAll_Question(user_id, user_name, user_class, genre, question, emergent, question_id, answered);
 					userAll_questionNotEmergentList.add(UserAll_Question);
 				}
 			}

@@ -12,7 +12,7 @@ public class All_QuestionDaoTest {
 	// 「FAQ画面（受講者）」select()のテスト OK
 	//(id,"user_id","genre","question","answer","faq","emergent",question_id)
 	System.out.println("---「FAQ画面（受講者）」select()のテスト---");
-	List<All_Question> all_questionFaq_selectList = dao.select_faq(new All_Question(0, "", "3", "", "", "1", "", 0));
+	List<All_Question> all_questionFaq_selectList = dao.select_faq(new All_Question(0, "", "3", "", "", "1", "", 0, ""));
 	for (All_Question faq_select : all_questionFaq_selectList) {
 		System.out.println("id：" + faq_select.getId());
 		System.out.println("user_id: " + faq_select.getUser_id());
@@ -22,20 +22,21 @@ public class All_QuestionDaoTest {
 		System.out.println("faq：" + faq_select.getFaq());
 		System.out.println("emergent：" + faq_select.getEmergent());
 		System.out.println("question_id：" +faq_select.getQuestion_id());
+		System.out.println("answered：" + faq_select.getAnswered());
 		System.out.println();
 	}
 
 	// 「FAQ画面（受講者）」件数カウント select()のテスト OK
 	//(id,"user_id","genre","question","answer","faq","emergent",question_id)
 		System.out.println("---「FAQ画面（受講者）」件数カウント select()のテスト---");
-		int count = dao.select_count(new All_Question(0, "", "3", "", "", "1", "", 0));
+		int count = dao.select_count(new All_Question(0, "", "3", "", "", "1", "", 0, ""));
 		System.out.println(count);
 
 
 	// 「FAQ登録画面（講師）」insert()のテスト OK
 	//(id,"user_id","genre","question","answer","faq","emergent",question_id)
 	System.out.println("---「FAQ登録画面（講師）」insert()のテスト---");
-	All_Question insertFaq = new All_Question(0, "", "", "", "ANSWERANSWER", "", "",  0);
+	All_Question insertFaq = new All_Question(0, "", "", "", "ANSWERANSWER", "", "",  0, "");
 	if (dao.insert_faq(insertFaq)) {
 		System.out.println("登録成功！");
 
@@ -55,7 +56,7 @@ public class All_QuestionDaoTest {
 	// 「FAQ編集画面（講師）」update()のテスト OK
 	//(id,"user_id","genre","question","answer","faq","emergent",question_id)
 	System.out.println("---「FAQ編集画面（講師）」update()のテスト---");
-	All_Question updateFaq = new All_Question(3, "", "", "", "ANSWERANSWERANSWER", "", "", 3);
+	All_Question updateFaq = new All_Question(3, "", "", "", "ANSWERANSWERANSWER", "", "", 3, "");
 	if (dao.update_faq(updateFaq)) {
 		System.out.println("更新成功！");
 	}
@@ -77,7 +78,7 @@ public class All_QuestionDaoTest {
 	// 「質問記入画面（受講者））」insert()のテスト OK
 	//(id,"user_id","genre","question","answer","faq","emergent",question_id)
 	System.out.println("---「質問記入画面（受講者））」insert()のテスト---");
-	All_Question insertQuestion = new All_Question(0, "", "3", "QUESTION", "", "", "0",  0);
+	All_Question insertQuestion = new All_Question(0, "", "3", "QUESTION", "", "", "0",  0, "");
 	if (dao.insert_question(insertQuestion)) {
 		System.out.println("登録成功！");
 		List<All_Question> all_questionQuestion_insertList = dao.select_question(insertQuestion);
@@ -100,7 +101,7 @@ public class All_QuestionDaoTest {
 
 	//「質問回答記入画面（講師）」select()のテスト OK
 	System.out.println("---「質問回答記入画面（講師）」select()のテスト---");
-	List<All_Question> all_questionQuestion_selectList = dao.select_question(new All_Question(0, "", "", "", "", "", "", 0));
+	List<All_Question> all_questionQuestion_selectList = dao.select_question(new All_Question(0, "", "", "", "", "", "", 0, ""));
 	for (All_Question question_select : all_questionQuestion_selectList) {
 		System.out.println("id：" + question_select.getId());
 		System.out.println("user_id: " + question_select.getUser_id());
@@ -117,7 +118,7 @@ public class All_QuestionDaoTest {
 	//「質問回答記入画面（講師）」update()のテスト OK
 	//(id,"user_id","genre","question","answer","faq","emergent",question_id)
 	System.out.println("---「質問回答記入画面（講師）」update()のテスト---");
-	All_Question updateQuestion = new All_Question(0, "", "", "", "ANSWER", "1", "", 0);
+	All_Question updateQuestion = new All_Question(0, "", "", "", "ANSWER", "1", "", 0, "");
 	if (dao.update_question(updateQuestion)) {
 		System.out.println("更新成功！");
 	}
@@ -129,7 +130,7 @@ public class All_QuestionDaoTest {
 	// 「」select()のテスト OK
 	//(id,"user_id","genre","question","answer","faq","emergent",question_id)
 	System.out.println("---「」select()のテスト---");
-	List<All_Question> all_questionIdList = dao.select_questionUser_id(new All_Question(0, "a", "", "", "", "", "", 0));
+	List<All_Question> all_questionIdList = dao.select_questionUser_id(new All_Question(0, "a", "", "", "", "", "", 0, ""));
 	for (All_Question questionId_select : all_questionIdList) {
 		System.out.println("id：" + questionId_select.getId());
 		System.out.println("user_id: " + questionId_select.getUser_id());

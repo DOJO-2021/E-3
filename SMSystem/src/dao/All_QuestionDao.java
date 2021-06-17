@@ -47,7 +47,8 @@ public class All_QuestionDao {
 				String faq = rs.getString("FAQ");
 				String emergent = rs.getString("EMERGENT");
 				int question_id = rs.getInt("QUESTION_ID");
-				All_Question All_Question = new All_Question(id, user_id, genre, question, answer, faq, emergent, question_id);
+				String answered = rs.getString("ANSWERED");
+				All_Question All_Question = new All_Question(id, user_id, genre, question, answer, faq, emergent, question_id, answered);
 				all_questionList.add(All_Question);
 			}
 		}
@@ -137,7 +138,7 @@ public class All_QuestionDao {
 			Class.forName("org.h2.Driver");
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/SMSystem", "sa", "");
 			//INSERT文を準備
-			String sql = "INSERT INTO all_question VALUES (null,'',?,?,?,'1','',null)";
+			String sql = "INSERT INTO all_question VALUES (null,'',?,?,?,'1','',null,'1')";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			//SQL文
@@ -314,7 +315,7 @@ public class All_QuestionDao {
 			Class.forName("org.h2.Driver");
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/SMSystem", "sa", "");
 			//INSERT文を準備
-			String sql = "INSERT INTO all_question VALUES (null,?,?,?,'','',?,null)";
+			String sql = "INSERT INTO all_question VALUES (null,?,?,?,'','',?,null,'0')";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			//SQL文
@@ -385,7 +386,7 @@ public class All_QuestionDao {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/SMSystem", "sa", "");
 
 			// SELECT文を準備する
-			String sql = "SELECT QUESTION FROM ALL_QUESTION WHERE QUESTION_ID = ?";
+			String sql = "SELECT QUESTION FROM ALL_QUESTION WHERE QUESTION_ID = ? AND ANSWERED = '0'";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			pStmt.setInt(1, all_question.getQuestion_id());
@@ -437,7 +438,8 @@ public class All_QuestionDao {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/SMSystem", "sa", "");
 
 			// UPDATE文を準備する
-			String sql = "UPDATE ALL_QUESTION SET ANSWER = ?, FAQ = ? WHERE QUESTION_ID = ? ";
+			//String sql = "UPDATE ALL_QUESTION SET ANSWER = ?, FAQ = ?, ANSWERED = '1' WHERE QUESTION_ID = ? ";
+			String sql = "UPDATE ALL_QUESTION SET ANSWER = ?, FAQ = ? , ANSWER = '1' WHERE QUESTION = ? ";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			if (all_question.getAnswer() != null && !all_question.getAnswer().equals("")) {
@@ -453,7 +455,8 @@ public class All_QuestionDao {
 				pStmt.setString(2, null);
 			}
 
-			pStmt.setInt(3, all_question.getQuestion_id());
+			//pStmt.setInt(3, all_question.getQuestion_id());
+			pStmt.setString(3, all_question.getQuestion());
 
 			/*
 			String question_id = String.valueOf(all_question.getQuestion_id());
@@ -495,7 +498,7 @@ public class All_QuestionDao {
 
 
 
-	//「」表示→DB(select) OK
+	//「質問回答(受講者)」表示→DB(select) OK
 	public List<All_Question> select_questionUser_id(All_Question all_question) {
 		Connection conn = null;
 		List<All_Question> all_questionIdList = new ArrayList<All_Question>();
@@ -529,7 +532,8 @@ public class All_QuestionDao {
 				String faq = rs.getString("FAQ");
 				String emergent = rs.getString("EMERGENT");
 				int question_id = rs.getInt("QUESTION_ID");
-				All_Question All_Question = new All_Question(id, user_id, genre, question, answer, faq, emergent, question_id);
+				String answered = rs.getString("ANSWERED");
+				All_Question All_Question = new All_Question(id, user_id, genre, question, answer, faq, emergent, question_id, answered);
 				all_questionIdList.add(All_Question);
 			}
 		}

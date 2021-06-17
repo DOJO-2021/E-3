@@ -32,7 +32,7 @@ public class Question_AnswerServlet extends HttpServlet {
 		String user_id = O.toString();
 
 		All_QuestionDao ADao=new All_QuestionDao();
-		List<All_Question> Alist = ADao.select_questionUser_id(new All_Question(0,user_id,"","","","","",0));
+		List<All_Question> Alist = ADao.select_questionUser_id(new All_Question(0,user_id,"","","","","",0,""));
 		request.setAttribute("Alist",Alist);
 		//セッションIDを取得する
 

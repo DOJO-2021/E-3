@@ -38,7 +38,7 @@ public class Question_ListServlet extends HttpServlet {
 		String user_class = request.getParameter("user_class");
 
 		UserAll_QuestionDao uaqDao = new UserAll_QuestionDao();
-		UserAll_Question uaq = new UserAll_Question("", "", user_class,  "", "", "", 0);
+		UserAll_Question uaq = new UserAll_Question("", "", user_class,  "", "", "", 0, "");
 		List<UserAll_Question> userAll_questionList = uaqDao.select_emergent(uaq);
 		List<UserAll_Question> userAll_questionList2 = uaqDao.select_not_emergent(uaq);
 

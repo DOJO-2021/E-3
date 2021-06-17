@@ -36,7 +36,7 @@ public class Faq_EditServlet extends HttpServlet {
 
 
 		All_QuestionDao ADao = new All_QuestionDao();
-		All_Question aQ = new All_Question(0,"",ganre,"","","","",0);
+		All_Question aQ = new All_Question(0,"",ganre,"","","","",0,"");
 		List<All_Question> faqList = ADao.select_faq(aQ);
 		int count = ADao.select_count(aQ);
 		request.setAttribute("count", count);
