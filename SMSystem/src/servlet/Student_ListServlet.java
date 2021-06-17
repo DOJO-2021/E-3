@@ -30,6 +30,7 @@ public class Student_ListServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
 		String user_id = request.getParameter("user_id");
 
 		UserProfileDao upDao = new UserProfileDao();

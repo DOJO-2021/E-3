@@ -30,18 +30,21 @@ public class Faq_Delete_UpdateServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
 		String QUESTION_ID= request.getParameter("question_id");
 		int question_id = Integer.parseInt(QUESTION_ID);
-		String question = request.getParameter("question");
+
 		String answer = request.getParameter("answer");
+		String submit = request.getParameter("SUBMIT");
 
 		All_QuestionDao ADao = new All_QuestionDao();
-		if(request.getParameter("submit").equals("削除")) {
-			if(ADao.delete_faq(question_id)){
+		if(submit.equals("登録"))  {
+			if(ADao.update_faq(new All_Question(0,"","","",answer,"","",question_id))) {
 				response.sendRedirect("/SMSystem/Menu_TeacherServlet");
 			}
+
 		}else {
-			if(ADao.update_faq(new All_Question(0,"","",question,answer,"","",0))) {
+			if(ADao.delete_faq(question_id)){
 				response.sendRedirect("/SMSystem/Menu_TeacherServlet");
 			}
 		}

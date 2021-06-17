@@ -15,8 +15,8 @@
 <c:forEach var="f" items="${faqList}">
   <div id="faq_table">
     <dl>
-      <dt><textarea>${f.question}></textarea></dt>
-      <dd><textarea>${f.answer}</textarea></dd>
+      <dt><textarea readonly>${f.question} </textarea></dt>
+      <dd><textarea readonly>${f.answer}</textarea></dd>
     </dl>
   </div>
 </c:forEach>

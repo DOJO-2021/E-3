@@ -31,6 +31,7 @@ public class Faq_RegistServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
 		String genre = request.getParameter("genre");
 		String question = request.getParameter("question");
 		String answer = request.getParameter("answer");

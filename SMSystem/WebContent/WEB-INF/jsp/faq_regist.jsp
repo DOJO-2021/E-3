@@ -5,8 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <title>FAQ登録 | SMSystem</title>
+<link rel ="stylesheet" href ="css/question_fillin.css">
 </head>
 <body>
+<jsp:include page="/WEB-INF/jsp/header_student.jsp" />
+<div class = "box">
 <p>ジャンルを選択してください
 <form method = "POST" action = "/SMSystem/Faq_RegistServlet">
 <select name = "genre">
@@ -39,7 +42,11 @@
 <td><textarea name = "answer"></textarea></td>
 </tr>
 </table>
+<div class = "button">
 <input type = "submit" name ="regist" value = "登録">
+</div>
 </form>
+</div>
+<jsp:include page="/WEB-INF/jsp/footer.jsp" />
 </body>
 </html>

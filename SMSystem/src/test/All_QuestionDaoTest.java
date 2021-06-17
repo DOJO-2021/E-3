@@ -66,7 +66,7 @@ public class All_QuestionDaoTest {
 
 	// 「FAQ編集画面（講師）」delete()のテスト OK
 	System.out.println("---「FAQ編集画面（講師）」delete()のテスト---");
-	if (dao.delete_faq(5)) {
+	if (dao.delete_faq(3)) {
 		System.out.println("削除成功！");
 	}
 	else {

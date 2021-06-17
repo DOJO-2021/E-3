@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.All_QuestionDao;
+import dao.UserDao;
 import model.All_Question;
 
 
@@ -28,6 +29,11 @@ public class Question_FillinServlet extends HttpServlet {
 		//
 		HttpSession session = request.getSession();
 		session.getAttribute("id");
+
+		Object o = session.getAttribute("id");
+		String user_id = o.toString();
+		UserDao UDao = new UserDao();
+
 		//質問記入ページにフォワードする
 		RequestDispatcher dispatcher =
 				request.getRequestDispatcher("/WEB-INF/jsp/question_fillin.jsp");

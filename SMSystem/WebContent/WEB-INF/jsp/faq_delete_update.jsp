@@ -9,8 +9,9 @@
 </head>
 <body>
 <p>${ganre}に関するFAQ一覧(全${count}件)</p>
-<form method = "POST" action = "/SMSystem/Faq_Delete_UpdateServlete">
 <c:forEach var = "e" items = "${faqList}">
+<form method = "POST" action = "/SMSystem/Faq_Delete_UpdateServlet">
+
 <input type = "hidden" name = "question_id" value = "${e.question_id}">
 <table>
 <tr>
@@ -30,9 +31,10 @@
 </tr>
 </table>
 
-<input type = "submit" name ="submit" value = "登録">
-<input type = "submit" name = "submit" value = "削除">
-</c:forEach>
+<input type = "submit" name ="SUBMIT" value = "登録">
+<input type = "submit" name = "SUBMIT" value = "削除">
+
 </form>
+</c:forEach>
 </body>
 </html>

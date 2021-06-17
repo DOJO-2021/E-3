@@ -17,57 +17,54 @@ p input[type="submit"] {
 	cursor: pointer;
 }
 
-/*table {
-	border-collapse: collapse;
-	margin: 0 auto;
-	max-width: 700px;
-	border: 3px solid black;
-}*/
 table {
 	border-collapse: collapse;
 	margin: 0 auto;
 	max-width: 700px;
+	border: 3px solid black;
+}
+/*table {
+	border-collapse: collapse;
+	margin: 0 auto;
+	width: 700px;
 }
 table, th, td {
 	border: 1px solid black;
 }
 .white0 th, td {
-	background-color: white;
-}
+	background-color: black;
+}*/
 .table-QuestionList {
 	padding: 0;
 }
-/*.orange {
+.orange {
 	background-color: #F4A460;
 	text-align: left;
 	padding: 0px 50px;
 	border-collapse: collapse;
 	border-bottom: 3px solid black;
-}*/
-/*.orange0 {
-	background-color: #F4A460;
-	text-align: left;
-	border-collapse: collapse;
-	border-bottom: 3px solid black;
-}*/
-/*.white {
+}
+.orange0 {
+	display: none;
+}
+.white {
 	background-color: white;
 	padding:0px 50px 0px 50px;
 	border-collapse: collapse;
 	border-bottom: 2px solid black;
 	text-align: center;
 	width: 700px;
-}*/
-/*.white0 {
-	background-color: white;
-}*/
-/*.table-QuestionList td {
+}
+.white0 {
+	display: none;
+}
+.table-QuestionList td {
 	background-color: white;
 	padding:0px 50px 0px 50px;
 	border-collapse: collapse;
 	text-align: center;
 	width: 700px;
-}*/
+}
 .emergent {
 	margin-bottom: 50px;
 }
