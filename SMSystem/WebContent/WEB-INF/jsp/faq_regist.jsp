@@ -15,6 +15,7 @@
 <p>ジャンルを選択してください
 <form method = "POST" action = "/SMSystem/Faq_RegistServlet">
 <select name = "genre">
+	<option value = "">ジャンルを選択してください</option>
 	<option value = "0">ドリル</option>
 	<option value = "1">HTML</option>
 	<option value = "2">CSS</option>

@@ -54,7 +54,7 @@ public class Create_ProfileServlet extends HttpServlet {
 			 session.setAttribute("id", user_id);
 			 UserDao UDao = new UserDao();
 			 List<User> userInfo = UDao.select_user(new User(0,user_id,"","","","","","",""));
-			 session.setAttribute("usrInfo", userInfo);
+			 session.setAttribute("userInfo", userInfo);
 
 			 		//メニュー受講生サーブレットにリダイレクトする
 					response.sendRedirect("/SMSystem/Menu_StudentServlet");

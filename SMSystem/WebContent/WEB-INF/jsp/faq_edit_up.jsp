@@ -4,7 +4,6 @@
 <html>
 <head>
 <title>FAQ編集完了！ | SMSystem</title>
-<link rel="stylesheet" href="css/common.css">
 <link rel ="stylesheet" href ="css/profile2.css">
 </head>
 <body>

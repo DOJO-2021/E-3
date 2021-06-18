@@ -9,12 +9,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.All_Question;
+import model.Table;
 
 public class All_QuestionDao {
 
 
 	//「FAQ画面（受講者）」質問と回答を表示→DB(select) OK
-	public List<All_Question> select_faq(All_Question all_question) {
+	public List<All_Question> select_faq(All_Question all_question, Table table) {
 		Connection conn = null;
 		List<All_Question> all_questionList = new ArrayList<All_Question>();
 
@@ -24,7 +25,7 @@ public class All_QuestionDao {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/SMSystem", "sa", "");
 
 			// SELECT文を準備する
-			String sql = "SELECT * FROM ALL_QUESTION WHERE GENRE = ? AND FAQ = '1'";
+			String sql = "SELECT * FROM ALL_QUESTION WHERE GENRE = ? AND FAQ = '1' LIMIT ?, 2";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			if (all_question.getGenre() != null && !all_question.getGenre().equals("")) {
@@ -33,6 +34,8 @@ public class All_QuestionDao {
 			else {
 				pStmt.setString(1, null);
 			}
+
+			pStmt.setInt(2, table.getRow());
 
 			//SELECT文を実行
 			ResultSet rs = pStmt.executeQuery();
@@ -127,6 +130,73 @@ public class All_QuestionDao {
 
 		return count;
 	}
+
+
+	//「FAQ編集画面（講師）」質問と回答を表示→DB(select)
+		public List<All_Question> select_faqEdit(All_Question all_question, Table table) {
+			Connection conn = null;
+			List<All_Question> all_questionList = new ArrayList<All_Question>();
+
+			//データベースへ接続
+			try {
+				Class.forName("org.h2.Driver");
+				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/SMSystem", "sa", "");
+
+				// SELECT文を準備する
+				String sql = "SELECT * FROM ALL_QUESTION WHERE GENRE = ? AND FAQ = '1' LIMIT ?, 1";
+				PreparedStatement pStmt = conn.prepareStatement(sql);
+
+				if (all_question.getGenre() != null && !all_question.getGenre().equals("")) {
+					pStmt.setString(1, all_question.getGenre());
+				}
+				else {
+					pStmt.setString(1, null);
+				}
+
+				pStmt.setInt(2, table.getRow());
+
+				//SELECT文を実行
+				ResultSet rs = pStmt.executeQuery();
+
+				//SELECT文の結果をArrayListに格納
+				while(rs.next()){
+					int id = rs.getInt("ID");
+					String user_id = rs.getString("USER_ID");
+					String genre = rs.getString("GENRE");
+					String question = rs.getString("QUESTION");
+					String answer = rs.getString("ANSWER");
+					String faq = rs.getString("FAQ");
+					String emergent = rs.getString("EMERGENT");
+					int question_id = rs.getInt("QUESTION_ID");
+					String answered = rs.getString("ANSWERED");
+					All_Question All_Question = new All_Question(id, user_id, genre, question, answer, faq, emergent, question_id, answered);
+					all_questionList.add(All_Question);
+				}
+			}
+			catch (SQLException e) {
+				e.printStackTrace();
+				all_questionList = null;
+			}
+			catch (ClassNotFoundException e) {
+				e.printStackTrace();
+				all_questionList = null;
+			}
+			finally {
+				// データベースを切断
+				if (conn != null) {
+					try {
+						conn.close();
+					}
+					catch (SQLException e) {
+						e.printStackTrace();
+						all_questionList = null;
+					}
+				}
+			}
+
+			return all_questionList;
+		}
+
 
 	//「FAQ登録画面（講師）」講師がFAQを登録→DB（insert）OK
 	public boolean insert_faq(All_Question all_question) {

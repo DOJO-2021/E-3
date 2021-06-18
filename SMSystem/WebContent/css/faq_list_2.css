@@ -1,21 +1,16 @@
 @charset "UTF-8";
 
-h1 {
-	text-align: center;
-}
 /* 質問 */
 .question p {
 	font-size: 25px;
 	margin: 80px auto 13px;
 	max-width: 700px;
-	text-align: center;
 }
 /* 回答 */
 .answer p {
 	font-size: 25px;
 	margin: 0 auto 13px;
 	max-width: 700px;
-	text-align: center;
 }
 .under {
 	border-bottom: dashed 3px #F4A460;
@@ -56,7 +51,7 @@ button:hover{
 	background-color : #F4A460;
 }
 
-/* メニューボタンを真ん中に配置する */
+/* メニューボタン 中央配置 */
 .button {
 	text-align: center;
 }

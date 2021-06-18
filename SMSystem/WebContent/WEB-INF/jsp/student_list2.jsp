@@ -34,6 +34,15 @@
  			</c:forEach>
 
  		</table>
+
+ 	<ul class="pagination">
+		<form method = "GET" action = "/SMSystem/Student_ListServlet2">
+			<input type = "submit" name = "pager" value = "1">
+			<input type = "submit" name = "pager" value = "2">
+			<input type = "submit" name = "pager" value = "3">
+		</form>
+    </ul>
+
  	</div>
 
   </div>

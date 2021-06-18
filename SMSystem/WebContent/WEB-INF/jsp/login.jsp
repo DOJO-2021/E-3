@@ -1,26 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
 <meta charset="UTF-8">
 <title>ログイン | SMSystem</title>
 <link rel="stylesheet" href="css/common.css">
 <link rel="stylesheet" href="css/login.css">
-
 </head>
-<body>
 
-<p class="title">受講者管理システム</p>
+<body>
+<p class="title"><img src="img/title.png" alt="SMSystem" class="title2"></p>
 <p>ログイン</p>
 	<form method = "POST" action = "/SMSystem/LoginServlet" id="form">
 		<table class="profile">
 		<tr>
-		<th><img src ="img/id.png" alt = "ID"></th>
+		<th><img src ="img/id.png" alt = "ID" class="img"></th>
 			<td><input type = "text" name = "user_id" placeholder = "ID"></td>
 		</tr>
 		<tr>
-		<th><img src ="img/password.png" alt = "PW"></th>
+		<th><img src ="img/password.png" alt = "PW" class="img"></th>
 			<td><input type = "password" name = "user_pw" placeholder = "password"></td>
 		</tr>
 		</table>

@@ -38,13 +38,14 @@
 
 	<ul class="pagination">
 		<form method = "GET" action = "/SMSystem/Student_ListServlet">
-			<li id="prev">＜</li>
-			<li>1</li>
-			<li>2</li>
-			<li>3</li>
-			<li id="next">＞</li>
+			<input type = "submit" name = "pager" value = "1">
+			<input type = "submit" name = "pager" value = "2">
+			<input type = "submit" name = "pager" value = "3">
 		</form>
     </ul>
+
+
+	<!-- <a href="/SMSystem/Student_ListServlet?page=1">1</a> -->
 
 
  	</div>

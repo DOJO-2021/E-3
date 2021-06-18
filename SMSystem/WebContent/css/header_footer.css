@@ -28,6 +28,7 @@
 	font-weight: bold;
 	line-height: 1;
 	text-decoration: none;
+
 }
 /* id="header" 内の <li> 内の <ul> に適用 */
 #nav li ul {
@@ -49,6 +50,7 @@
 	-o-transition: .2s;
 	-ms-transition: .2s;
 	transition: .2s;
+
 }
 /* id="header" 内の <li>の中にある<ul>の<li>の<a>に適用 */
 #nav li ul li a {
@@ -57,6 +59,7 @@
 	text-align: left;
 	font-size: 14px;
 	font-weight: normal;
+
 }
 /* id="header" 内の <li>の中にある<ul>の<li>にホバーしたときの<a>に適用 */
 #nav li:hover > a {
@@ -83,4 +86,29 @@
 .sentence {
 	margin: 0 auto;
 	font-size: 7px;
+}
+
+/* ドロワー*/
+/*img{
+	width:60px;
+	height:60px;
+}*/
+.hamburger{
+	margin-right:100px;
+	text-align:right;
+}
+#pro{
+
+
+	width:300px;
+	height:100%;
+
+}
+header .container{
+	float:right;
+
+}
+
+.show{
+	display:none;
 }

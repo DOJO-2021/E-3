@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.Table;
 import model.User;
 
 public class UserDao {
@@ -109,7 +110,7 @@ public class UserDao {
 	}
 
 	//「メニュー画面（受講者）（講師）」クラスを検索してプロフィールを表示→DB(select) OK
-public List<User> select(User user) {
+public List<User> select(User user, Table table) {
 	Connection conn = null;
 	List<User> studentList = new ArrayList<User>();
 
@@ -119,7 +120,7 @@ public List<User> select(User user) {
 		conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/SMSystem", "sa", "");
 
 		// SELECT文を準備する
-		String sql = "SELECT * FROM USER  WHERE USER_CLASS = ? AND USER_ROLE = '1' ORDER BY USER_COMPANY_KANA ASC,USER_NAME_KANA ASC LIMIT 10";
+		String sql = "SELECT * FROM USER  WHERE USER_CLASS = ? AND USER_ROLE = '1' ORDER BY USER_COMPANY_KANA ASC,USER_NAME_KANA ASC LIMIT ?,10";
 		PreparedStatement pStmt = conn.prepareStatement(sql);
 
 		if (user.getUser_class() != null && !user.getUser_class().equals("")) {
@@ -128,6 +129,8 @@ public List<User> select(User user) {
 		else {
 			pStmt.setString(1, null);
 		}
+
+		pStmt.setInt(2, table.getRow());
 
 		//SELECT文を実行
 		ResultSet rs = pStmt.executeQuery();

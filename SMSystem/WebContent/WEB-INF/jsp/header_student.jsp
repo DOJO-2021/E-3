@@ -19,8 +19,14 @@
 				<li><a href="/SMSystem/Question_AnswerServlet">回答</a></li>
 			</ul>
 		</li>
-		<li><a href="/SMSystem/LogoutServlet">ログアウト</a></li>
+		<li><a href="#">マイメニュー</a>
+			<ul>
+				<li><a href="/SMSystem/MyMenuServlet">プロフィール・PW変更</a></li>
+				<li><a href="/SMSystem/LogoutServlet">ログアウト</a></li>
+			</ul>
+		</li>
 	</ul>
 </header>
+
 </body>
 </html>

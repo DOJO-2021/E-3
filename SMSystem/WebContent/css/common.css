@@ -1,6 +1,10 @@
 @charset "UTF-8";
 
 /* 全体に適用 */
+.wrapper {
+	margin: 0 auto;
+	max-width: 960px;
+}
 /* 背景色 */
 body {
 	background-color: #F5F5F5;
@@ -10,4 +14,7 @@ body {
 	text-align: center;
 	font-size: 30px;
 	color: black;
+}
+h1 {
+	text-align: center;
 }

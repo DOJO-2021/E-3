@@ -14,7 +14,7 @@
 <br>
 <br>
 <div class = "box">
-<c:forEach var = "e" items = "userInfo">
+<c:forEach var = "e" items = "${userInfo}">
 <input class = "text" type = "text" name = "student_name" value = "${e.user_name}" readonly>
 </c:forEach>
 
@@ -22,6 +22,7 @@
 <input type = "hidden" name = "user_id" value = "${sessionScope.id}">
 <p>ジャンルを選択してください</p>
 <select name = "select" >
+	<option value = "">ジャンルを選択してください</option>
 	<option value = "0">ドリル</option>
 	<option value = "1">HTML</option>
 	<option value = "2">CSS</option>

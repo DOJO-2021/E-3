@@ -26,6 +26,17 @@
   </div>
 
 </c:forEach>
+
+
+<ul class="pagination">
+	<form method = "GET" action = "/SMSystem/Faq_ListServlet2">
+		<input type = "submit" name = "pager" value = "1">
+		<input type = "submit" name = "pager" value = "2">
+		<input type = "submit" name = "pager" value = "3">
+	</form>
+</ul>
+
+
 </main>
 
 		<div class ="button">

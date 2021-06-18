@@ -6,15 +6,16 @@
 <meta charset="UTF-8">
 <title>FAQ編集 | SMSystem</title>
 <link rel="stylesheet" href="css/common.css">
-<link rel="stylesheet" href="/SMSystem/css/faq_list.css">
+<link rel="stylesheet" href="css/faq_list.css">
 </head>
 <body>
 <jsp:include page="/WEB-INF/jsp/header_teacher.jsp" />
 <form method = "POST" action = "/SMSystem/Faq_EditServlet" id = form-genre>
 <br>
-<p class = "genre">ジャンルを選択してください
+<p class = "genre">
 
-<select name = "ganre">
+<select name = "genre">
+	<option value = "">ジャンルを選択してください</option>
 	<option value = "0">ドリル</option>
 	<option value = "1">HTML</option>
 	<option value = "2">CSS</option>

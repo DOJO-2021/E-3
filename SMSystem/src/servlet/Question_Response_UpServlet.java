@@ -32,13 +32,12 @@ public class Question_Response_UpServlet extends HttpServlet {
 				RequestDispatcher dispatcher =
 						request.getRequestDispatcher("/WEB-INF/jsp/question_response_up.jsp");
 				dispatcher.forward(request, response);
-			}
+	}
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+
 	}
 
 }

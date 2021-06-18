@@ -13,27 +13,37 @@
 <jsp:include page="/WEB-INF/jsp/header_teacher.jsp" />
 <div class = "wrapper">
 <br><br><br>
-<p>${ganre}に関するFAQ一覧(全${count}件)</p>
+<p>${genre}に関するFAQ一覧(全${count}件)</p>
 <c:forEach var = "e" items = "${faqList}">
-<form method = "POST" action = "/SMSystem/Faq_Delete_UpdateServlet">
+	<form method = "POST" action = "/SMSystem/Faq_Delete_UpdateServlet">
 
-<input type = "hidden" name = "question_id" value = "${e.question_id}">
-<div class = "question">
-<p><span class = "under">質問</span></p>
+		<input type = "hidden" name = "question_id" value = "${e.question_id}">
 
-<input type = "text" class = "textquestion" name = "question" value = "${e.question}">
+		<div class = "question">
+			<p><span class = "under">質問</span></p>
+			<input type = "text" class = "textquestion" name = "question" value = "${e.question}">
 
-</div>
+		</div>
 
-<div class = "answer">
-<p><span class = "under">回答</span></p>
-<input type = "text" class = "textAnswer" name = "answer" value = "${e.answer}">
-</div>
-<input type = "submit" name ="SUBMIT" value = "登録">
-<input type = "submit" name = "SUBMIT" value = "削除">
+		<div class = "answer">
+			<p><span class = "under">回答</span></p>
+			<input type = "text" class = "textAnswer" name = "answer" value = "${e.answer}">
+		</div>
 
-</form>
+		<input type = "submit" name ="SUBMIT" value = "登録">
+		<input type = "submit" name = "SUBMIT" value = "削除">
+
+	</form>
 </c:forEach>
 </div>
+
+<ul class="pagination">
+	<form method = "GET" action = "/SMSystem/Faq_Delete_UpdateServlet">
+		<input type = "submit" name = "pager" value = "1">
+		<input type = "submit" name = "pager" value = "2">
+		<input type = "submit" name = "pager" value = "3">
+	</form>
+</ul>
+
 </body>
 </html>

@@ -9,8 +9,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.UserDao;
+import model.Table;
 import model.User;
 
 /**
@@ -38,16 +40,21 @@ public class Menu_StudentServlet extends HttpServlet {
 		//リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
 		String user_class = request.getParameter("user_class");
+		int row = 0;
+		Table table = new Table(row);
 
 		UserDao uDao = new UserDao();
 		User u = new User(0,"","","","","","",user_class,"");
-		List<User> studentList = uDao.select(u);
+		List<User> studentList = uDao.select(u, table);
 		request.setAttribute("studentClass", user_class);
 		request.setAttribute("studentList", studentList);
+		HttpSession session = request.getSession();
+		session.setAttribute("studentClass", user_class);
 
 
 		int count = uDao.select_count(u);
 		request.setAttribute("count", count);
+		session.setAttribute("count", count);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/student_list1.jsp");
 		dispatcher.forward(request,response);

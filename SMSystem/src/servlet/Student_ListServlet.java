@@ -9,8 +9,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import dao.UserDao;
 import dao.UserProfileDao;
+import model.Table;
+import model.User;
 import model.UserProfile;
 
 /**
@@ -19,12 +23,6 @@ import model.UserProfile;
 @WebServlet("/Student_ListServlet")
 public class Student_ListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
@@ -40,5 +38,35 @@ public class Student_ListServlet extends HttpServlet {
 		RequestDispatcher dispatcher =request.getRequestDispatcher("/WEB-INF/jsp/profile.jsp");
 		dispatcher.forward(request, response);
 	}
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+		String PAGER = request.getParameter("pager");
+
+		int pager = Integer.parseInt(PAGER);
+
+
+		if(pager == 1) {
+			pager = 0;
+		}else if(pager == 2) {
+			pager = 10;
+		}else {
+			pager = 20;
+		}
+
+
+		Table table = new Table(pager);
+		HttpSession session = request.getSession();
+		String user_class = (String) session.getAttribute("studentClass");
+		UserDao uDao = new UserDao();
+		List<User> studentList = uDao.select(new User(0,"","","","","","",user_class,""),table);
+		request.setAttribute("studentList", studentList);
+
+		session.getAttribute("count");
+
+		RequestDispatcher dispatcher1 =request.getRequestDispatcher("/WEB-INF/jsp/student_list1.jsp");
+		dispatcher1.forward(request, response);
+	}
+
 
 }
