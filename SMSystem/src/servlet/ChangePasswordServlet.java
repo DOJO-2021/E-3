@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -26,6 +27,7 @@ public class ChangePasswordServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		session.getAttribute("userInfo");
+		session.getAttribute("id");
 		RequestDispatcher dispatcher =request.getRequestDispatcher("/WEB-INF/jsp/changepassword.jsp");
 		dispatcher.forward(request, response);
 
@@ -35,13 +37,16 @@ public class ChangePasswordServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession();
-		session.getAttribute("id");
-		String new_password = request.getParameter("new_password");
+		String new_password = request.getParameter("new_pw");
 		String user_id = request.getParameter("user_id");
 
 		UserDao UDao = new UserDao();
 		if(UDao.update_user(new User(0,user_id,new_password,"","","","","",""))) {
+			HttpSession session = request.getSession();
+			session.getAttribute("userInfo");
+			session.removeAttribute("userInfo");
+			List<User> user_info = UDao.select_user(new User(0,user_id,"","","","","","",""));
+			session.setAttribute("userInfo",user_info);
 			response.sendRedirect("/SMSystem/PasswordOkServlet");
 		}else {
 			response.sendRedirect("/SMSystem/PasswordNoServlet");

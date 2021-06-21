@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>マイメニュー | SMSystem</title>
 </head>
 <body>
 <h2>マイメニュー</h2>
@@ -21,12 +21,9 @@
 	<p>ID</p>
 	<h4>${e.user_id}</h4>
 	<p>PASSWORD</p>
-	<h4>${e.user_id}</h4>
-	<a href = "/SMSystem/ChangeServlet">パスワード変更はこちら</a>
+	<h4>${e.user_pw}</h4>
+	<a href = "/SMSystem/ChangePasswordServlet">パスワード変更はこちら</a>
 	</div>
-
-
-
 </div>
 </c:forEach>
 </body>

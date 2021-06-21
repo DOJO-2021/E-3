@@ -20,6 +20,7 @@ public class PasswordNoServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/password_no.jsp");
 		dispatcher.forward(request, response);
 	}

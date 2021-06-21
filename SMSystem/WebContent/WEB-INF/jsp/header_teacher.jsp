@@ -22,7 +22,7 @@
 		<li><a href="/SMSystem/Question_ListServlet">質問</a></li>
 		<li><a href="#">マイメニュー</a>
 			<ul>
-				<li><a href="/SMSystem/MyMenuServletServlet">プロフィール・PW変更</a></li>
+				<li><a href="/SMSystem/MyMenuServlet">プロフィール・PW変更</a></li>
 				<li><a href="/SMSystem/LogoutServlet">ログアウト</a></li>
 			</ul>
 		</li>
