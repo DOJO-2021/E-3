@@ -17,6 +17,7 @@
 		<p class="time"><span id ="time"></span></p>
 	</section>
 
+	<h2 class="pageTitle">メニュー</h2>
 	<form method = "POST" action = "/SMSystem/Menu_StudentServlet">
 		<p class="text">クラスを入力してください
 		<input type = "text" name = "user_class" placeholder = "A～E">

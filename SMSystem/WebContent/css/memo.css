@@ -112,3 +112,26 @@ input[type="submit"]:hover {
 
 /* 【フッター】 */
 <jsp:include page="/WEB-INF/jsp/footer.jsp" />
+
+
+h2 {
+	max-width: 700px;
+	margin: 10px auto;
+	font-size: 20px;
+	position: relative;/*相対位置*/
+	padding-left: 1.5em;/*アイコン分のスペース*/
+	line-height: 1.4;/*行高*/
+	color: black;/*文字色*/
+}
+h2:before {
+  font-family: "Font Awesome 5 Free";/*忘れずに*/
+  content: "\f111";/*アイコンのユニコード*/
+  font-weight: 900;
+  position: absolute;/*絶対位置*/
+  font-size: 1.4em;/*サイズ*/
+  left: 0;/*アイコンの位置*/
+  top: -0.2em;/*アイコンの位置*/
+}
+.pageTitle:before {
+  color: #F4A460;
+}
