@@ -6,25 +6,48 @@
 <head>
 <meta charset="UTF-8">
 <title>マイメニュー | SMSystem</title>
+<link rel = "stylesheet" href = "css/mymenu.css">
 </head>
+
 <body>
-<h2>マイメニュー</h2>
-<c:forEach var="e" items= "${userInfo}">
-<div id="pro" class="show">
-	<div class = "profile">
-	<p>名前</p>
-	<h4> ${e.user_name}</h4>
-	<p>企業名</p>
-	<h4>${e.user_company}</h4>
-	<p>クラス</p>
-	<h4>${e.user_class}</h4>
-	<p>ID</p>
-	<h4>${e.user_id}</h4>
-	<p>PASSWORD</p>
-	<h4>${e.user_pw}</h4>
-	<a href = "/SMSystem/ChangePasswordServlet">パスワード変更はこちら</a>
-	</div>
+<jsp:include page="/WEB-INF/jsp/header_student.jsp" />
+<main>
+<br><br><br>
+<div class = "index">
+<h3>マイメニュー</h3>
 </div>
-</c:forEach>
+
+	<div class = "profile">
+	<c:forEach var="e" items= "${userInfo}">
+	<table class = "mymenu">
+	<tr>
+	<th>名前</th>
+	<td> ${e.user_name}</td>
+	</tr>
+	<tr>
+	<th>企業名</th>
+	<td>${e.user_company}</td>
+	</tr>
+	<tr>
+	<th>クラス</th>
+	<td>${e.user_class}</td>
+	</tr>
+	<tr>
+	<th>ID</th>
+	<td>${e.user_id}</td>
+	</tr>
+	<tr>
+	<th>PASSWORD</th>
+	<td>${e.user_pw}</td>
+	</tr>
+	</table>
+	</c:forEach>
+	</div>
+	<div class = "link">
+	<a href = "/SMSystem/ChangePasswordServlet">パスワード変更はこちら</a>
+
+	</div>
+<jsp:include page="/WEB-INF/jsp/footer.jsp" />
+</main>
 </body>
 </html>

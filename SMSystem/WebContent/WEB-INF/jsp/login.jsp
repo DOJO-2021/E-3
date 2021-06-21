@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="ja">
+<html>
 <head>
 <meta charset="UTF-8">
 <title>ログイン | SMSystem</title>
@@ -10,7 +10,7 @@
 </head>
 
 <body>
-<p class="title"><img src="img/title.png" alt="SMSystem" class="title2"></p>
+<jsp:include page="/WEB-INF/jsp/header.jsp" />
 <p>ログイン</p>
 	<form method = "POST" action = "/SMSystem/LoginServlet" id="form">
 		<table class="profile">

@@ -2,6 +2,7 @@ package servlet;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -39,18 +40,29 @@ public class ChangePasswordServlet2 extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String new_password = request.getParameter("new_pw");
 		String user_id = request.getParameter("user_id");
-
-		UserDao UDao = new UserDao();
-		if(UDao.update_user(new User(0,user_id,new_password,"","","","","",""))) {
-			HttpSession session = request.getSession();
-			session.getAttribute("userInfo");
-			session.removeAttribute("userInfo");
-			List<User> user_info = UDao.select_user(new User(0,user_id,"","","","","","",""));
-			session.setAttribute("userInfo",user_info);
-			response.sendRedirect("/SMSystem/PasswordOkServlet2");
+		String confirm_pw = request.getParameter("confirm_pw");
+		Pattern pattern = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]{8,16}$");
+		if(pattern.matcher(new_password).matches()) {
+			if(new_password.equals(confirm_pw)) {
+				UserDao UDao = new UserDao();
+				if(UDao.update_user(new User(0,user_id,new_password,"","","","","",""))) {
+					HttpSession session = request.getSession();
+					session.getAttribute("userInfo");
+					session.removeAttribute("userInfo");
+					List<User> user_info = UDao.select_user(new User(0,user_id,"","","","","","",""));
+					session.setAttribute("userInfo",user_info);
+					response.sendRedirect("/SMSystem/PasswordOkServlet");
+				}else {
+					response.sendRedirect("/SMSystem/PasswordNoServlet");
+				}
+			}else {
+				response.sendRedirect("/SMSystem/PasswordNoServlet");
+			}
 		}else {
-			response.sendRedirect("/SMSystem/PasswordNoServlet2");
+			response.sendRedirect("/SMSystem/PasswordNoServlet");
 		}
+
+
 	}
 
 }

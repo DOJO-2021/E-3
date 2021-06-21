@@ -9,7 +9,9 @@
 </head>
 <body>
 <header>
-<p class="title">受講者管理システム</p>
+<div class="logo">
+	<img src="img/title.png" alt="SMSystem" class="headerLogo">
+</div>
 	<ul id="nav">
 		<li><a href="/SMSystem/Menu_StudentServlet">メニュー</a></li>
 		<li><a href="/SMSystem/Faq_ListServlet">FAQ</a></li>
@@ -27,6 +29,5 @@
 		</li>
 	</ul>
 </header>
-
 </body>
 </html>

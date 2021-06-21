@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>FAQ一覧 | SMSystem</title>
 <link rel="stylesheet" href="css/common.css">
-<link rel="stylesheet" href="css/faq_list_2.css">
+<link rel="stylesheet" href="css/faq_list2.css">
 </head>
 
 <body>

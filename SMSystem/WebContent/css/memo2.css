@@ -23,8 +23,37 @@ textarea{
 	height:108.48px;
 	margin: 10px;
 }
+
 /* -------------------------------------------------------------------------------------------------------------------- */
-/* ロゴ */
-img {
-	width: 300px;
+
+/* header_footer.css から削除 */
+/* ドロワー*/
+/*img{
+	width:60px;
+	height:60px;
+}*/
+/*.hamburger{
+	margin-right:100px;
+	text-align:right;
+}*/
+/*#pro{
+	width:300px;
+	height:100%;
+}*/
+/*header .container{
+	float:right;
+}*/
+
+/*.show{
+	display:none;
+}*/
+
+/* -------------------------------------------------------------------------------------------------------------------- */
+
+/* common.css から削除 */
+/* ヘッダーの 受講者管理システム の文字 */
+.title {
+	text-align: center;
+	font-size: 30px;
+	color: black;
 }

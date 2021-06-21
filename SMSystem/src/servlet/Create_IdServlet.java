@@ -55,10 +55,12 @@ public class Create_IdServlet extends HttpServlet {
 
 	// 正規化
 	  String pass = user_pw;
-	  Pattern pattern = Pattern.compile("^[a-zA-Z0-9]{8,16}$");
+	  String id = user_id;
+	  Pattern pattern = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]{8,16}$");
+	  Pattern pattern_id = Pattern.compile("^[a-zA-Z0-9]{6,20}$");
 	 if(pattern.matcher(pass).matches()) {
-
-
+		 if(pattern_id.matcher(id).matches()) {
+			 if(!user_id.equals(user_pw)) {
 
 	// 登録を行う
 	  UserDao uDao = new UserDao();
@@ -84,9 +86,11 @@ public class Create_IdServlet extends HttpServlet {
 	} else {
 		response.sendRedirect("/SMSystem/LoginServlet");
 	}
+	 } else {
+		 response.sendRedirect("/SMSystem/LoginServlet");
+	 }
+	} else {
+		response.sendRedirect("/SMSystem/LoginServlet");
+	}
 	}
 }
-
-
-
-

@@ -9,7 +9,9 @@
 </head>
 <body>
 <header>
-	<p class="title"><img src="img/title.png" alt="SMSystem"></p>
+<div class="logo">
+	<img src="img/title.png" alt="SMSystem" class="headerLogo">
+</div>
 </header>
 </body>
 </html>

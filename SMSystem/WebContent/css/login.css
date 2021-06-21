@@ -12,10 +12,6 @@ p{
 .button {
 	text-align: center;
 }
-/* ロゴ */
-.title2 {
-	width: 300px;
-}
 
 /* アイコン */
 .img{
@@ -34,8 +30,7 @@ input[type="password"]:focus{
 /* テキスト入力欄の文字サイズの変更 */
 input[type = "text"]{
 	font-size: 20px;
-	/*width:413.48px;*/
-	width: 357.5px;
+	width:413.48px;
 	height:40px;
 	margin: 10px;
 }

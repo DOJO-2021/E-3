@@ -6,11 +6,11 @@
 	background-color: #F5F5F5;
 	max-width:700px;
 	height:100vh;
-	margin: 0 auto 0 auto;
+	margin: 0 auto;
 }
 /*プロフィール部分を中央に寄せる*/
 .profile {
-	margin: 0 auto 0 auto;
+	margin: 0 auto;
 }
 /*登録ボタンを真ん中に配置する*/
 .button {

@@ -1,5 +1,15 @@
 @charset "UTF-8";
 
+/* ロゴ */
+.logo {
+	text-align: center;
+	margin: 20px auto;
+	max-width: 700px;
+}
+.headerLogo{
+	width: 300px;
+}
+
 /* ドロップダウンナビゲーションの設定 */
 #nav {
 	list-style-type: none;
@@ -9,7 +19,7 @@
 	padding: 0;
 	background: white;
 }
-/* id="header" 内の <li> に適用 */
+/* id="nav" 内の <li> に適用 */
 #nav li {
 	position: relative;
 	width: 25%;
@@ -18,7 +28,7 @@
 	padding: 0;
 	text-align: center;
 }
-/* id="header" 内の <li> 内の<a> に適用 */
+/* id="nav" 内の <li> 内の<a> に適用 */
 #nav li a {
 	display: block;
 	margin: 0 ;
@@ -28,9 +38,8 @@
 	font-weight: bold;
 	line-height: 1;
 	text-decoration: none;
-
 }
-/* id="header" 内の <li> 内の <ul> に適用 */
+/* id="nav" 内の <li> 内の <ul> に適用 */
 #nav li ul {
 	list-style: none;
 	position: absolute;
@@ -39,10 +48,10 @@
 	margin: 0 ;
 	padding: 0;
 }
-/* id="header" 内の <li>の中にある<ul>の<li>に適用 */
+/* id="nav" 内の <li>の中にある<ul>の<li>に適用 */
 #nav li ul li {
 	overflow: hidden;
-	width: 170%;
+	width: 175px;
 	height: 0;
 	color: #fff;
 	-moz-transition: .2s;
@@ -50,23 +59,21 @@
 	-o-transition: .2s;
 	-ms-transition: .2s;
 	transition: .2s;
-
 }
-/* id="header" 内の <li>の中にある<ul>の<li>の<a>に適用 */
+/* id="nav" 内の <li>の中にある<ul>の<li>の<a>に適用 */
 #nav li ul li a {
 	padding: 13px 15px;
 	background: white;
 	text-align: left;
-	font-size: 14px;
+	font-size: 13px;
 	font-weight: normal;
-
 }
-/* id="header" 内の <li>の中にある<ul>の<li>にホバーしたときの<a>に適用 */
+/* id="nav" 内の <li>の中にある<ul>の<li>にホバーしたときの<a>に適用 */
 #nav li:hover > a {
 	background: white;
 	color: #F4A460;
 }
-/* id="header" 内の <li>の中にある<ul>の<li>にホバーしたときの<ul>内の<li>に適用 */
+/* id="nav" 内の <li>の中にある<ul>の<li>にホバーしたときの<ul>内の<li>に適用 */
 #nav li:hover ul li {
 	overflow: visible;
 	height: 38px;
@@ -79,36 +86,10 @@
 	max-width: 700px;
 	height: 50px;
 }
-.title1 {
-	margin: 0 auto;
-	font-size: 13px;
+.footerLogo {
+	width: 150px;
 }
 .sentence {
 	margin: 0 auto;
-	font-size: 7px;
-}
-
-/* ドロワー*/
-/*img{
-	width:60px;
-	height:60px;
-}*/
-.hamburger{
-	margin-right:100px;
-	text-align:right;
-}
-#pro{
-
-
-	width:300px;
-	height:100%;
-
-}
-header .container{
-	float:right;
-
-}
-
-.show{
-	display:none;
+	font-size: 11px;
 }

@@ -15,9 +15,9 @@
 <form method = "POST" action = "/SMSystem/ChangePasswordServlet2">
 <input type = "hidden" name = "user_id" value = "${e.user_id}">
 <p>新パスワード</p>
-<input type = "text" name = "new_pw" >
+<input type = "text" name = "new_pw" placeholder="PW(8～16字以内 大文字 小文字 数字 必須)" >
 <p>確認</p>
-<input type = "text" name = "comfirm_pw">
+<input type = "text" name = "confirm_pw" placeholder="PW(8～16字以内 大文字 小文字 数字 必須)">
 <input type = "submit" name = "change" value = "変更">
 </form>
 </c:forEach>

@@ -47,5 +47,4 @@ public class Faq_ListServlet2 extends HttpServlet {
 
 	}
 
-
 }

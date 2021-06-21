@@ -9,7 +9,9 @@
 </head>
 <body>
 <header>
-<p class="title">受講者管理システム</p>
+<div class="logo">
+	<img src="img/title.png" alt="SMSystem" class="headerLogo">
+</div>
 	<ul id="nav">
 		<li><a href="/SMSystem/Menu_TeacherServlet">メニュー</a></li>
 		<li><a href="#">FAQ</a>
@@ -22,7 +24,7 @@
 		<li><a href="/SMSystem/Question_ListServlet">質問</a></li>
 		<li><a href="#">マイメニュー</a>
 			<ul>
-				<li><a href="/SMSystem/MyMenuServlet">プロフィール・PW変更</a></li>
+				<li><a href="/SMSystem/MyMenuServlet2">プロフィール・PW変更</a></li>
 				<li><a href="/SMSystem/LogoutServlet">ログアウト</a></li>
 			</ul>
 		</li>
