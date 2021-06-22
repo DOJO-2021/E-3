@@ -12,6 +12,8 @@
 <jsp:include page="/WEB-INF/jsp/header_teacher.jsp" />
 <form method = "POST" action = "/SMSystem/Faq_EditServlet" id = form-genre>
 <br>
+<div class = "wrapper">
+<h3>FAQ検索</h3>
 <p class = "genre">
 
 <select name = "genre">
@@ -29,6 +31,7 @@
 <input type = "submit" name = "search" value = "検索">
 
 </p>
+</div>
 </form>
 
 

@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 .text{
-	margin: 50px 0 240px;
+	margin: 80px 0 170px;
 	text-align: center;
 }
 .time {
@@ -60,6 +60,5 @@ table{
 
 h3{
 	max-width: 700px;
-	margin: 20px auto 120px;
 }
 

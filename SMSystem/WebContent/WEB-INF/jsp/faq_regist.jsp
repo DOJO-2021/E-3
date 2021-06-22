@@ -12,7 +12,7 @@
 <jsp:include page="/WEB-INF/jsp/header_teacher.jsp" />
 <div class = "box">
 <br><br>
-<p>ジャンルを選択してください
+<h3>FAQ登録 </h3>
 <form method = "POST" action = "/SMSystem/Faq_RegistServlet">
 <select name = "genre">
 	<option value = "">ジャンルを選択してください</option>
@@ -29,24 +29,23 @@
 
 
 <table>
-<tr>
-<th>質問</th>
-</tr>
-<tr>
-<td><textarea name = "question"></textarea></td>
-</tr>
-
+	<tr>
+		<th>質問</th>
+	</tr>
+	<tr>
+		<td><textarea name = "question"></textarea></td>
+	</tr>
 </table>
 <table>
-<tr>
-<th>回答</th>
-</tr>
-<tr>
-<td><textarea name = "answer"></textarea></td>
-</tr>
+	<tr>
+		<th>回答</th>
+	</tr>
+	<tr>
+		<td><textarea name = "answer"></textarea></td>
+	</tr>
 </table>
 <div class = "button">
-<input type = "submit" name ="regist" value = "登録">
+	<input type = "submit" name ="regist" value = "登録">
 </div>
 </form>
 </div>

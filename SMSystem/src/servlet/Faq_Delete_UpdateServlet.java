@@ -62,12 +62,12 @@ public class Faq_Delete_UpdateServlet extends HttpServlet {
 		All_QuestionDao ADao = new All_QuestionDao();
 		if(submit.equals("登録"))  {
 			if(ADao.update_faq(new All_Question(0,"","",question,answer,"","",question_id,""))) {
-				response.sendRedirect("/SMSystem/Menu_TeacherServlet");
+				response.sendRedirect("/SMSystem/Faq_Edit_UpServlet");
 			}
 
 		}else {
 			if(ADao.delete_faq(question_id)){
-				response.sendRedirect("/SMSystem/Menu_TeacherServlet");
+				response.sendRedirect("/SMSystem/Faq_DeleteServlet");
 			}
 		}
 	}

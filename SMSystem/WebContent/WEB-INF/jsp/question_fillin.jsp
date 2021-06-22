@@ -14,14 +14,14 @@
 <br>
 <br>
 <div class = "box">
+<h3>質問記入</h3>
 <c:forEach var = "e" items = "${userInfo}">
 <input class = "text" type = "text" name = "student_name" value = "${e.user_name}" readonly>
 </c:forEach>
 
 <form method = "POST" action = "/SMSystem/Question_FillinServlet">
 <input type = "hidden" name = "user_id" value = "${sessionScope.id}">
-<p>ジャンルを選択してください</p>
-<select name = "select" >
+<p><select name = "select" >
 	<option value = "">ジャンルを選択してください</option>
 	<option value = "0">ドリル</option>
 	<option value = "1">HTML</option>
@@ -32,7 +32,7 @@
 	<option value = "6">サーブレット＆JSP</option>
 	<option value = "7">名刺管理アプリ</option>
 	<option value = "8">その他</option>
-</select>
+</select><p>
 
 <p>質問</p>
 <textarea  name = "question" ></textarea>

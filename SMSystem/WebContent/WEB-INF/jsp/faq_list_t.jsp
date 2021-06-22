@@ -12,6 +12,8 @@
 
 <jsp:include page="/WEB-INF/jsp/header_teacher.jsp"></jsp:include>
 <main>
+<div class = "wrapper">
+<h3>FAQ検索</h3>
 	<form method="POST" action="/SMSystem/Faq_ListServlet2">
 		<p class="genre">
 		<select name="genre">
@@ -30,6 +32,7 @@
 	<input type="submit" name="genre" value="検索"></p>
 
 	</form>
+	</div>
 
 	<jsp:include page="/WEB-INF/jsp/footer.jsp"></jsp:include>
 </main>

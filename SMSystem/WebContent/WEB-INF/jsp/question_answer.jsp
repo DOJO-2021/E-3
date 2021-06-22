@@ -12,6 +12,7 @@
 <body>
 <jsp:include page="/WEB-INF/jsp/header_student.jsp" />
 <div class="wrapper">
+<h3>質問回答</h3>
 
 <c:forEach var = "e" items = "${Alist}">
 				<div class="question">

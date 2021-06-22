@@ -12,7 +12,7 @@
 
 <body>
 <div class="wrapper">
-<p class="title">FAQ</p>
+<h1 class="title">FAQ</h1>
 <main>
 <c:forEach var="f" items="${faqList}">
   <div class="question">
@@ -39,7 +39,7 @@
 			<button onclick = "location.href = '/SMSystem/Menu_TeacherServlet'">メニュー</button>
 		</div>
 
-<jsp:include page="/WEB-INF/jsp/footer.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/jsp/footer.jsp" />
 </div>
 </body>
 </html>

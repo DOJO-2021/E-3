@@ -14,6 +14,7 @@
 <body>
 <jsp:include page="/WEB-INF/jsp/header_teacher.jsp" />
 <div class="wrapper">
+	<h3>質問回答記入</h3>
 	<form method="POST" action="/SMSystem/Question_UpdateServlet">
 		<div class="question">
 			<p><span class="under">質問</span></p>

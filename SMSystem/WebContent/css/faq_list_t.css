@@ -17,3 +17,7 @@ p input[type = "submit"]{
 p input[type = "submit"]:hover{
 	background-color : #F4A460;
 }
+
+.wrapper{
+	margin:0 auto 0 auto;
+}

@@ -51,18 +51,16 @@ public class ChangePasswordServlet2 extends HttpServlet {
 					session.removeAttribute("userInfo");
 					List<User> user_info = UDao.select_user(new User(0,user_id,"","","","","","",""));
 					session.setAttribute("userInfo",user_info);
-					response.sendRedirect("/SMSystem/PasswordOkServlet");
+					response.sendRedirect("/SMSystem/PasswordOkServlet2");
 				}else {
-					response.sendRedirect("/SMSystem/PasswordNoServlet");
+					response.sendRedirect("/SMSystem/PasswordNoServlet2");
 				}
 			}else {
-				response.sendRedirect("/SMSystem/PasswordNoServlet");
+				response.sendRedirect("/SMSystem/PasswordNoServlet2");
 			}
 		}else {
-			response.sendRedirect("/SMSystem/PasswordNoServlet");
+			response.sendRedirect("/SMSystem/PasswordNoServlet2");
 		}
-
-
 	}
 
 }

@@ -12,6 +12,7 @@
 <body>
 <jsp:include page="/WEB-INF/jsp/header_teacher.jsp" />
 <div class="wrapper">
+<h3>質問一覧</h3>
 	<div class="table-QuestionList">
 		<table class="emergent">
 			<tr>
@@ -50,7 +51,6 @@
 			</c:forEach>
 		</table>
 	</div>
-
 	<jsp:include page="/WEB-INF/jsp/footer.jsp" />
 </div>
 </body>

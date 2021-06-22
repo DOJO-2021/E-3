@@ -12,21 +12,20 @@
 </head>
 
 <body>
-<p class="title">FAQ</p>
 <main>
+<div class = "title">
+	<h1>FAQ一覧</h1>
+</div>
 <c:forEach var="f" items="${faqList}">
   <div class="question">
  	<p><span class="under">質問</span></p>
 	<input type ="text" class="textquestion" name = "question" value = "${f.question}" readonly>
   </div>
-
   <div class="answer">
 	<p><span class="under">回答</span></p>
 	<input type ="text" class="textAnswer" name ="answer" value = "${f.answer}" readonly>
   </div>
-
 </c:forEach>
-
 
 <ul class="pagination">
 	<form method = "GET" action = "/SMSystem/Faq_ListServlet2">
@@ -35,7 +34,6 @@
 		<input type = "submit" name = "pager" value = "3">
 	</form>
 </ul>
-
 
 </main>
 
