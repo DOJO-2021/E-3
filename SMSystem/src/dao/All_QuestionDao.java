@@ -633,6 +633,56 @@ public class All_QuestionDao {
 		return all_questionIdList;
 	}
 
+	//「質問回答画面（受講者）」質問した回数を表示→DB(select) OK
+		public int select_question_count(All_Question all_question) {
+			Connection conn = null;
+			int count = 0;
+
+			//データベースへ接続
+			try {
+				Class.forName("org.h2.Driver");
+				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/SMSystem", "sa", "");
+
+				// SELECT文を準備する
+				String sql = "SELECT COUNT(QUESTION_ID) FROM ALL_QUESTION WHERE USER_ID = ?";
+				PreparedStatement pStmt = conn.prepareStatement(sql);
+
+				if (all_question.getUser_id() != null && !all_question.getUser_id().equals("")) {
+					pStmt.setString(1, all_question.getUser_id());
+				}
+				else {
+					pStmt.setString(1, null);
+				}
+
+				//SELECT文を実行
+				ResultSet rs = pStmt.executeQuery();
+				rs.next();
+				count = rs.getInt("COUNT(QUESTION_ID)");
+
+			}
+			catch (SQLException e) {
+				e.printStackTrace();
+				count = (Integer) null;
+			}
+			catch (ClassNotFoundException e) {
+				e.printStackTrace();
+				count =(Integer) null;
+			}
+			finally {
+				// データベースを切断
+				if (conn != null) {
+					try {
+						conn.close();
+					}
+					catch (SQLException e) {
+						e.printStackTrace();
+						count = (Integer) null;
+					}
+				}
+			}
+
+			return count;
+		}
 
 
 }

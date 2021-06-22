@@ -23,22 +23,48 @@ public class Faq_ListServlet2 extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		RequestDispatcher dispatcher1 =request.getRequestDispatcher("/WEB-INF/jsp/faq_list_t.jsp");
-		dispatcher1.forward(request, response);
+		RequestDispatcher dispatcher =request.getRequestDispatcher("/WEB-INF/jsp/faq_list_t.jsp");
+		dispatcher.forward(request, response);
 
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+	request.setCharacterEncoding("UTF-8");
 	String genre = request.getParameter("genre");
+	HttpSession session = request.getSession();
+	session.setAttribute("faqGenre",genre);
 	Table table = new Table (0);
 	All_QuestionDao ADao = new All_QuestionDao();
-	List<All_Question> faqList = ADao.select_faq(new All_Question(0,"",genre,"","","","",0,""), table);
+	All_Question aQ = new All_Question(0,"",genre,"","","","",0,"");
+	List<All_Question> faqList = ADao.select_faq(aQ, table);
 	request.setAttribute("faqList",faqList);
-	HttpSession session = request.getSession();
+
+	if(genre.equals("0")) {
+		genre = "ドリル";
+	}else if (genre.equals("1")){
+		genre = "HTML";
+	}else if (genre.equals("2")){
+		genre = "CSS";
+	}else if (genre.equals("3")){
+		genre = "JavaScript";
+	}else if (genre.equals("4")) {
+		genre = "Java";
+	}else if (genre.equals("5")) {
+		genre = "データベース";
+	}else if (genre.equals("6")) {
+		genre = "サーブレット＆JSP";
+	}else if (genre.equals("7")){
+		genre = "名刺管理アプリ";
+	}else if (genre.equals("8")) {
+		genre = "その他";
+	}
+
 	session.setAttribute("genre", genre);
-	RequestDispatcher dispatcher1 =request.getRequestDispatcher("/WEB-INF/jsp/faq_list_t2.jsp");
-	dispatcher1.forward(request, response);
+	int count = 0;
+	count = ADao.select_count(aQ);
+	session.setAttribute("count", count);
+	RequestDispatcher dispatcher =request.getRequestDispatcher("/WEB-INF/jsp/faq_list_t2.jsp");
+	dispatcher.forward(request, response);
 
 	}
 }

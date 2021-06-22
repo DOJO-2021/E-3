@@ -38,22 +38,41 @@ public class Faq_ListServlet extends HttpServlet {
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
 		String genre = request.getParameter("genre");
-		int row = 0;
-		Table table = new Table(row);
-
-
-		// 検索処理を行う
-		All_QuestionDao aqDao = new All_QuestionDao();
-		List<All_Question> faqList = aqDao.select_faq(new All_Question(0, "", genre, "", "", "", "", 0,""),table);
 		HttpSession session = request.getSession();
 		session.setAttribute("faqGenre",genre);
-		session.setAttribute("faqList", faqList);
+		Table table = new Table (0);
+		All_QuestionDao ADao = new All_QuestionDao();
+		All_Question aQ = new All_Question(0,"",genre,"","","","",0,"");
+		List<All_Question> faqList = ADao.select_faq(aQ, table);
+		request.setAttribute("faqList",faqList);
 
+		if(genre.equals("0")) {
+			genre = "ドリル";
+		}else if (genre.equals("1")){
+			genre = "HTML";
+		}else if (genre.equals("2")){
+			genre = "CSS";
+		}else if (genre.equals("3")){
+			genre = "JavaScript";
+		}else if (genre.equals("4")) {
+			genre = "Java";
+		}else if (genre.equals("5")) {
+			genre = "データベース";
+		}else if (genre.equals("6")) {
+			genre = "サーブレット＆JSP";
+		}else if (genre.equals("7")){
+			genre = "名刺管理アプリ";
+		}else if (genre.equals("8")) {
+			genre = "その他";
+		}
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/faq_list2.jsp");
+		session.setAttribute("genre", genre);
+		int count = 0;
+		count = ADao.select_count(aQ);
+		session.setAttribute("count", count);
+		RequestDispatcher dispatcher =request.getRequestDispatcher("/WEB-INF/jsp/faq_list2.jsp");
 		dispatcher.forward(request, response);
 
-
+		}
 	}
 
-}

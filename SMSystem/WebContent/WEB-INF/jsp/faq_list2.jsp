@@ -12,7 +12,7 @@
 <body>
 <jsp:include page = "/WEB-INF/jsp/header.jsp" />
 <div class = "wrapper">
-<h3>FAQ</h3>
+<h3>${genre}に関するFAQ(全${count}件)</h3>
 <c:forEach var = "f" items = "${faqList}">
 	<div class = "question">
 		<p><span class = "under">質問</span></p>
@@ -25,7 +25,7 @@
 </c:forEach>
 
 <ul class = "pagination">
-	<form method = "GET" action = "/SMSystem/Faq_ListServlet2">
+	<form method = "GET" action = "/SMSystem/Faq_ListServlet4">
 		<input type = "submit" name = "pager" value = "1">
 		<input type = "submit" name = "pager" value = "2">
 		<input type = "submit" name = "pager" value = "3">

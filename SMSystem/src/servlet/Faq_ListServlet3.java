@@ -25,9 +25,10 @@ public class Faq_ListServlet3 extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	request.setCharacterEncoding("UTF-8");
 	String PAGER = request.getParameter("pager");
 	HttpSession session = request.getSession();
-	String genre = (String) session.getAttribute("genre");
+	String genre = (String) session.getAttribute("faqGenre");
 	int pager = Integer.parseInt(PAGER);
 	if(pager == 1) {
 		pager = 0;
@@ -40,6 +41,8 @@ public class Faq_ListServlet3 extends HttpServlet {
 	All_QuestionDao ADao = new All_QuestionDao();
 	List<All_Question> faqList = ADao.select_faq(new All_Question(0,"",genre,"","","","",0,""),table);
 	request.setAttribute("faqList", faqList);
+	session.getAttribute("count");
+	session.getAttribute("genre");
 	RequestDispatcher dispatcher =request.getRequestDispatcher("/WEB-INF/jsp/faq_list_t2.jsp");
 	dispatcher.forward(request, response);
 	}

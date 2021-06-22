@@ -23,7 +23,7 @@ public class UserAll_QuestionDao {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/SMSystem", "sa", "");
 
 			// SELECT文を準備する
-			String sql = "SELECT * FROM USER INNER JOIN ALL_QUESTION ON USER.USER_ID = ALL_QUESTION.USER_ID WHERE USER_CLASS = ? AND EMERGENT = '0' AND ANSWERED = '0' ORDER BY ALL_QUESTION.QUESTION_ID DESC LIMIT 5";
+			String sql = "SELECT * FROM USER INNER JOIN ALL_QUESTION ON USER.USER_ID = ALL_QUESTION.USER_ID WHERE USER_CLASS = ? AND EMERGENT = '0' AND ANSWERED = '0' ORDER BY ALL_QUESTION.QUESTION_ID DESC";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			if (userAll_question.getUser_class() != null && !userAll_question.getUser_class().equals("")) {
@@ -106,7 +106,7 @@ public class UserAll_QuestionDao {
 				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/SMSystem", "sa", "");
 
 				// SELECT文を準備する
-				String sql = "SELECT * FROM USER INNER JOIN ALL_QUESTION ON USER.USER_ID = ALL_QUESTION.USER_ID WHERE USER_CLASS = ? AND EMERGENT = '1' AND ANSWERED = '0' ORDER BY ALL_QUESTION.QUESTION_ID DESC LIMIT 5";
+				String sql = "SELECT * FROM USER INNER JOIN ALL_QUESTION ON USER.USER_ID = ALL_QUESTION.USER_ID WHERE USER_CLASS = ? AND EMERGENT = '1' AND ANSWERED = '0' ORDER BY ALL_QUESTION.QUESTION_ID DESC";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
 				if (userAll_question.getUser_class() != null && !userAll_question.getUser_class().equals("")) {
@@ -179,6 +179,108 @@ public class UserAll_QuestionDao {
 		}
 
 
+		//「質問一覧画面（講師）」「緊急質問」の件数を表示→DB(select) OK
+		public int select_emergent_count(UserAll_Question userAll_question) {
+			Connection conn = null;
+			int count = 0;
 
+			//データベースへ接続
+			try {
+				Class.forName("org.h2.Driver");
+				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/SMSystem", "sa", "");
+
+				// SELECT文を準備する
+				String sql = "SELECT COUNT(QUESTION_ID) FROM USER INNER JOIN ALL_QUESTION ON USER.USER_ID = ALL_QUESTION.USER_ID WHERE USER_CLASS = ? AND EMERGENT = '0' AND ANSWERED = '0'";
+				PreparedStatement pStmt = conn.prepareStatement(sql);
+
+				if (userAll_question.getUser_class() != null && !userAll_question.getUser_class().equals("")) {
+					pStmt.setString(1, userAll_question.getUser_class());
+				}
+				else {
+					pStmt.setString(1, null);
+				}
+
+
+				//SELECT文を実行
+				ResultSet rs = pStmt.executeQuery();
+				rs.next();
+				count = rs.getInt("COUNT(QUESTION_ID)");
+
+			}
+			catch (SQLException e) {
+				e.printStackTrace();
+				count = (Integer) null;
+			}
+			catch (ClassNotFoundException e) {
+				e.printStackTrace();
+				count =(Integer) null;
+			}
+			finally {
+				// データベースを切断
+				if (conn != null) {
+					try {
+						conn.close();
+					}
+					catch (SQLException e) {
+						e.printStackTrace();
+						count = (Integer) null;
+					}
+				}
+			}
+
+			return count;
+		}
+
+		//「質問一覧画面（講師）」「緊急ではない質問」の件数を表示→DB(select) OK
+		public int select_not_emergent_count(UserAll_Question userAll_question) {
+			Connection conn = null;
+			int count = 0;
+
+			//データベースへ接続
+			try {
+				Class.forName("org.h2.Driver");
+				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/SMSystem", "sa", "");
+
+				// SELECT文を準備する
+				String sql = "SELECT COUNT(QUESTION_ID) FROM USER INNER JOIN ALL_QUESTION ON USER.USER_ID = ALL_QUESTION.USER_ID WHERE USER_CLASS = ? AND EMERGENT = '1' AND ANSWERED = '0'";
+				PreparedStatement pStmt = conn.prepareStatement(sql);
+
+				if (userAll_question.getUser_class() != null && !userAll_question.getUser_class().equals("")) {
+					pStmt.setString(1, userAll_question.getUser_class());
+				}
+				else {
+					pStmt.setString(1, null);
+				}
+
+
+				//SELECT文を実行
+				ResultSet rs = pStmt.executeQuery();
+				rs.next();
+				count = rs.getInt("COUNT(QUESTION_ID)");
+
+			}
+			catch (SQLException e) {
+				e.printStackTrace();
+				count = (Integer) null;
+			}
+			catch (ClassNotFoundException e) {
+				e.printStackTrace();
+				count =(Integer) null;
+			}
+			finally {
+				// データベースを切断
+				if (conn != null) {
+					try {
+						conn.close();
+					}
+					catch (SQLException e) {
+						e.printStackTrace();
+						count = (Integer) null;
+					}
+				}
+			}
+
+			return count;
+		}
 
 }

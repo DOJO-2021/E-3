@@ -13,11 +13,11 @@
 <jsp:include page="/WEB-INF/jsp/header_teacher.jsp" />
 <div class="wrapper">
 <h3>質問一覧</h3>
+
+<p>緊急
 	<div class="table-QuestionList">
+	<div id="overflow">
 		<table class="emergent">
-			<tr>
-				<th class="orange0"></th><th class="orange">緊急</th><th class="orange"> </th><th class="orange"> </th>
-			</tr>
 			<tr>
 				<th class="white0"></th><th class="white">氏名</th><th class="white">ジャンル</th><th class="white"></th>
 			</tr>
@@ -33,8 +33,14 @@
 			</c:forEach>
 		</table>
 	</div>
+	</div>
+
+
+
+	<br><br>
 
 	<div class="table-QuestionList">
+	<div id="overflow">
 		<table class="normal">
 			<tr>
 				<th class="white"></th><th class="white">氏名</th><th class="white">ジャンル</th><th class="white"></th>
@@ -50,6 +56,7 @@
 			</form>
 			</c:forEach>
 		</table>
+	</div>
 	</div>
 	<jsp:include page="/WEB-INF/jsp/footer.jsp" />
 </div>

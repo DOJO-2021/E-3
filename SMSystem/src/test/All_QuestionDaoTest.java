@@ -111,6 +111,13 @@ public class All_QuestionDaoTest {
 		System.out.println();
 	}
 
+	// 「質問回答画面（受講者）」質問した回数カウント select()のテスト OK
+		System.out.println("---「FAQ画面（受講者）」件数カウント select()のテスト---");
+		int count1 = dao.select_question_count(new All_Question(0, "YAMADAT", "", "", "", "", "", 0, ""));
+		System.out.println(count1);
+
+
+
 	}
 
 }

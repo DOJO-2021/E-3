@@ -6,46 +6,46 @@
 <head>
 <meta charset="UTF-8">
 <title>マイメニュー | SMSystem</title>
-<link rel = "stylesheet" href = "css/mymenu.css">
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/changepassword.css">
 </head>
 
 <body>
 <jsp:include page="/WEB-INF/jsp/header_teacher.jsp" />
 <main>
-<br><br><br>
-<div class = "index">
-<h3>マイメニュー</h3>
-</div>
 
-<div class = "profile">
+<div class = "wrapper">
+<h3>マイメニュー</h3>
+
+
+	<div class = "profile">
+	<form method = "GET" action = "/SMSystem/ChangePasswordServlet2">
 	<c:forEach var="e" items= "${userInfo}">
-		<table class = "mymenu">
-			<tr>
-				<th>名前</th>
-				<td> ${e.user_name}</td>
-			</tr>
-			<tr>
-				<th>企業名</th>
-				<td>${e.user_company}</td>
-			</tr>
-			<tr>
-				<th>クラス</th>
-				<td>${e.user_class}</td>
-			</tr>
-			<tr>
-				<th>ID</th>
-				<td>${e.user_id}</td>
-			</tr>
-			<tr>
-				<th>PASSWORD</th>
-				<td>${e.user_pw}</td>
-			</tr>
-		</table>
+
+
+	<p>名前</p><br>
+	<input type = "text" name = "user_name" value = "${e.user_name}" readonly><br>
+
+	<p>企業名</p><br>
+	<input type = "text" name = "user_company" value = "${e.user_company}" readonly><br>
+
+	<p>クラス</p><br>
+	<input type = "text" name = "user_class" value = "${e.user_class}" readonly><br>
+
+	<p>ID</p><br>
+	<input type = "text" name = "user_id" value = "${e.user_id}" readonly><br>
+
+	<p>パスワード</p><br>
+	<input type = "text" name = "user_pw" value = "${e.user_pw}" readonly>
+
 	</c:forEach>
-</div>
-<div class = "link">
-	<a href = "/SMSystem/ChangePasswordServlet2">パスワード変更はこちら</a>
-</div>
+
+
+	<input type = "submit" name = "toChange" value = "PW変更">
+	</form>
+
+	</div>
+	</div>
 <jsp:include page="/WEB-INF/jsp/footer.jsp" />
 </main>
 </body>

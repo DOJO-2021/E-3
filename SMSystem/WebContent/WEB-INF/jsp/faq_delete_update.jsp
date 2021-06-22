@@ -31,7 +31,6 @@
 			<input type = "submit" name = "SUBMIT" value = "登録">
 			<input type = "submit" name = "SUBMIT" value = "削除">
 		</div>
-
 	</form>
 </c:forEach>
 

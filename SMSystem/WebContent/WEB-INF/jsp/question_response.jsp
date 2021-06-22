@@ -14,8 +14,8 @@
 <body>
 <jsp:include page="/WEB-INF/jsp/header_teacher.jsp" />
 <div class="wrapper">
-	<h3>質問回答記入</h3>
-	<form method="POST" action="/SMSystem/Question_UpdateServlet">
+	<h3>質問への回答記入</h3>
+	<form method="POST" action="/SMSystem/Question_UpdateServlet" id="form">
 		<div class="question">
 			<p><span class="under">質問</span></p>
 			<input type="text" class="textquestion" name="question" value="${all_question}" readonly>
@@ -28,11 +28,13 @@
 			<label><input type="radio" name="faq" value="1">FAQに登録する</label>
 			<label><input type="radio" name="faq" value="0">FAQに登録しない</label>
 		</div>
+		<p id="th_alert"></p>
 		<div class="button">
 			<input type="submit" name="submit_response" value="登録">
 		</div>
 	</form>
 	<jsp:include page="/WEB-INF/jsp/footer.jsp" />
 </div>
+<script src="/SMSystem/js/question_response.js"></script>
 </body>
 </html>

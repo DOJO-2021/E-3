@@ -13,8 +13,7 @@
 <div class="wrapper">
 	<h3>質問検索</h3>
 	<form method="POST" action="/SMSystem/Question_ListServlet">
-		<p class="text">
-		クラスを入力してください
+		<p class="text">クラスを入力してください
 		<input type="text" name="user_class" placeholder="A～E">
 		<input type="submit" name="search" value="検索">
 		</p>

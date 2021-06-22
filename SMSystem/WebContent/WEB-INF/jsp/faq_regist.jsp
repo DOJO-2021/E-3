@@ -5,50 +5,42 @@
 <head>
 <meta charset="UTF-8">
 <title>FAQ登録 | SMSystem</title>
-<link rel="stylesheet" href="css/common.css">
-<link rel ="stylesheet" href ="css/question_fillin.css">
+<link rel = "stylesheet" href = "css/common.css">
+<link rel ="stylesheet" href = "css/question_fillin.css">
 </head>
 <body>
-<jsp:include page="/WEB-INF/jsp/header_teacher.jsp" />
-<div class = "box">
-<br><br>
-<h3>FAQ登録 </h3>
+<jsp:include page = "/WEB-INF/jsp/header_teacher.jsp" />
 <form method = "POST" action = "/SMSystem/Faq_RegistServlet">
-<select name = "genre">
-	<option value = "">ジャンルを選択してください</option>
-	<option value = "0">ドリル</option>
-	<option value = "1">HTML</option>
-	<option value = "2">CSS</option>
-	<option value = "3">JavaScript</option>
-	<option value = "4">Java</option>
-	<option value = "5">データベース</option>
-	<option value = "6">サーブレット＆JSP</option>
-	<option value = "7">名刺管理アプリ</option>
-	<option value = "8">その他</option>
-</select>
+<div class = "wrapper">
+	<h3>FAQ登録 </h3>
+	<div class="genre">
+		<select name = "genre">
+			<option value = "">ジャンルを選択してください</option>
+			<option value = "0">ドリル</option>
+			<option value = "1">HTML</option>
+			<option value = "2">CSS</option>
+			<option value = "3">JavaScript</option>
+			<option value = "4">Java</option>
+			<option value = "5">データベース</option>
+			<option value = "6">サーブレット＆JSP</option>
+			<option value = "7">名刺管理アプリ</option>
+			<option value = "8">その他</option>
+		</select>
+	</div>
 
-
-<table>
-	<tr>
-		<th>質問</th>
-	</tr>
-	<tr>
-		<td><textarea name = "question"></textarea></td>
-	</tr>
-</table>
-<table>
-	<tr>
-		<th>回答</th>
-	</tr>
-	<tr>
-		<td><textarea name = "answer"></textarea></td>
-	</tr>
-</table>
-<div class = "button">
-	<input type = "submit" name ="regist" value = "登録">
+	<div class = "question">
+		<p><span class = "under">質問</span></p>
+		<textarea name = "question"></textarea>
+	</div>
+	<div class = "answer">
+		<p><span class = "under">回答</span></p>
+		<textarea name = "answer"></textarea>
+	</div>
+	<div class = "button">
+		<input type = "submit" name ="regist" value = "登録">
+	</div>
 </div>
 </form>
-</div>
 <jsp:include page="/WEB-INF/jsp/footer.jsp" />
 </body>
 </html>

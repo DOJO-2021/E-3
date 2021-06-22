@@ -56,7 +56,7 @@
 input[type="submit"] {
 	cursor: pointer;
 }
-/* 登録・削除ボタン デザイン */
+/* 登録ボタン・削除ボタン デザイン */
 .button input[type="submit"] {
 	margin: 0 5px;
 	border-radius: 10px;

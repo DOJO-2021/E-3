@@ -12,7 +12,7 @@
 <body>
 <jsp:include page = "/WEB-INF/jsp/header.jsp" />
 <div class = "wrapper">
-<h3>FAQ</h3>
+<h3>${genre}に関するFAQ(全${count}件)</h3>
 <c:forEach var = "f" items = "${faqList}">
 	<div class = "question">
 		<p><span class = "under">質問</span></p>

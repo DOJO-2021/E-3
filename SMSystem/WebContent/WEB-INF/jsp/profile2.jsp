@@ -7,56 +7,50 @@
 <meta charset="UTF-8">
 <title>プロフィール確認 | SMSystem</title>
 <link rel="stylesheet" href="css/common.css">
-<link rel ="stylesheet" href ="css/profile2.css">
+<link rel ="stylesheet" href ="css/changepassword.css">
 
 </head>
 <body>
-
-<p class="title">受講者管理システム</p>
-
+<jsp:include page="/WEB-INF/jsp/header_teacher.jsp" />
+<div class = "wrapper">
 <h3>プロフィール確認</h3>
 <c:forEach var = "e" items = "${userProfileList}">
-		<table class="profile">
-		<tr>
-		<th><img src = "img/name.png" alt = "氏名"></th>
-			<td>${e.user_name}</td>
-		</tr>
-		<tr>
-		<th><img src = "img/name.png" alt = "氏名かな"></th>
-			<td>${e.user_name_kana}</td>
-		</tr>
-		<tr>
-		<th><img src = "img/company.png" alt = "企業名"></th>
-			<td>${e.user_company}</td>
-		</tr>
-		<tr>
-		<th><img src = "img/company.png" alt = "企業名かな"></th>
-			<td>${e.user_company_kana}</td>
-		</tr>
-		<tr>
-		<th><img src = "img/blood.png" alt = "血液型"></th>
-			<td>${e.user_blood}</td>
-		</tr>
-		<tr>
-		<th><img src = "img/career.png" alt = "文理"></th>
-			<td>${e.user_career}</td>
-		</tr>
-		<tr>
-		<th><img src = "img/club.png" alt = "部活"></th>
-			<td>${e.user_club}</td>
-		</tr>
-		<tr>
-		<th><img src = "img/hobby.png" alt = "趣味"></th>
-			<td>${e.user_hobby}</td>
-		</tr>
-		<tr>
-		<th><img src = "img/intro.png" alt = "自己紹介"></th>
-		<td class ="textarea">${e.user_intro}</td>
-		</tr>
-		</table>
-		</c:forEach>
+
+
+		<p>氏名</p><br>
+			<input type = "text" name = "user_name" value = "${e.user_name}" readonly><br>
+
+		<p>氏名かな</p><br>
+			<input type = "text" name = "user_name_kana" value = "${e.user_name_kana}" readonly><br>
+
+		<p>企業名</p><br>
+			<input type = "text" name = "user_company" value = "${e.user_company}" readonly><br>
+
+		<p>企業名かな</p><br>
+			<input type = "text" name = "user_company_kana" value = "${e.user_company_kana}" readonly><br>
+
+
+		<p>血液型</p><br>
+			<input type = "text" name = "user_blood" value = "${e.user_blood}" readonly><br>
+
+		<p>文理</p><br>
+			<input type = "text" name = "user_career" value = "${e.user_career}" readonly><br>
+
+		<p>部活</p><br>
+			<input type = "text" name = "user_club" value = "${e.user_club}" readonly><br>
+
+		<p>趣味</p><br>
+			<input type = "text" name = "user_hobby" value = "${e.user_hobby}" readonly><br>
+
+		<p>自己紹介</p><br>
+		<textarea name = "user_intro"  readonly>${e.user_intro}</textarea><br>
+
+
 		<div class ="button">
 			<button onclick = "location.href = '/SMSystem/Menu_TeacherServlet'">メニュー</button>
+		</div>
+
+		</c:forEach>
 		</div>
 
 

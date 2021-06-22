@@ -41,5 +41,17 @@ public class UserAll_QuestionDaoTest {
 		System.out.println();
 	}
 
-}
+	// 「質問一覧画面（講師）」「緊急質問」件数カウント select()のテスト OK
+	//(id,"user_id","genre","question","answer","faq","emergent",question_id)
+		System.out.println("---「質問一覧画面（講師）」「緊急質問」件数カウント select()のテスト---");
+		int count = dao.select_emergent_count(new UserAll_Question("", "", "E", "", "", "0", 0 ,"0"));
+		System.out.println(count);
+
+	// 「質問一覧画面（講師）」「緊急ではない質問」件数カウント select()のテスト
+	//(id,"user_id","genre","question","answer","faq","emergent",question_id)
+		System.out.println("---「質問一覧画面（講師）」「緊急ではない質問」件数カウント select()のテスト---");
+		int count1 = dao.select_not_emergent_count(new UserAll_Question("", "", "E", "", "", "1", 0 ,"0"));
+		System.out.println(count1);
+
+	}
 }

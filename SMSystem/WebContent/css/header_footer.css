@@ -10,7 +10,7 @@
 	width: 300px;
 }
 .break {
-	height: 30px;
+	height: 40px;
 }
 
 /* ドロップダウンナビゲーションの設定 */
@@ -85,7 +85,7 @@
 
 /* フッター */
 .footer {
-	margin: 30px auto 15px;
+	margin: 0 auto 15px;
 	max-width: 700px;
 	height: 50px;
 }

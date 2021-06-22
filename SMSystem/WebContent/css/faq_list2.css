@@ -1,23 +1,23 @@
 @charset "UTF-8";
 
-/* 質問 */
+/* 質問 *//* common */
 .question p {
 	font-size: 21px;
 	margin: 20px auto 13px;
 	max-width: 700px;
 }
-/* 回答 */
+/* 回答 *//* common */
 .answer p {
 	font-size: 21px;
 	margin: 0 auto 13px;
 	max-width: 700px;
 }
-/* 「質問」「回答」のアンダーライン */
+/* 「質問」「回答」のアンダーライン *//* common */
 .under {
 	border-bottom: dashed 3px #F4A460;
 }
 
-/* 質問の枠 */
+/* 質問の枠 *//* common */
 .textquestion {
 	display: block;
 	font-size: 16px;
@@ -27,7 +27,7 @@
 	margin: 8px auto 35px;
 	outline: none;
 }
-/* 回答の枠 */
+/* 回答の枠 *//* common */
 .textAnswer {
 	display: block;
 	font-size: 16px;
@@ -38,7 +38,7 @@
 	outline: none;
 }
 
-/* メニューボタン 中央配置 */
+/* メニューボタン 中央配置 *//* common */
 .button {
 	text-align: center;
 	margin-top: 15px;
@@ -46,7 +46,7 @@
 input[type="submit"] {
 	cursor: pointer;
 }
-/*メニューボタン デザイン*/
+/*メニューボタン デザイン*//* common */
 .button input[type="submit"] {
 	margin: 0 5px;
 	border-radius: 10px;
@@ -54,12 +54,25 @@ input[type="submit"] {
 	height:40px;
 	transition: 0.5s;
 }
-/*メニューボタン・ページャー ホバーしたときオレンジにする*/
+/*メニューボタン デザイン（<button> ver.）*//* common */
+button {
+	margin: 0 5px;
+	border-radius: 10px;
+	width:80px;
+	height:40px;
+	transition: 0.5s;
+	cursor: pointer;
+}
+/*メニューボタン・ページャー ホバーしたときオレンジにする*//* common */
 input[type="submit"]:hover {
 	background-color : #F4A460;
 }
+/*メニューボタン ホバーしたときオレンジにする（<button> ver.）*//* common */
+button:hover {
+	background-color : #F4A460;
+}
 
-/* ページャー */
+/* ページャー *//* common */
 .pagination {
 	max-width: 700px;
 	margin: 0 auto;

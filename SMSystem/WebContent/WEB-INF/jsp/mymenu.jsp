@@ -19,28 +19,30 @@
 
 
 	<div class = "profile">
+	<form method = "GET" action = "/SMSystem/ChangePasswordServlet">
 	<c:forEach var="e" items= "${userInfo}">
 
 
 	<p>名前</p><br>
-	<p class = "infomation">${e.user_name}</p><br>
+	<input type = "text" name = "user_name" value = "${e.user_name}" readonly><br>
 
 	<p>企業名</p><br>
-	<p class = "infomation">${e.user_company} </p><br>
+	<input type = "text" name = "user_company" value = "${e.user_company}" readonly><br>
 
 	<p>クラス</p><br>
-	<p class = "infomation">${e.user_class}</p><br>
+	<input type = "text" name = "user_class" value = "${e.user_class}" readonly><br>
 
 	<p>ID</p><br>
-	<p class = "infomation">${e.user_id}</p><br>
+	<input type = "text" name = "user_id" value = "${e.user_id}" readonly><br>
 
-	<p>PASSWORD</p><br>
-	<p class = "infomation">${e.user_pw} </p><br>
+	<p>パスワード</p><br>
+	<input type = "text" name = "user_pw" value = "${e.user_pw}" readonly>
 
 	</c:forEach>
-	</div>
-	<div class = "link">
-	<a href = "/SMSystem/ChangePasswordServlet">パスワード変更はこちら</a>
+
+
+	<input type = "submit" name = "toChange" value = "PW変更">
+	</form>
 
 	</div>
 	</div>
