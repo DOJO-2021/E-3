@@ -55,6 +55,7 @@ public class Question_AnswerServlet2 extends HttpServlet {
 		All_QuestionDao aqDao = new All_QuestionDao();
 		List<All_Question> AList = aqDao.select_questionUser_id(new All_Question(0,user_id,"","","","","",0,""),table);
 		request.setAttribute("AList", AList);
+		session.getAttribute("question_count");
 
 		RequestDispatcher dispatcher =request.getRequestDispatcher("/WEB-INF/jsp/question_answer.jsp");
 		dispatcher.forward(request, response);

@@ -35,10 +35,15 @@ public class Question_AnswerServlet extends HttpServlet {
 		Table table = new Table(row);
 
 		All_QuestionDao ADao=new All_QuestionDao();
-		List<All_Question> AList = ADao.select_questionUser_id(new All_Question(0,user_id,"","","","","",0,""),table);
+		All_Question aQ = new All_Question(0,user_id,"","","","","",0,"");
+		List<All_Question> AList = ADao.select_questionUser_id(aQ,table);
 		request.setAttribute("user_id",user_id);
 		request.setAttribute("AList",AList);
 		session.setAttribute("user_id", user_id);
+
+		int question_count = 0;
+		question_count = ADao.select_question_count(aQ);
+		session.setAttribute("question_count", question_count);
 		//セッションIDを取得する
 
 
