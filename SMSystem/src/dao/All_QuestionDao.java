@@ -25,7 +25,7 @@ public class All_QuestionDao {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/SMSystem", "sa", "");
 
 			// SELECT文を準備する
-			String sql = "SELECT * FROM ALL_QUESTION WHERE GENRE = ? AND FAQ = '1' LIMIT ?, 2";
+			String sql = "SELECT * FROM ALL_QUESTION WHERE GENRE = ? AND FAQ = '1' ORDER BY QUESTION_ID DESC LIMIT ?, 2";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			if (all_question.getGenre() != null && !all_question.getGenre().equals("")) {
@@ -143,7 +143,7 @@ public class All_QuestionDao {
 				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/SMSystem", "sa", "");
 
 				// SELECT文を準備する
-				String sql = "SELECT * FROM ALL_QUESTION WHERE GENRE = ? AND FAQ = '1' LIMIT ?, 1";
+				String sql = "SELECT * FROM ALL_QUESTION WHERE GENRE = ? AND FAQ = '1'  ORDER BY QUESTION_ID DESC LIMIT ?, 1";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
 				if (all_question.getGenre() != null && !all_question.getGenre().equals("")) {
@@ -272,7 +272,7 @@ public class All_QuestionDao {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/SMSystem", "sa", "");
 
 			// UPDATE文を準備する
-			String sql = "UPDATE ALL_QUESTION SET QUESTION =?, ANSWER = ? WHERE QUESTION_ID = ? ";
+			String sql = "UPDATE ALL_QUESTION SET QUESTION =?, ANSWER = ? WHERE QUESTION_ID = ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			if (all_question.getQuestion() != null && !all_question.getQuestion().equals("")) {
@@ -569,7 +569,7 @@ public class All_QuestionDao {
 
 
 	//「質問回答(受講者)」表示→DB(select) OK
-	public List<All_Question> select_questionUser_id(All_Question all_question) {
+	public List<All_Question> select_questionUser_id(All_Question all_question, Table table) {
 		Connection conn = null;
 		List<All_Question> all_questionIdList = new ArrayList<All_Question>();
 
@@ -579,7 +579,7 @@ public class All_QuestionDao {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/SMSystem", "sa", "");
 
 			// SELECT文を準備する
-			String sql = "SELECT * FROM ALL_QUESTION WHERE USER_ID = ?";
+			String sql = "SELECT * FROM ALL_QUESTION WHERE USER_ID = ? ORDER BY QUESTION_ID DESC LIMIT ?, 1";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			if (all_question.getUser_id() != null && !all_question.getUser_id().equals("")) {
@@ -588,6 +588,8 @@ public class All_QuestionDao {
 			else {
 				pStmt.setString(1, null);
 			}
+
+			pStmt.setInt(2, table.getRow());
 
 			//SELECT文を実行
 			ResultSet rs = pStmt.executeQuery();

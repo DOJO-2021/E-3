@@ -9,6 +9,9 @@
 .headerLogo{
 	width: 300px;
 }
+.break {
+	height: 30px;
+}
 
 /* ドロップダウンナビゲーションの設定 */
 #nav {
@@ -92,4 +95,5 @@
 .sentence {
 	margin: 0 auto;
 	font-size: 11px;
+	border: none;
 }

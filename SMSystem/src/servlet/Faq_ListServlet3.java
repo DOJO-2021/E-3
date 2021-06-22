@@ -27,7 +27,7 @@ public class Faq_ListServlet3 extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	String PAGER = request.getParameter("pager");
 	HttpSession session = request.getSession();
-	String genre = (String) session.getAttribute("faqGenre");
+	String genre = (String) session.getAttribute("genre");
 	int pager = Integer.parseInt(PAGER);
 	if(pager == 1) {
 		pager = 0;

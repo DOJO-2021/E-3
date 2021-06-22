@@ -1,1 +1,80 @@
 @charset "UTF-8";
+
+/* 質問 */
+.question p {
+	font-size: 21px;
+	margin: 20px auto 13px;
+	max-width: 700px;
+}
+/* 回答 */
+.answer p {
+	font-size: 21px;
+	margin: 0 auto 13px;
+	max-width: 700px;
+}
+/* 「質問」「回答」のアンダーライン */
+.under {
+	border-bottom: dashed 3px #F4A460;
+}
+
+/* 質問の枠 */
+.textquestion {
+	display: block;
+	font-size: 16px;
+	max-width: 700px;
+	width: 99%;
+	height: 120px;
+	margin: 8px auto 35px;
+	outline: none;
+}
+/* 回答の枠 */
+.textAnswer {
+	display: block;
+	font-size: 16px;
+	max-width: 700px;
+	width: 99%;
+	height: 120px;
+	margin: 8px auto 20px;
+	outline: none;
+}
+/* 質問編集時 枠線の色がオレンジに変わる */
+.textQuestion:focus {
+	border: 4px solid #F4A460;
+	outline: none;
+}
+/* 回答編集時 枠線の色がオレンジに変わる */
+.textAnswer:focus {
+	border: 4px solid #F4A460;
+	outline: none;
+}
+
+/* 登録ボタン 中央配置 */
+.button {
+	text-align: center;
+	margin-top: 15px;
+}
+input[type="submit"] {
+	cursor: pointer;
+}
+/* 登録・削除ボタン デザイン */
+.button input[type="submit"] {
+	margin: 0 5px;
+	border-radius: 10px;
+	width: 80px;
+	height: 40px;
+	transition: 0.5s;
+}
+/* 登録ボタン・削除ボタン・ページャー ホバーしたときオレンジにする */
+input[type="submit"]:hover {
+	background-color: #F4A460;
+}
+
+/* ページャー */
+.pagination {
+	max-width: 700px;
+	margin: 0 auto;
+	padding: 0;
+}
+.pagination input[type="submit"] {
+	transition: 0.5s;
+}

@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import dao.All_QuestionDao;
 import model.All_Question;
+import model.Table;
 /**
  * Servlet implementation class Question_AnswerServlet
  */
@@ -30,10 +31,14 @@ public class Question_AnswerServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		Object O = session.getAttribute("id");
 		String user_id = O.toString();
+		int row = 0;
+		Table table = new Table(row);
 
 		All_QuestionDao ADao=new All_QuestionDao();
-		List<All_Question> Alist = ADao.select_questionUser_id(new All_Question(0,user_id,"","","","","",0,""));
-		request.setAttribute("Alist",Alist);
+		List<All_Question> AList = ADao.select_questionUser_id(new All_Question(0,user_id,"","","","","",0,""),table);
+		request.setAttribute("user_id",user_id);
+		request.setAttribute("AList",AList);
+		session.setAttribute("user_id", user_id);
 		//セッションIDを取得する
 
 

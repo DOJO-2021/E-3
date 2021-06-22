@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="css/header_footer.css">
 </head>
 <body>
+<jsp:include page="/WEB-INF/jsp/time.jsp" />
 <footer class="footer">
 <img src="img/title1.png" alt="#かけだしエンジニア" class="footerLogo">
 <p class="sentence">Copyright(C) 2021 SMSystem All rights reserved.<br>

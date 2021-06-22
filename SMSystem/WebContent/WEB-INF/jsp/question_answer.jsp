@@ -14,7 +14,7 @@
 <div class="wrapper">
 <h3>質問回答</h3>
 
-<c:forEach var = "e" items = "${Alist}">
+<c:forEach var = "e" items = "${AList}">
 				<div class="question">
 					<p><span class="under">質問</span></p>
 					<input type ="text" class="textquestion" name = "question" value = "${e.question}" readonly>
@@ -27,6 +27,13 @@
 				</div>
 </c:forEach>
 
+<ul class="pagination">
+		<form method = "GET" action = "/SMSystem/Question_AnswerServlet2">
+			<input type = "submit" name = "pager" value = "1">
+			<input type = "submit" name = "pager" value = "2">
+			<input type = "submit" name = "pager" value = "3">
+		</form>
+</ul>
 
 		<div class="button">
 			<button onclick = "location.href = '/SMSystem/Menu_StudentServlet'">メニュー</button>
