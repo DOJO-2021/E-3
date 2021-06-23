@@ -43,15 +43,3 @@ td{
 	background:white;
 }
 
-/*自己紹介の大きさを変更*/
-.textarea{
-	width:413.48px;
-	height:108.48px;
-	margin: 10px;
-	background:white;
-}
-
-/*画像の大きさを100pxに変更*/
-img{
-	width: 45.98px;
-}

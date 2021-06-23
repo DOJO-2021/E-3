@@ -26,6 +26,16 @@ public class Faq_ListServlet extends HttpServlet {
 	 */
 	// フォワード
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		session.removeAttribute("pager1");
+		session.removeAttribute("pager2");
+		session.removeAttribute("pager3");
+		session.removeAttribute("count_pager");
+		session.removeAttribute("value");
+		session.removeAttribute("count_maxpager");
+		session.removeAttribute("current_pager");
+
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/faq_list.jsp");
 		dispatcher.forward(request, response);
 	}
@@ -70,6 +80,89 @@ public class Faq_ListServlet extends HttpServlet {
 		int count = 0;
 		count = ADao.select_count(aQ);
 		session.setAttribute("count", count);
+
+		int value = 0;
+		session.setAttribute("value", value);
+		int current_pager = value/2+1;
+		session.setAttribute("current_pager", current_pager);
+
+		int count_pager = 0;
+		int count_maxpager = 0;
+		int max = (int) session.getAttribute("count");
+		if(max/2+1==1 && max%2!=0) {
+			int pager1 = 1;
+			session.setAttribute("pager1", pager1);
+			count_pager = 1;
+			session.setAttribute("count_pager", count_pager);
+			count_maxpager = max/2+1;
+		}else if(max/2==1 && max%2==0) {
+			int pager1 = 1;
+			session.setAttribute("pager1", pager1);
+			count_pager = 1;
+			session.setAttribute("count_pager", count_pager);
+			count_maxpager = max/2;
+		}else if(max/2+1==2 && max%2!=0) {
+			int pager1 = 1;
+			session.setAttribute("pager1", pager1);
+			int pager2 = 2;
+			session.setAttribute("pager2", pager2);
+			count_pager = 2;
+			session.setAttribute("count_pager", count_pager);
+			count_maxpager = max/2+1;
+		}else if(max/2==2 && max%2==0) {
+			int pager1 = 1;
+			session.setAttribute("pager1", pager1);
+			int pager2 = 2;
+			session.setAttribute("pager2", pager2);
+			count_pager = 2;
+			session.setAttribute("count_pager", count_pager);
+			count_maxpager = max/2;
+		}else if(max/2+1==3 && max%2!=0) {
+			int pager1 = 1;
+			session.setAttribute("pager1", pager1);
+			int pager2 = 2;
+			session.setAttribute("pager2", pager2);
+			int pager3 = 3;
+			session.setAttribute("pager3", pager3);
+			count_pager = 3;
+			session.setAttribute("count_pager", count_pager);
+			count_maxpager = max/2+1;
+		}else if(max/2==3 && max%2==0) {
+			int pager1 = 1;
+			session.setAttribute("pager1", pager1);
+			int pager2 = 2;
+			session.setAttribute("pager2", pager2);
+			int pager3 = 3;
+			session.setAttribute("pager3", pager3);
+			count_pager = 3;
+			session.setAttribute("count_pager", count_pager);
+			count_maxpager = max/2;
+		}else if(max/2+1>3 && max%2!=0){
+			int pager1 = 1;
+			session.setAttribute("pager1", pager1);
+			int pager2 = 2;
+			session.setAttribute("pager2", pager2);
+			int pager3 = 3;
+			session.setAttribute("pager3", pager3);
+			count_pager = 3;
+			session.setAttribute("count_pager", count_pager);
+			count_maxpager = max/2+1;
+		}else if(max/2>3 && max%2==0) {
+			int pager1 = 1;
+			session.setAttribute("pager1", pager1);
+			int pager2 = 2;
+			session.setAttribute("pager2", pager2);
+			int pager3 = 3;
+			session.setAttribute("pager3", pager3);
+			count_pager = 3;
+			session.setAttribute("count_pager", count_pager);
+			count_maxpager = max/2;
+		}
+		session.setAttribute("count_maxpager",count_maxpager);
+
+
+
+
 		RequestDispatcher dispatcher =request.getRequestDispatcher("/WEB-INF/jsp/faq_list2.jsp");
 		dispatcher.forward(request, response);
 

@@ -27,27 +27,121 @@ public class Faq_ListServlet4 extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		String PAGER = request.getParameter("pager");
+		String PAGER = request.getParameter("page");
 		HttpSession session = request.getSession();
-		String genre = (String) session.getAttribute("faqGenre");
-		int pager = Integer.parseInt(PAGER);
-		if(pager == 1) {
-			pager = 0;
-		}else if (pager == 2) {
-			pager = 2;
-		}else {
-			pager = 4;
-		}
-		Table table = new Table(pager);
-		All_QuestionDao ADao = new All_QuestionDao();
-		List<All_Question> faqList = ADao.select_faq(new All_Question(0,"",genre,"","","","",0,""),table);
-		request.setAttribute("faqList", faqList);
-		session.getAttribute("count");
-		session.getAttribute("genre");
-		RequestDispatcher dispatcher =request.getRequestDispatcher("/WEB-INF/jsp/faq_list2.jsp");
-		dispatcher.forward(request, response);
-		}
+		String genre = (String)session.getAttribute("faqGenre");
+		session.getAttribute("count_maxpager");
+		int current_pager = (int) session.getAttribute("current_pager");
+		int count_pager = (int) session.getAttribute("count_pager");
 
+		if(count_pager == 1) {
+			int pager1 = (int) session.getAttribute("pager1");
+			int value = 0;
+
+			if(PAGER.equals("1")) {
+				value = 2*(pager1-1);
+			}
+
+			session.setAttribute("pager1", pager1);
+
+			Table table = new Table(value);
+
+
+
+			All_QuestionDao ADao = new All_QuestionDao();
+			List<All_Question> faqList = ADao.select_faq(new All_Question(0,"",genre,"","","","",0,""),table);
+			request.setAttribute("faqList", faqList);
+
+			session.getAttribute("count");
+			current_pager = value/2+1;
+			session.setAttribute("current_pager", current_pager);
+
+
+			RequestDispatcher dispatcher =request.getRequestDispatcher("/WEB-INF/jsp/faq_list2.jsp");
+			dispatcher.forward(request, response);
+
+		}else if(count_pager == 2) {
+			int pager1 = (int) session.getAttribute("pager1");
+			int pager2 = (int) session.getAttribute("pager2");
+			int value = (int) session.getAttribute("value");
+			int max = (int) session.getAttribute("count");
+
+			if(PAGER.equals("1")) {
+				value = 2*(pager1-1);
+			}else if(PAGER.equals("2")) {
+				value = 2*(pager2-1);
+			}
+
+			session.setAttribute("pager1", pager1);
+			session.setAttribute("pager2", pager2);
+			Table table = new Table(value);
+
+			session.setAttribute("value",value);
+
+			All_QuestionDao ADao = new All_QuestionDao();
+			List<All_Question> faqList = ADao.select_faq(new All_Question(0,"",genre,"","","","",0,""),table);
+			request.setAttribute("faqList", faqList);
+
+			session.getAttribute("count");
+			current_pager = value/2+1;
+			session.setAttribute("current_pager", current_pager);
+
+
+			RequestDispatcher dispatcher =request.getRequestDispatcher("/WEB-INF/jsp/faq_list2.jsp");
+			dispatcher.forward(request, response);
+
+		}else if(count_pager == 3) {
+			int pager1 = (int) session.getAttribute("pager1");
+			int pager2 = (int) session.getAttribute("pager2");
+			int pager3 = (int) session.getAttribute("pager3");
+			int value = (int) session.getAttribute("value");
+			int max = (int) session.getAttribute("count");
+
+			if(PAGER.equals("small")) {
+				if(pager1>=2) {
+					pager1-=1;
+					pager2-=1;
+					pager3-=1;
+				}
+			}else if(PAGER.equals("big")) {
+				if(max/2+1>pager3 && max%2!=0) {
+					pager1+=1;
+					pager2+=1;
+					pager3+=1;
+				}else if(max/2>pager3 && max%2==0) {
+					pager1+=1;
+					pager2+=1;
+					pager3+=1;
+				}
+			}else if(PAGER.equals("1")) {
+				value = 2*(pager1-1);
+			}else if(PAGER.equals("2")) {
+				value = 2*(pager2-1);
+			}else if(PAGER.equals("3")) {
+				value = 2*(pager3-1);
+			}
+
+
+
+			session.setAttribute("pager1", pager1);
+			session.setAttribute("pager2", pager2);
+			session.setAttribute("pager3", pager3);
+			session.setAttribute("value", value);
+			Table table = new Table(value);
+
+			All_QuestionDao ADao = new All_QuestionDao();
+			List<All_Question> faqList = ADao.select_faq(new All_Question(0,"",genre,"","","","",0,""),table);
+			request.setAttribute("faqList", faqList);
+
+			session.getAttribute("count");
+			current_pager = value/2+1;
+			session.setAttribute("current_pager", current_pager);
+
+
+			RequestDispatcher dispatcher =request.getRequestDispatcher("/WEB-INF/jsp/faq_list2.jsp");
+			dispatcher.forward(request, response);
+		}
+	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

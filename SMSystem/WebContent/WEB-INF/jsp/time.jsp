@@ -5,19 +5,15 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="css/time.css">
-
 </head>
 <body>
-<br>
 <div class ="wrapper">
-<section class = "timeex">
-
-<span id ="time"></span>
-
+	<section class = "timeex">
+	<span id ="time"></span>
 
 <script>
-
 'use stirct';
+
 const now = new Date();
 const year = now.getFullYear();
 const month = now.getMonth();
@@ -56,8 +52,5 @@ var myhour = mynow.getHours();
 document.write("<img "+myimg[myhour]+">");</script>
 </section>
 </div>
-<footer>
-
-</footer>
 </body>
 </html>

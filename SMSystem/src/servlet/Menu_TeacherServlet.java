@@ -16,7 +16,7 @@ import model.Table;
 import model.User;
 
 /**
- * Servlet implementation class Menu_TeacherServlet
+ * Servlet implementation class Menu_StudentServlet
  */
 @WebServlet("/Menu_TeacherServlet")
 public class Menu_TeacherServlet extends HttpServlet {
@@ -26,14 +26,28 @@ public class Menu_TeacherServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		HttpSession session = request.getSession();
+		session.removeAttribute("pager1");
+		session.removeAttribute("pager2");
+		session.removeAttribute("pager3");
+		session.removeAttribute("count_pager");
+		session.removeAttribute("value");
+		session.removeAttribute("count_maxpager");
+		session.removeAttribute("current_pager");
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/menu_teacher.jsp");
 		dispatcher.forward(request,response);
+
+
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		//リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
 		String user_class = request.getParameter("user_class");
 		int row = 0;
@@ -50,9 +64,92 @@ public class Menu_TeacherServlet extends HttpServlet {
 		int count = uDao.select_count(u);
 		request.setAttribute("count", count);
 		session.setAttribute("count", count);
+		int value = 0;
+		session.setAttribute("value", value);
+		int current_pager = value/10+1;
+		session.setAttribute("current_pager", current_pager);
+
+		int count_pager = 0;
+		int count_maxpager = 0;
+		int max = (int) session.getAttribute("count");
+		if(max/10+1==1 && max%10!=0) {
+			int pager1 = 1;
+			session.setAttribute("pager1", pager1);
+			count_pager = 1;
+			session.setAttribute("count_pager", count_pager);
+			count_maxpager = max/10+1;
+		}else if(max/10==1 && max%10==0) {
+			int pager1 = 1;
+			session.setAttribute("pager1", pager1);
+			count_pager = 1;
+			session.setAttribute("count_pager", count_pager);
+			count_maxpager = max/10;
+		}else if(max/10+1==2 && max%10!=0) {
+			int pager1 = 1;
+			session.setAttribute("pager1", pager1);
+			int pager2 = 2;
+			session.setAttribute("pager2", pager2);
+			count_pager = 2;
+			session.setAttribute("count_pager", count_pager);
+			count_maxpager = max/10+1;
+		}else if(max/10==2 && max%10==0) {
+			int pager1 = 1;
+			session.setAttribute("pager1", pager1);
+			int pager2 = 2;
+			session.setAttribute("pager2", pager2);
+			count_pager = 2;
+			session.setAttribute("count_pager", count_pager);
+			count_maxpager = max/10;
+		}else if(max/10+1==3 && max%10!=0) {
+			int pager1 = 1;
+			session.setAttribute("pager1", pager1);
+			int pager2 = 2;
+			session.setAttribute("pager2", pager2);
+			int pager3 = 3;
+			session.setAttribute("pager3", pager3);
+			count_pager = 3;
+			session.setAttribute("count_pager", count_pager);
+			count_maxpager = max/10+1;
+		}else if(max/10==3 && max%10==0) {
+			int pager1 = 1;
+			session.setAttribute("pager1", pager1);
+			int pager2 = 2;
+			session.setAttribute("pager2", pager2);
+			int pager3 = 3;
+			session.setAttribute("pager3", pager3);
+			count_pager = 3;
+			session.setAttribute("count_pager", count_pager);
+			count_maxpager = max/10;
+		}else if(max/10+1>3 && max%10!=0){
+			int pager1 = 1;
+			session.setAttribute("pager1", pager1);
+			int pager2 = 2;
+			session.setAttribute("pager2", pager2);
+			int pager3 = 3;
+			session.setAttribute("pager3", pager3);
+			count_pager = 3;
+			session.setAttribute("count_pager", count_pager);
+			count_maxpager = max/10+1;
+		}else if(max/10>3 && max%10==0) {
+			int pager1 = 1;
+			session.setAttribute("pager1", pager1);
+			int pager2 = 2;
+			session.setAttribute("pager2", pager2);
+			int pager3 = 3;
+			session.setAttribute("pager3", pager3);
+			count_pager = 3;
+			session.setAttribute("count_pager", count_pager);
+			count_maxpager = max/10;
+		}
+		session.setAttribute("count_maxpager",count_maxpager);
+
+
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/student_list2.jsp");
 		dispatcher.forward(request,response);
+
+
+
 	}
 
 }

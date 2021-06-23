@@ -1,14 +1,60 @@
 @charset "UTF-8";
 
+/* 全体に適用 *//* common */
 .wrapper{
 	margin: 0 auto 0 auto;
 	max-width: 960px;
 }
-.text{
+/*.text{
 	margin-top: 80px;
 	text-align: center;
+}*/
+
+.white {
+	text-align: center;
+	cursor: default;
 }
-input {
+table {
+	border-collapse: collapse;
+	margin: 0 auto;
+	padding: 0;
+	width: 680px;
+}
+table tr {
+	background-color: #FFF;
+}
+table tbody tr:hover {
+	background-color: #FFF3B8;
+}
+table th, table td {
+	border-bottom: 1px solid #EEE;
+}
+table thred th {
+	padding: 1em;
+}
+table thead tr{
+  background-color: #F4A460;
+}
+table tbody th {
+  text-align: center;
+  font-size: .8em;
+}
+.white0 {
+	display: none;
+}
+/*回答する デザイン */
+.white input {
+	border: none;
+}
+.white input[type = "submit"]{
+	border-radius: 10px;
+	max-width:100px;
+	height:20px;
+	transition: 0.5s;
+	cursor: pointer;
+}
+
+/*input {
 	border:none;
 }
  input{
@@ -48,21 +94,20 @@ td{
 	height:20px;
 	margin: 5px;
 	text-align:center;
-}
+}*/
 
-h3{
+/*h3{
 	max-width: 700px;
 	margin: 20px auto;
-}
+}*/
 
-input[type = "submit"]{
+/*input[type = "submit"]{
 	border-radius: 10px;
 	max-width:100px;
 	height:20px;
 	transition: 0.5s;
 	cursor: pointer;
-
-}
+}*/
 /*登録ボタンにカーソルが触れると色が変わるように変更*/
 input[type = "submit"]:hover{
 	background-color : #F4A460;
@@ -88,7 +133,6 @@ p{
 .pagination {
     list-style: none;
 }
-
 .pagination li {
     display: inline-block;
     margin: 0 0.5em;

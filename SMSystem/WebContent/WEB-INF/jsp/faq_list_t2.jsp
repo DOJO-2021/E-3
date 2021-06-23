@@ -12,7 +12,7 @@
 <body>
 <jsp:include page = "/WEB-INF/jsp/header.jsp" />
 <div class = "wrapper">
-<h3>${genre}に関するFAQ(全${count}件)</h3>
+<h3>${genre}に関するFAQ(全${count}件)(${current_pager}/${count_maxpager}ページ)</h3>
 <c:forEach var = "f" items = "${faqList}">
 	<div class = "question">
 		<p><span class = "under">質問</span></p>
@@ -24,13 +24,14 @@
 	</div>
 </c:forEach>
 
-<ul class = "pagination">
-	<form method = "GET" action = "/SMSystem/Faq_ListServlet3">
-		<input type = "submit" name = "pager" value = "1">
-		<input type = "submit" name = "pager" value = "2">
-		<input type = "submit" name = "pager" value = "3">
-	</form>
-</ul>
+<br>
+ 	<div class="pager">
+	<a href = "/SMSystem/Faq_ListServlet3?page=small">＜</a>
+	<a href = "/SMSystem/Faq_ListServlet3?page=1">${pager1}</a>
+	<a href = "/SMSystem/Faq_ListServlet3?page=2">${pager2}</a>
+	<a href = "/SMSystem/Faq_ListServlet3?page=3">${pager3}</a>
+	<a href = "/SMSystem/Faq_ListServlet3?page=big">＞</a>
+	</div>
 
 	<div class ="button">
 		<button onclick = "location.href = '/SMSystem/Menu_TeacherServlet'">メニュー</button>

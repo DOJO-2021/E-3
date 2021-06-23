@@ -19,7 +19,7 @@
 	</c:forEach>
 
 	<p><span class = "under">ジャンル</span></p>
-	<form method = "POST" action = "/SMSystem/Question_FillinServlet">
+	<form id="form" method = "POST" action = "/SMSystem/Question_FillinServlet">
 		<input type = "hidden" name = "user_id" value = "${sessionScope.id}">
 		<div class = "genre">
 			<select name = "select" >
@@ -45,12 +45,14 @@
 			<label><input type="radio" name="emergent" value="0">緊急</label>
 			<label><input type="radio" name="emergent" value="1">緊急でない</label>
 		</div>
+		<p id="alert"></p>
 		<div class ="button">
 			<input type = "submit" name = "submit_create" value ="送信">
 		</div>
 	</form>
 
 <jsp:include page="/WEB-INF/jsp/footer.jsp" />
+<script src="/SMSystem/js/question_fillin.js"></script>
 </div>
 </body>
 </html>

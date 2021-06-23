@@ -4,16 +4,14 @@
 <html>
 <head>
 <title>更新完了！ | SMSystem</title>
-<link rel ="stylesheet" href ="css/profile2.css">
+<link rel="stylesheet" href="css/common.css">
 </head>
 <body>
 <jsp:include page="/WEB-INF/jsp/header_teacher.jsp" />
-<br>
-<br>
-<h1>FAQの更新をしました！</h1>
-		<div class ="button">
-			<button onclick = "location.href = '/SMSystem/Menu_TeacherServlet'">メニュー</button>
-		</div>
+<h1><span class="done">FAQの更新をしました！</span></h1>
+	<div class ="button">
+		<button onclick = "location.href = '/SMSystem/Menu_TeacherServlet'">メニュー</button>
+	</div>
 
 <jsp:include page="/WEB-INF/jsp/footer.jsp" />
 
