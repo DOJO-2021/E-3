@@ -13,30 +13,32 @@
 <jsp:include page="/WEB-INF/jsp/header_student.jsp" />
 <div class="wrapper">
 	<h3>質問への回答確認（全質問回数${question_count}件）</h3>
-	<p></p>
 	<c:forEach var = "e" items = "${AList}">
 		<div class="question">
 			<p><span class="under">質問</span></p>
-			<input type ="text" class="textquestion" name = "question" value = "${e.question}" readonly>
+			<textarea class="textQuestion" name = "question" readonly>${e.question}</textarea>
 		</div>
 
 		<div class="answer">
 			<p><span class="under">回答</span></p>
-			<input type ="text" class="textAnswer" name ="answer" value = "${e.answer}" readonly>
+			<textarea class="textAnswer" name ="answer" readonly>${e.answer}</textarea>
 		</div>
 	</c:forEach>
 
-	<ul class="pagination">
-		<form method = "GET" action = "/SMSystem/Question_AnswerServlet2">
-			<input type = "submit" name = "pager" value = "1">
-			<input type = "submit" name = "pager" value = "2">
-			<input type = "submit" name = "pager" value = "3">
-		</form>
-	</ul>
+<br>
+	<div class="pager">
+	<a href = "/SMSystem/Question_AnswerServlet2?page=small">${pagerSmall}</a>
+	<a href = "/SMSystem/Question_AnswerServlet2?page=1">${pager1}</a>
+	<a href = "/SMSystem/Question_AnswerServlet2?page=2">${pager2}</a>
+	<a href = "/SMSystem/Question_AnswerServlet2?page=3">${pager3}</a>
+	<a href = "/SMSystem/Question_AnswerServlet2?page=big">${pagerBig}</a>
+	</div>
+<br>
 
 	<div class="button">
 		<button onclick = "location.href = '/SMSystem/Menu_StudentServlet'">メニュー</button>
 	</div>
+
 <jsp:include page="/WEB-INF/jsp/footer.jsp" />
 </div>
 </body>

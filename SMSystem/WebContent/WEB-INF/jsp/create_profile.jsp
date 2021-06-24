@@ -52,6 +52,7 @@
 		</div>
 	</form>
 	</div>
+<jsp:include page="/WEB-INF/jsp/footer.jsp" />
 <script src="/SMSystem/js/create_profile.js"></script>
 </body>
 </html>

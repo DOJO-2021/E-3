@@ -35,6 +35,8 @@ public class Menu_StudentServlet extends HttpServlet {
 		session.removeAttribute("value");
 		session.removeAttribute("count_maxpager");
 		session.removeAttribute("current_pager");
+		session.removeAttribute("pagerSmall");
+		session.removeAttribute("pagerBig");
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/menu_student.jsp");
 		dispatcher.forward(request,response);
@@ -69,6 +71,11 @@ public class Menu_StudentServlet extends HttpServlet {
 		int current_pager = value/10+1;
 		session.setAttribute("current_pager", current_pager);
 
+		String pagerSmall = "前へ";
+		String pagerBig = "次へ";
+		session.setAttribute("pagerSmall", pagerSmall);
+		session.setAttribute("pagerBig", pagerBig);
+
 		int count_pager = 0;
 		int count_maxpager = 0;
 		int max = (int) session.getAttribute("count");
@@ -78,12 +85,16 @@ public class Menu_StudentServlet extends HttpServlet {
 			count_pager = 1;
 			session.setAttribute("count_pager", count_pager);
 			count_maxpager = max/10+1;
+			session.removeAttribute("pagerSmall");
+			session.removeAttribute("pagerBig");
 		}else if(max/10==1 && max%10==0) {
 			int pager1 = 1;
 			session.setAttribute("pager1", pager1);
 			count_pager = 1;
 			session.setAttribute("count_pager", count_pager);
 			count_maxpager = max/10;
+			session.removeAttribute("pagerSmall");
+			session.removeAttribute("pagerBig");
 		}else if(max/10+1==2 && max%10!=0) {
 			int pager1 = 1;
 			session.setAttribute("pager1", pager1);
@@ -92,6 +103,8 @@ public class Menu_StudentServlet extends HttpServlet {
 			count_pager = 2;
 			session.setAttribute("count_pager", count_pager);
 			count_maxpager = max/10+1;
+			session.removeAttribute("pagerSmall");
+			session.removeAttribute("pagerBig");
 		}else if(max/10==2 && max%10==0) {
 			int pager1 = 1;
 			session.setAttribute("pager1", pager1);
@@ -100,6 +113,8 @@ public class Menu_StudentServlet extends HttpServlet {
 			count_pager = 2;
 			session.setAttribute("count_pager", count_pager);
 			count_maxpager = max/10;
+			session.removeAttribute("pagerSmall");
+			session.removeAttribute("pagerBig");
 		}else if(max/10+1==3 && max%10!=0) {
 			int pager1 = 1;
 			session.setAttribute("pager1", pager1);
@@ -110,6 +125,8 @@ public class Menu_StudentServlet extends HttpServlet {
 			count_pager = 3;
 			session.setAttribute("count_pager", count_pager);
 			count_maxpager = max/10+1;
+			session.removeAttribute("pagerSmall");
+			session.removeAttribute("pagerBig");
 		}else if(max/10==3 && max%10==0) {
 			int pager1 = 1;
 			session.setAttribute("pager1", pager1);
@@ -120,6 +137,8 @@ public class Menu_StudentServlet extends HttpServlet {
 			count_pager = 3;
 			session.setAttribute("count_pager", count_pager);
 			count_maxpager = max/10;
+			session.removeAttribute("pagerSmall");
+			session.removeAttribute("pagerBig");
 		}else if(max/10+1>3 && max%10!=0){
 			int pager1 = 1;
 			session.setAttribute("pager1", pager1);
@@ -130,6 +149,7 @@ public class Menu_StudentServlet extends HttpServlet {
 			count_pager = 3;
 			session.setAttribute("count_pager", count_pager);
 			count_maxpager = max/10+1;
+			session.removeAttribute("pagerSmall");
 		}else if(max/10>3 && max%10==0) {
 			int pager1 = 1;
 			session.setAttribute("pager1", pager1);
@@ -140,8 +160,16 @@ public class Menu_StudentServlet extends HttpServlet {
 			count_pager = 3;
 			session.setAttribute("count_pager", count_pager);
 			count_maxpager = max/10;
+			session.removeAttribute("pagerSmall");
+		}else if(max == 0) {
+			current_pager -= 1;
+			session.setAttribute("current_pager", current_pager);
+			session.setAttribute("count_pager", count_pager);
+			session.removeAttribute("pagerSmall");
+			session.removeAttribute("pagerBig");
 		}
 		session.setAttribute("count_maxpager",count_maxpager);
+
 
 
 

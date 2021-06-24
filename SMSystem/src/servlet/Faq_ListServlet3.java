@@ -32,8 +32,24 @@ public class Faq_ListServlet3 extends HttpServlet {
 		session.getAttribute("count_maxpager");
 		int current_pager = (int) session.getAttribute("current_pager");
 		int count_pager = (int) session.getAttribute("count_pager");
+		String pagerSmall = "前へ";
+		session.setAttribute("pagerSmall",pagerSmall);
+		String pagerBig = "次へ";
+		session.setAttribute("pagerBig",pagerBig);
 
-		if(count_pager == 1) {
+		if(count_pager == 0) {
+			int value = 0;
+
+			Table table = new Table(value);
+
+			All_QuestionDao ADao = new All_QuestionDao();
+			List<All_Question> faqList = ADao.select_faq(new All_Question(0,"",genre,"","","","",0,""),table);
+			request.setAttribute("faqList", faqList);
+
+			RequestDispatcher dispatcher =request.getRequestDispatcher("/WEB-INF/jsp/faq_list_t2.jsp");
+			dispatcher.forward(request, response);
+
+		}else if(count_pager == 1) {
 			int pager1 = (int) session.getAttribute("pager1");
 			int value = 0;
 
@@ -136,6 +152,12 @@ public class Faq_ListServlet3 extends HttpServlet {
 			current_pager = value/2+1;
 			session.setAttribute("current_pager", current_pager);
 
+			int count_maxpager = (int) session.getAttribute("count_maxpager");
+			if(pager3 == count_maxpager) {
+				session.removeAttribute("pagerBig");
+			}else if(pager1 == 1) {
+				session.removeAttribute("pagerSmall");
+			}
 
 			RequestDispatcher dispatcher =request.getRequestDispatcher("/WEB-INF/jsp/faq_list_t2.jsp");
 			dispatcher.forward(request, response);
@@ -146,8 +168,7 @@ public class Faq_ListServlet3 extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+
 	}
 
 }

@@ -38,7 +38,7 @@
 
 		<div class = "question">
 			<p><span class = "under">質問</span></p>
-			<textarea  name = "question" ></textarea>
+			<textarea  name = "question" class="textQuestion"></textarea>
 		</div>
 
 		<div class = "radio">

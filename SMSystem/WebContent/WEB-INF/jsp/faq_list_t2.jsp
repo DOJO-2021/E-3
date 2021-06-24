@@ -10,32 +10,35 @@
 <link rel = "stylesheet" href = "css/faq_list2.css">
 </head>
 <body>
-<jsp:include page = "/WEB-INF/jsp/header.jsp" />
+<jsp:include page = "/WEB-INF/jsp/header_teacher.jsp" />
 <div class = "wrapper">
 <h3>${genre}に関するFAQ(全${count}件)(${current_pager}/${count_maxpager}ページ)</h3>
 <c:forEach var = "f" items = "${faqList}">
 	<div class = "question">
 		<p><span class = "under">質問</span></p>
-		<input type = "text" class = "textquestion" name = "question" value = "${f.question}" readonly>
+		<textarea class = "textQuestion" name = "question" readonly>${f.question}</textarea>
 	</div>
 	<div class = "answer">
 		<p><span class = "under">回答</span></p>
-		<input type ="text" class = "textAnswer" name = "answer" value = "${f.answer}" readonly>
+		<textarea class = "textAnswer" name = "answer" readonly>${f.answer}</textarea>
 	</div>
+	<hr>
 </c:forEach>
 
 <br>
  	<div class="pager">
-	<a href = "/SMSystem/Faq_ListServlet3?page=small">＜</a>
+	<a href = "/SMSystem/Faq_ListServlet3?page=small">${pagerSmall}</a>
 	<a href = "/SMSystem/Faq_ListServlet3?page=1">${pager1}</a>
 	<a href = "/SMSystem/Faq_ListServlet3?page=2">${pager2}</a>
 	<a href = "/SMSystem/Faq_ListServlet3?page=3">${pager3}</a>
-	<a href = "/SMSystem/Faq_ListServlet3?page=big">＞</a>
+	<a href = "/SMSystem/Faq_ListServlet3?page=big">${pagerBig}</a>
 	</div>
+<br>
 
 	<div class ="button">
 		<button onclick = "location.href = '/SMSystem/Menu_TeacherServlet'">メニュー</button>
 	</div>
+
 <jsp:include page = "/WEB-INF/jsp/footer.jsp" />
 </div>
 </body>

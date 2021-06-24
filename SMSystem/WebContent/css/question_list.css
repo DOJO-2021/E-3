@@ -53,7 +53,16 @@ input[type="text"]:focus {
 	font-size: 17px;
 	cursor: default;
 }
-.white {
+.white0 {
+	display: none;
+}
+.white1 {
+	width: 267px;
+	text-align: center;
+	cursor: default;
+}
+.white2 {
+	width: 266px;
 	text-align: center;
 	cursor: default;
 }
@@ -82,14 +91,12 @@ table tbody th {
   text-align: center;
   font-size: .8em;
 }
-.white0 {
-	display: none;
-}
+
 /*回答する デザイン */
-.white input {
+.white2 input {
 	border: none;
 }
-.white input[type = "submit"]{
+.white2 input[type = "submit"]{
 	border-radius: 10px;
 	max-width:100px;
 	height:20px;

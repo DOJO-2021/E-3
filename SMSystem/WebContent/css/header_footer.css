@@ -94,6 +94,7 @@
 }
 .sentence {
 	margin: 0 auto;
+	text-align: left;
 	font-size: 11px;
 	border: none;
 }

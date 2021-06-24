@@ -68,7 +68,7 @@ select:focus {
 }
 
 /* 質問の枠 */
-.textquestion {
+.textQuestion {
 	display: block;
 	font-size: 16px;
 	max-width: 700px;
@@ -85,6 +85,16 @@ select:focus {
 	width: 99%;
 	height: 120px;
 	margin: 8px auto 20px;
+	outline: none;
+}
+/* 質問編集時 枠線の色がオレンジに変わる */
+.textQuestion:focus {
+	border: 4px solid #F4A460;
+	outline: none;
+}
+/* 回答編集時 枠線の色がオレンジに変わる */
+.textAnswer:focus {
+	border: 4px solid #F4A460;
 	outline: none;
 }
 /* テキストエリア サイズ */
@@ -172,6 +182,7 @@ visibility: visible;
 margin-right: 3px;
 }
 label {
+	font-size: 17px;
 	margin-left: 1em;
 	margin-right: 1em;
 	cursor: pointer;
@@ -181,7 +192,6 @@ label {
 .pager a{
 	width: 30px;
 	height: 30px;
-	margin: 0 0 0 0;
 }
 .pager a {
 	text-decoration: none;
@@ -193,10 +203,11 @@ label {
 	color: black;
 }
 .pager a:hover {
-	color: #F4A460;
+	border-bottom:3px solid  #F4A460;
+	color: black;
 }
 .pager a:active {
-	color: #F4A460;
+	color: black;
 }
 .pager{
 	text-align: right;

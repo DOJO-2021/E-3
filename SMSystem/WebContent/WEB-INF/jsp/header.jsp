@@ -11,7 +11,7 @@
 <div class="logo">
 	<img src="img/title.png" alt="SMSystem" class="headerLogo">
 </div>
-<div class="break"></div>
+<!--  <div class="break"></div>-->
 </header>
 </body>
 </html>

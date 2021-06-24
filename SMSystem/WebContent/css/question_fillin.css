@@ -76,15 +76,21 @@ label {
 	margin-left: 1em;
 	margin-right: 1em;
 	cursor: pointer;
+	font-size: 17px;
 }
 
 /*textareaの大きさを変更*//* common */
-textarea {
+.question textarea {
 	width:700px;
-	height:220px;
+	height:120px;
 	margin: 0px;
-	font-size: 20px;
-
+	font-size: 16px;
+}
+.answer textarea {
+	width:700px;
+	height:120px;
+	margin: 0px;
+	font-size: 16px;
 }
 /*テキストエリア入力時に枠線の色が変わる*//* common */
 textarea:focus {

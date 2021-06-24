@@ -18,11 +18,11 @@
 	<form method="POST" action="/SMSystem/Question_UpdateServlet" id="form">
 		<div class="question">
 			<p><span class="under">質問</span></p>
-			<input type="text" class="textquestion" name="question" value="${all_question}" readonly>
+			<textarea name="question" class="textQuestion" readonly>${all_question}</textarea>
 		</div>
 		<div class="answer">
 			<p><span class="under">回答</span></p>
-			<textarea name="answer"></textarea>
+			<textarea name="answer" class="textAnswer"></textarea>
 		</div>
 		<div class="radio">
 			<label><input type="radio" name="faq" value="1">FAQに登録する</label>

@@ -1,15 +1,42 @@
 @charset "UTF-8";
 
-/* 全体に適用 *//* common */
-
 /*.text{
 	margin-top: 80px;
 	text-align: center;
 }*/
 
-.white {
+/* hidden のユーザID */
+.white0 {
+	display: none;
+}
+/* 氏名・氏名（かな） */
+.white1 {
+	width: 148.75px;
 	text-align: center;
 	cursor: default;
+}
+/* 企業名 */
+.white2 {
+	width: 297.5px;
+	text-align: center;
+	cursor: default;
+}
+/* プロフィールへボタン */
+.white3 {
+	width: 105px;
+	text-align: center;
+	cursor: default;
+}
+/* プロフィールへボタン デザイン */
+.white3 input {
+	border: none;
+}
+.white3 input[type = "submit"]{
+	border-radius: 10px;
+	max-width:100px;
+	height:20px;
+	transition: 0.5s;
+	cursor: pointer;
 }
 table {
 	border-collapse: collapse;
@@ -36,20 +63,7 @@ table tbody th {
   text-align: center;
   font-size: .8em;
 }
-.white0 {
-	display: none;
-}
-/*回答する デザイン */
-.white input {
-	border: none;
-}
-.white input[type = "submit"]{
-	border-radius: 10px;
-	max-width:100px;
-	height:20px;
-	transition: 0.5s;
-	cursor: pointer;
-}
+
 
 /*input {
 	border:none;

@@ -15,7 +15,8 @@
 	<form method = "POST" action = "/SMSystem/Menu_TeacherServlet">
 		<p class = "text">クラスを入力してください
 		<input type = "text" name = "user_class" placeholder = "A～E">
-		<input type = "submit" name = "search" value = "検索"></p>
+		<input type = "submit" name = "search" value = "検索">
+		</p>
 	</form>
 	<jsp:include page="/WEB-INF/jsp/footer.jsp" />
 </div>

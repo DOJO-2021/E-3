@@ -19,12 +19,12 @@
 
 		<div class = "question">
 			<p><span class = "under">質問</span></p>
-			<input type = "text" class = "textquestion" name = "question" value = "${e.question}">
+			<textarea class = "textQuestion" name = "question">${e.question}</textarea>
 		</div>
 
 		<div class = "answer">
 			<p><span class = "under">回答</span></p>
-			<input type = "text" class = "textAnswer" name = "answer" value = "${e.answer}">
+			<textarea class = "textAnswer" name = "answer">${e.answer}</textarea>
 		</div>
 
 		<div class = "button">
@@ -34,13 +34,16 @@
 	</form>
 </c:forEach>
 
-<ul class="pagination">
-	<form method = "GET" action = "/SMSystem/Faq_Delete_UpdateServlet">
-		<input type = "submit" name = "pager" value = "1">
-		<input type = "submit" name = "pager" value = "2">
-		<input type = "submit" name = "pager" value = "3">
-	</form>
-</ul>
+<br>
+	 	<div class="pager">
+		<a href = "/SMSystem/Faq_Delete_UpdateServlet?page=small">${pagerSmall}</a>
+		<a href = "/SMSystem/Faq_Delete_UpdateServlet?page=1">${pager1}</a>
+		<a href = "/SMSystem/Faq_Delete_UpdateServlet?page=2">${pager2}</a>
+		<a href = "/SMSystem/Faq_Delete_UpdateServlet?page=3">${pager3}</a>
+		<a href = "/SMSystem/Faq_Delete_UpdateServlet?page=big">${pagerBig}</a>
+		</div>
+<br>
+
 <jsp:include page="/WEB-INF/jsp/footer.jsp" />
 </div>
 </body>

@@ -20,7 +20,7 @@
 		<table class="emergent">
 			<thead>
 				<tr>
-					<th class="white0"></th><th class="white">氏名</th><th class="white">ジャンル</th><th class="white"></th>
+					<th class="white0"></th><th class="white1">氏名</th><th class="white1">ジャンル</th><th class="white2"></th>
 				</tr>
 			</thead>
 			<c:forEach var="e" items="${emergent}" >
@@ -28,9 +28,9 @@
 				<tbody>
 					<tr>
 						<td class="white0"><input type="hidden" name="question_id" value="${e.question_id}"></td>
-						<td class="white">${e.user_name}</td>
-						<td class="white">${e.genre}</td>
-						<td class="white"><input type="submit" name="search" value="回答する"></td>
+						<td class="white1">${e.user_name}</td>
+						<td class="white1">${e.genre}</td>
+						<td class="white2"><input type="submit" name="search" value="回答する"></td>
 					</tr>
 				</tbody>
 			</form>
@@ -45,7 +45,7 @@
 		<table class="normal">
 			<thead>
 				<tr>
-					<th class="white0"></th><th class="white">氏名</th><th class="white">ジャンル</th><th class="white"></th>
+					<th class="white0"></th><th class="white1">氏名</th><th class="white1">ジャンル</th><th class="white2"></th>
 				</tr>
 			</thead>
 			<c:forEach var="f" items="${not_emergent}" >
@@ -53,9 +53,9 @@
 				<tbody>
 					<tr>
 						<td class="white0"><input type="hidden" name="question_id" value="${f.question_id}"></td>
-						<td class="white">${f.user_name}</td>
-						<td class="white">${f.genre}</td>
-						<td class="white"><input type="submit" name="search" value="回答する"></td>
+						<td class="white1">${f.user_name}</td>
+						<td class="white1">${f.genre}</td>
+						<td class="white2"><input type="submit" name="search" value="回答する"></td>
 					</tr>
 				</tbody>
 			</form>

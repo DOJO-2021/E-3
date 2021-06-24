@@ -30,11 +30,11 @@
 
 	<div class = "question">
 		<p><span class = "under">質問</span></p>
-		<textarea name = "question"></textarea>
+		<textarea name = "question" class="textQuestion"></textarea>
 	</div>
 	<div class = "answer">
 		<p><span class = "under">回答</span></p>
-		<textarea name = "answer"></textarea>
+		<textarea name = "answer" class="textAnswer"></textarea>
 	</div>
 	<p id="alert"></p>
 	<div class = "button">

@@ -26,9 +26,19 @@ public class Question_AnswerServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		HttpSession session = request.getSession();
+		session.removeAttribute("pager1");
+		session.removeAttribute("pager2");
+		session.removeAttribute("pager3");
+		session.removeAttribute("count_pager");
+		session.removeAttribute("value");
+		session.removeAttribute("count_maxpager");
+		session.removeAttribute("current_pager");
+		session.removeAttribute("pagerSmall");
+		session.removeAttribute("pagerBig");
+
 		//リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
-		HttpSession session = request.getSession();
 		Object O = session.getAttribute("id");
 		String user_id = O.toString();
 		int row = 0;
@@ -44,7 +54,111 @@ public class Question_AnswerServlet extends HttpServlet {
 		int question_count = 0;
 		question_count = ADao.select_question_count(aQ);
 		session.setAttribute("question_count", question_count);
-		//セッションIDを取得する
+
+		int value = 0;
+		session.setAttribute("value", value);
+		int current_pager = value/1+1;
+		session.setAttribute("current_pager", current_pager);
+
+		String pagerSmall = "前へ";
+		String pagerBig = "次へ";
+		session.setAttribute("pagerSmall", pagerSmall);
+		session.setAttribute("pagerBig", pagerBig);
+
+		int count_pager = 0;
+		int count_maxpager = 0;
+		int max = (int) session.getAttribute("question_count");
+		if(max/1+1==1 && max%1!=0) {
+			int pager1 = 1;
+			session.setAttribute("pager1", pager1);
+			count_pager = 1;
+			session.setAttribute("count_pager", count_pager);
+			count_maxpager = max/1+1;
+			session.removeAttribute("pagerSmall");
+			session.removeAttribute("pagerBig");
+		}else if(max/1==1 && max%1==0) {
+			int pager1 = 1;
+			session.setAttribute("pager1", pager1);
+			count_pager = 1;
+			session.setAttribute("count_pager", count_pager);
+			count_maxpager = max/1;
+			session.removeAttribute("pagerSmall");
+			session.removeAttribute("pagerBig");
+		}else if(max/1+1==2 && max%1!=0) {
+			int pager1 = 1;
+			session.setAttribute("pager1", pager1);
+			int pager2 = 2;
+			session.setAttribute("pager2", pager2);
+			count_pager = 2;
+			session.setAttribute("count_pager", count_pager);
+			count_maxpager = max/1+1;
+			session.removeAttribute("pagerSmall");
+			session.removeAttribute("pagerBig");
+		}else if(max/1==2 && max%1==0) {
+			int pager1 = 1;
+			session.setAttribute("pager1", pager1);
+			int pager2 = 2;
+			session.setAttribute("pager2", pager2);
+			count_pager = 2;
+			session.setAttribute("count_pager", count_pager);
+			count_maxpager = max/1;
+			session.removeAttribute("pagerSmall");
+			session.removeAttribute("pagerBig");
+		}else if(max/1+1==3 && max%1!=0) {
+			int pager1 = 1;
+			session.setAttribute("pager1", pager1);
+			int pager2 = 2;
+			session.setAttribute("pager2", pager2);
+			int pager3 = 3;
+			session.setAttribute("pager3", pager3);
+			count_pager = 3;
+			session.setAttribute("count_pager", count_pager);
+			count_maxpager = max/1+1;
+			session.removeAttribute("pagerSmall");
+			session.removeAttribute("pagerBig");
+		}else if(max/1==3 && max%1==0) {
+			int pager1 = 1;
+			session.setAttribute("pager1", pager1);
+			int pager2 = 2;
+			session.setAttribute("pager2", pager2);
+			int pager3 = 3;
+			session.setAttribute("pager3", pager3);
+			count_pager = 3;
+			session.setAttribute("count_pager", count_pager);
+			count_maxpager = max/1;
+			session.removeAttribute("pagerSmall");
+			session.removeAttribute("pagerBig");
+		}else if(max/1+1>3 && max%1!=0){
+			int pager1 = 1;
+			session.setAttribute("pager1", pager1);
+			int pager2 = 2;
+			session.setAttribute("pager2", pager2);
+			int pager3 = 3;
+			session.setAttribute("pager3", pager3);
+			count_pager = 3;
+			session.setAttribute("count_pager", count_pager);
+			count_maxpager = max/1+1;
+			session.removeAttribute("pagerSmall");
+		}else if(max/1>3 && max%1==0) {
+			int pager1 = 1;
+			session.setAttribute("pager1", pager1);
+			int pager2 = 2;
+			session.setAttribute("pager2", pager2);
+			int pager3 = 3;
+			session.setAttribute("pager3", pager3);
+			count_pager = 3;
+			session.setAttribute("count_pager", count_pager);
+			count_maxpager = max/1;
+			session.removeAttribute("pagerSmall");
+		}else if(max == 0) {
+			current_pager -= 1;
+			session.setAttribute("current_pager", current_pager);
+			session.setAttribute("count_pager", count_pager);
+			session.removeAttribute("pagerSmall");
+			session.removeAttribute("pagerBig");
+		}
+		session.setAttribute("count_maxpager",count_maxpager);
+
 
 
 

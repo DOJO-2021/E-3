@@ -48,8 +48,28 @@ public class Student_ListServlet extends HttpServlet {
 		session.getAttribute("count_maxpager");
 		int current_pager = (int) session.getAttribute("current_pager");
 		int count_pager = (int) session.getAttribute("count_pager");
+		String pagerSmall = "前へ";
+		session.setAttribute("pagerSmall",pagerSmall);
+		String pagerBig = "次へ";
+		session.setAttribute("pagerBig",pagerBig);
 
-		if(count_pager == 1) {
+
+		if(count_pager == 0) {
+			int value = 0;
+
+			Table table = new Table(value);
+
+			String user_class = (String) session.getAttribute("studentClass");
+			UserDao uDao = new UserDao();
+			List<User> studentList = uDao.select(new User(0,"","","","","","",user_class,""),table);
+			request.setAttribute("studentList", studentList);
+
+			session.getAttribute("count");
+
+			RequestDispatcher dispatcher1 =request.getRequestDispatcher("/WEB-INF/jsp/student_list1.jsp");
+			dispatcher1.forward(request, response);
+
+		}else if(count_pager == 1) {
 			int pager1 = (int) session.getAttribute("pager1");
 			int value = 0;
 
@@ -130,8 +150,6 @@ public class Student_ListServlet extends HttpServlet {
 				value = 10*(pager3-1);
 			}
 
-
-
 			session.setAttribute("pager1", pager1);
 			session.setAttribute("pager2", pager2);
 			session.setAttribute("pager3", pager3);
@@ -147,12 +165,16 @@ public class Student_ListServlet extends HttpServlet {
 			current_pager = value/10+1;
 			session.setAttribute("current_pager", current_pager);
 
+			int count_maxpager = (int) session.getAttribute("count_maxpager");
+			if(pager3 == count_maxpager) {
+				session.removeAttribute("pagerBig");
+			}else if(pager1 == 1) {
+				session.removeAttribute("pagerSmall");
+			}
+
 			RequestDispatcher dispatcher1 =request.getRequestDispatcher("/WEB-INF/jsp/student_list1.jsp");
 			dispatcher1.forward(request, response);
 		}
 		}
-
-
-
 
 }
