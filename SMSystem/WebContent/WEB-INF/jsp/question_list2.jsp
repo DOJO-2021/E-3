@@ -14,7 +14,7 @@
 <div class="wrapper">
 	<h3>質問一覧</h3>
 
-	<p class="emergent1">緊急</p>
+	<p class="emergent1">緊急(全${e_count}件)</p>
 	<div class="table-QuestionList">
 	<div id="overflow">
 		<table class="emergent">
@@ -39,7 +39,7 @@
 	</div>
 	</div>
 
-	<p class="emergent2">通常</p>
+	<p class="emergent2">通常(全${n_count}件)</p>
 	<div class="table-QuestionList">
 	<div id="overflow">
 		<table class="normal">

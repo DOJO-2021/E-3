@@ -12,7 +12,7 @@
 <body>
 <jsp:include page="/WEB-INF/jsp/header_student.jsp" />
 <div class = "wrapper">
-	<h3>${studentClass}の受講者一覧(全${count}人)</h3>
+	<h3>${studentClass}の受講者一覧(全${count}人)(${current_pager}/${count_maxpager}ページ)</h3>
 
 	<div class = "table-menu" id = "table">
 		<table class = "mytable" id = "list">
@@ -35,7 +35,7 @@
 			</form>
 			</c:forEach>
 		</table>
-
+	</div>
 		<br>
 	 	<div class="pager">
 		<a href = "/SMSystem/Student_ListServlet?page=small">＜</a>
@@ -44,7 +44,7 @@
 		<a href = "/SMSystem/Student_ListServlet?page=3">${pager3}</a>
 		<a href = "/SMSystem/Student_ListServlet?page=big">＞</a>
 		</div>
-	</div>
+
 <jsp:include page="/WEB-INF/jsp/footer.jsp" />
 </div>
 </body>
