@@ -42,8 +42,10 @@
 		</div>
 
 			<div class="intro2">
-			<p><span class="item">自己紹介</span></p>
-			<textarea class="intro" name = "user_intro"  readonly>${e.user_intro}</textarea><br>
+				<p><span class="item">自己紹介</span></p>
+				<div class="intro">
+				<textarea class="intro" name = "user_intro"  readonly>${e.user_intro}</textarea>
+				</div>
 			</div>
 
 
