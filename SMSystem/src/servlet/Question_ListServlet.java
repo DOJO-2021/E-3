@@ -48,6 +48,7 @@ public class Question_ListServlet extends HttpServlet {
 		request.setAttribute("n_count", n_count);
 		request.setAttribute("emergent", userAll_questionList);
 		request.setAttribute("not_emergent", userAll_questionList2);
+		request.setAttribute("user_class", user_class);
 
 		// 質問一覧ページにフォワードする
 		RequestDispatcher dispacher = request.getRequestDispatcher("/WEB-INF/jsp/question_list2.jsp");

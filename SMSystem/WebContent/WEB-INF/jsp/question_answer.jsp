@@ -12,7 +12,7 @@
 <body>
 <jsp:include page="/WEB-INF/jsp/header_student.jsp" />
 <div class="wrapper">
-	<h3>質問への回答確認（全質問回数${question_count}件）</h3>
+	<h3>質問への回答確認（全質問回数${question_count}件）(${current_pager}/${count_maxpager}ページ)</h3>
 	<c:forEach var = "e" items = "${AList}">
 		<div class="question">
 			<p><span class="under">質問</span></p>

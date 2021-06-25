@@ -12,7 +12,7 @@
 <body>
 <jsp:include page="/WEB-INF/jsp/header_teacher.jsp" />
 <div class="wrapper">
-	<h3>質問一覧</h3>
+	<h3>${user_class}クラスの質問一覧</h3>
 
 	<p class="emergent1">緊急(全${e_count}件)</p>
 	<div class="table-QuestionList">

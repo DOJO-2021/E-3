@@ -13,29 +13,24 @@
 <jsp:include page="/WEB-INF/jsp/header_teacher.jsp" />
 <div class = "wrapper">
 	<h3>マイメニュー</h3>
-		<div class = "profile">
+		<div class = "mymenu">
 			<form method = "GET" action = "/SMSystem/ChangePasswordServlet2">
 			<c:forEach var="e" items= "${userInfo}">
 
-				<p class="item">名前</p>
+				<p><span class="item">名前</span></p>
 				<input type = "text" name = "user_name" value = "${e.user_name}" readonly><br>
 
-
-				<p class="item">企業名</p>
+				<p><span class="item">企業名</span></p>
 				<input type = "text" name = "user_company" value = "${e.user_company}" readonly><br>
 
-
-				<p class="item">クラス</p>
+				<p><span class="item">クラス</span></p>
 				<input type = "text" name = "user_class" value = "${e.user_class}" readonly><br>
 
-
-				<p class="item">ID</p>
+				<p><span class="item">ID</span></p>
 				<input type = "text" name = "user_id" value = "${e.user_id}" readonly><br>
 
-
-				<p class="item">パスワード</p>
+				<p><span class="item">パスワード</span></p>
 				<input type = "text" name = "user_pw" value = "${e.user_pw}" readonly><br>
-
 
 			</c:forEach>
 			<input type = "submit" name = "toChange" value = "PW変更">

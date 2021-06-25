@@ -14,19 +14,21 @@
 <div class = "wrapper">
 	<h3>パスワード変更</h3>
 	<c:forEach var="e" items= "${userInfo}">
-		<p>現パスワード</p><br>
+	<div class="change">
+		<p><span class="item">現パスワード</span></p>
 		<input type = "text" name = now_pw value = "${e.user_pw}" readonly><br>
 
 		<form method = "POST" action = "/SMSystem/ChangePasswordServlet">
 			<div class="check">
 				<input type = "hidden" name = "user_id" value = "${e.user_id}">
-				<p>新パスワード</p><br>
+				<p><span class="item">新パスワード</span></p>
 				<input type = "text" name = "new_pw"placeholder="PW(8～16字以内 大文字 小文字 数字 必須)" ><br>
-				<p>確認</p><br>
-				<input type = "text" name = "confirm_pw">
+				<p><span class="item">新パスワード (確認)</span></p>
+				<input type = "text" name = "confirm_pw"><br>
 				<input type = "submit" name = "change" value = "変更" placeholder="PW(8～16字以内 大文字 小文字 数字 必須)">
 			</div>
 		</form>
+		</div>
 	</c:forEach>
 </div>
 <jsp:include page="/WEB-INF/jsp/footer.jsp" />

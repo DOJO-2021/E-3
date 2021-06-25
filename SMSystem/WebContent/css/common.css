@@ -15,6 +15,7 @@ h1 {
 	max-width: 700px;
 	text-align: center;
 	margin: 100px auto 135px;
+	cursor: default;
 }
 .done {
 	background: #FFDEAD;
@@ -37,6 +38,7 @@ h3 {
 	font-size: 20px;
 	background: transparent; /*背景透明に*/
 	border-left: solid 5px #F4A460; /*左線*/
+	cursor: default;
 }
 
 /*ジャンル選択欄 サイズ*/

@@ -69,6 +69,8 @@ public class Faq_Delete_UpdateServlet extends HttpServlet {
 			All_QuestionDao all_qDao = new All_QuestionDao();
 			List<All_Question> faqList = all_qDao.select_faqEdit(new All_Question(0, "", genre, "", "", "", "", 0, ""),table);
 			request.setAttribute("faqList", faqList);
+			session.removeAttribute("pagerSmall");
+			session.removeAttribute("pagerBig");
 
 			RequestDispatcher dispatcher =request.getRequestDispatcher("/WEB-INF/jsp/faq_delete_update.jsp");
 			dispatcher.forward(request, response);
@@ -98,6 +100,8 @@ public class Faq_Delete_UpdateServlet extends HttpServlet {
 			All_QuestionDao all_qDao = new All_QuestionDao();
 			List<All_Question> faqList = all_qDao.select_faqEdit(new All_Question(0, "", genre, "", "", "", "", 0, ""),table);
 			request.setAttribute("faqList", faqList);
+			session.removeAttribute("pagerSmall");
+			session.removeAttribute("pagerBig");
 
 			RequestDispatcher dispatcher =request.getRequestDispatcher("/WEB-INF/jsp/faq_delete_update.jsp");
 			dispatcher.forward(request, response);

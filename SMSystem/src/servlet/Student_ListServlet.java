@@ -87,6 +87,8 @@ public class Student_ListServlet extends HttpServlet {
 			request.setAttribute("studentList", studentList);
 
 			session.getAttribute("count");
+			session.removeAttribute("pagerSmall");
+			session.removeAttribute("pagerBig");
 
 			RequestDispatcher dispatcher1 =request.getRequestDispatcher("/WEB-INF/jsp/student_list1.jsp");
 			dispatcher1.forward(request, response);
@@ -116,6 +118,8 @@ public class Student_ListServlet extends HttpServlet {
 			session.getAttribute("count");
 			current_pager = value/10+1;
 			session.setAttribute("current_pager", current_pager);
+			session.removeAttribute("pagerSmall");
+			session.removeAttribute("pagerBig");
 
 			RequestDispatcher dispatcher1 =request.getRequestDispatcher("/WEB-INF/jsp/student_list1.jsp");
 			dispatcher1.forward(request, response);

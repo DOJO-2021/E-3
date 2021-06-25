@@ -12,7 +12,7 @@
 <body>
 <jsp:include page = "/WEB-INF/jsp/header_teacher.jsp" />
 <div class = "wrapper">
-<h3>${genre}に関するFAQ一覧(全${count}件)</h3>
+<h3>${genre}に関するFAQ一覧(全${count}件)(${current_pager}/${count_maxpager}ページ)</h3>
 <c:forEach var = "e" items = "${faqList}">
 	<form method = "POST" action = "/SMSystem/Faq_Delete_UpdateServlet">
 		<input type = "hidden" name = "question_id" value = "${e.question_id}">

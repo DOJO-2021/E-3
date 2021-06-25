@@ -70,6 +70,8 @@ public class Faq_ListServlet3 extends HttpServlet {
 			session.getAttribute("count");
 			current_pager = value/2+1;
 			session.setAttribute("current_pager", current_pager);
+			session.removeAttribute("pagerSmall");
+			session.removeAttribute("pagerBig");
 
 
 			RequestDispatcher dispatcher =request.getRequestDispatcher("/WEB-INF/jsp/faq_list_t2.jsp");
@@ -100,6 +102,8 @@ public class Faq_ListServlet3 extends HttpServlet {
 			session.getAttribute("count");
 			current_pager = value/2+1;
 			session.setAttribute("current_pager", current_pager);
+			session.removeAttribute("pagerSmall");
+			session.removeAttribute("pagerBig");
 
 
 			RequestDispatcher dispatcher =request.getRequestDispatcher("/WEB-INF/jsp/faq_list_t2.jsp");
