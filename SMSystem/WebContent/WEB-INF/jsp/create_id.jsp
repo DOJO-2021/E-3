@@ -10,7 +10,7 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/jsp/header.jsp" />
-<div class="box">
+<div class="wrapper">
 <form method ="post"action="/SMSystem/Create_IdServlet" class="form_createID" id="form">
 
 	<div class = "radio">
@@ -61,7 +61,6 @@
 	</div>
 </form>
 </div>
-<jsp:include page="/WEB-INF/jsp/footer.jsp" />
 <script src="/SMSystem/js/create_id.js"></script>
 </body>
 </html>

@@ -11,7 +11,7 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/jsp/header.jsp" />
-<div class="box">
+<div class="wrapper">
 <p>プロフィール記入</p>
 	<form id="form" method = "POST" action = "/SMSystem/Create_ProfileServlet">
 	<input type = "hidden" name = "user_id" value = "${userId}">
@@ -48,11 +48,10 @@
 		</table>
 		<p id="alert"></p>
 		<div class ="button">
-			<input type = "submit" name = "submit_create" value ="登録">
+			<input type = "submit" name = "submit_create" value ="登録"><br>
 		</div>
 	</form>
-	</div>
-<jsp:include page="/WEB-INF/jsp/footer.jsp" />
+</div>
 <script src="/SMSystem/js/create_profile.js"></script>
 </body>
 </html>
