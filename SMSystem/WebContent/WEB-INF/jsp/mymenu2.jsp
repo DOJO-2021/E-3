@@ -33,7 +33,9 @@
 				<input type = "text" name = "user_pw" value = "${e.user_pw}" readonly><br>
 
 			</c:forEach>
-			<input type = "submit" name = "toChange" value = "PW変更">
+			<div class="button">
+				<input type = "submit" name = "toChange" value = "PW変更">
+			</div>
 			</form>
 	</div>
 </div>

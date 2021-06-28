@@ -40,6 +40,7 @@
 			<p><span class="item">趣味</span></p>
 			<input type = "text" name = "user_hobby" value = "${e.user_hobby}" readonly><br>
 		</div>
+
 		<div class="intro2">
 			<p><span class="item">自己紹介</span></p>
 			<div class="intro">

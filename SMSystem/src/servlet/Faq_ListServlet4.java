@@ -158,6 +158,10 @@ public class Faq_ListServlet4 extends HttpServlet {
 			session.setAttribute("current_pager", current_pager);
 
 			int count_maxpager = (int) session.getAttribute("count_maxpager");
+			if(count_maxpager == 3) {
+				session.removeAttribute("pagerBig");
+				session.removeAttribute("pagerSmall");
+			}
 			if(pager3 == count_maxpager) {
 				session.removeAttribute("pagerBig");
 			}else if(pager1 == 1) {

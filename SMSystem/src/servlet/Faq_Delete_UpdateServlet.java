@@ -154,7 +154,10 @@ public class Faq_Delete_UpdateServlet extends HttpServlet {
 			request.setAttribute("faqList", faqList);
 
 			int count_maxpager = (int) session.getAttribute("count_maxpager");
-			if(pager3 == count_maxpager) {
+			if(count_maxpager == 3) {
+				session.removeAttribute("pagerBig");
+				session.removeAttribute("pagerSmall");
+			}else if(pager3 == count_maxpager) {
 				session.removeAttribute("pagerBig");
 			}else if(pager1 == 1) {
 				session.removeAttribute("pagerSmall");

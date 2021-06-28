@@ -25,7 +25,9 @@
 				<input type = "text" name = "new_pw"placeholder="PW(8～16字以内 大文字 小文字 数字 必須)" ><br>
 				<p><span class="item">新パスワード (確認)</span></p>
 				<input type = "text" name = "confirm_pw"><br>
-				<input type = "submit" name = "change" value = "変更" placeholder="PW(8～16字以内 大文字 小文字 数字 必須)">
+				<div class="button">
+					<input type = "submit" name = "change" value = "変更" placeholder="PW(8～16字以内 大文字 小文字 数字 必須)">
+				</div>
 			</div>
 		</form>
 		</div>

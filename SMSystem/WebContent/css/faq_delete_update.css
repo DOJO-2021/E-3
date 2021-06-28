@@ -1,24 +1,24 @@
 @charset "UTF-8";
 
-/* 質問 */
-.question p {
-	font-size: 21px;
+/* 質問 *//* 確認済 *//* common */
+/*.question p {
+	font-size: 17px;
 	margin: 20px auto 13px;
 	max-width: 700px;
-}
-/* 回答 */
-.answer p {
-	font-size: 21px;
+}*/
+/* 回答 *//* 確認済 *//* common */
+/*.answer p {
+	font-size: 17px;
 	margin: 0 auto 13px;
 	max-width: 700px;
-}
-/* 「質問」「回答」のアンダーライン */
-.under {
+}*/
+/* 「質問」「回答」のアンダーライン *//* 確認済 *//* common */
+/*.under {
 	border-bottom: dashed 3px #F4A460;
-}
+}*/
 
-/* 質問の枠 */
-.textquestion {
+/* 質問の枠 *//* 確認済 *//* common */
+/*.question textarea {
 	display: block;
 	font-size: 16px;
 	max-width: 700px;
@@ -26,9 +26,9 @@
 	height: 120px;
 	margin: 8px auto 35px;
 	outline: none;
-}
-/* 回答の枠 */
-.textAnswer {
+}*/
+/* 回答の枠 *//* 確認済 *//* common */
+/*.answer textarea {
 	display: block;
 	font-size: 16px;
 	max-width: 700px;
@@ -36,45 +36,33 @@
 	height: 120px;
 	margin: 8px auto 20px;
 	outline: none;
-}
-/* 質問編集時 枠線の色がオレンジに変わる */
-.textQuestion:focus {
+}*/
+/* 質問編集時 枠線の色がオレンジに変わる *//* 確認済 *//* common */
+/*.question textarea:focus {
 	border: 4px solid #F4A460;
 	outline: none;
-}
-/* 回答編集時 枠線の色がオレンジに変わる */
-.textAnswer:focus {
+}*/
+/* 回答編集時 枠線の色がオレンジに変わる *//* 確認済 *//* common */
+/*.answer textarea:focus {
 	border: 4px solid #F4A460;
 	outline: none;
-}
+}*/
 
-/* 登録ボタン 中央配置 */
-.button {
+/* 登録ボタン 中央配置 *//* 確認済 *//* common */
+/*.button {
 	text-align: center;
 	margin-top: 15px;
-}
-input[type="submit"] {
-	cursor: pointer;
-}
-/* 登録ボタン・削除ボタン デザイン */
-.button input[type="submit"] {
+}*/
+/* 登録ボタン・削除ボタン デザイン *//* 確認済 *//* common */
+/*.button input[type="submit"] {
 	margin: 0 5px;
 	border-radius: 10px;
 	width: 80px;
 	height: 40px;
 	transition: 0.5s;
-}
-/* 登録ボタン・削除ボタン・ページャー ホバーしたときオレンジにする */
-input[type="submit"]:hover {
+	cursor: pointer;
+}*/
+/* 登録ボタン・削除ボタン ホバーしたときオレンジにする *//* 確認済 *//* common */
+/*.button input[type="submit"]:hover {
 	background-color: #F4A460;
-}
-
-/* ページャー */
-.pagination {
-	max-width: 700px;
-	margin: 0 auto;
-	padding: 0;
-}
-.pagination input[type="submit"] {
-	transition: 0.5s;
-}
+}*/
