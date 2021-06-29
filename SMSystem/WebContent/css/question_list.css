@@ -103,6 +103,10 @@ table tbody th {
 	transition: 0.5s;
 	cursor: pointer;
 }
+/* 検索ボタン ホバーしたときオレンジにする */
+.white2 input[type="submit"]:hover {
+	background-color : #F4A460;
+}
 
 /* オーバーフロー */
 div#overflow{
