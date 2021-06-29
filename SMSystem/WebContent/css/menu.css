@@ -4,6 +4,7 @@
 	margin: 58px auto 193px;
 	max-width: 700px;
 	text-align: center;
+	cursor: default;
 }
 
 /* クラス入力欄 サイズ */
@@ -27,39 +28,4 @@ input[type="text"]:focus {
 /* 検索ボタン ホバーしたときオレンジにする */
 .text input[type="submit"]:hover {
 	background-color : #F4A460;
-}
-
-
-table{
-	border-collapse: collapse;
-	margin: 0 auto 0 auto;
-	max-width: 700px;
-	border:3px solid black;
-}
-.table-menu{
-	padding: 0;
-}
-.table-menu th{
-	background: #F4A460;
-	text-align: center;
-	padding: 0px 50px 0px 50px;
-	width: 700px;
-
-	border-collapse: collapse;
-	border-bottom: 3px solid black;
-}
-/*.n .nk {
-	width: 150px;
-}
-.c {
-	width: 400px;
-}*/
-
-.table-menu td{
-	background: white;
-	padding: 0px 50px 0px 50px;
-	border-collapse: collapse;
-	text-align: center;
-	width: 700px;
-	border-bottom:1px solid black
 }

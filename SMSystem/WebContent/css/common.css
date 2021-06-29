@@ -59,8 +59,20 @@ select:focus {
 	max-width: 700px;
 	cursor: default;
 }
+.question_ro p {
+	font-size: 17px;
+	margin: 20px auto 13px;
+	max-width: 700px;
+	cursor: default;
+}
 /* 回答 */
 .answer p {
+	font-size: 17px;
+	margin: 0 auto 13px;
+	max-width: 700px;
+	cursor: default;
+}
+.answer_ro p {
 	font-size: 17px;
 	margin: 0 auto 13px;
 	max-width: 700px;
@@ -100,6 +112,23 @@ select:focus {
 .answer textarea:focus {
 	border: 4px solid #F4A460;
 	outline: none;
+}
+/* readonlyのtextarea 枠の色変化しない */
+.question_ro textarea {
+	cursor: default;
+}
+.question_ro textarea:focus {
+	border: 1px solid -internal-light-dark(black, white);
+	outline: none;
+	cursor: default;
+}
+.answer_ro textarea {
+	cursor: default;
+}
+.answer_ro textarea:focus {
+	border: 1px solid -internal-light-dark(black, white);
+	outline: none;
+	cursor: default;
 }
 /* テキストエリア サイズ */
 textarea {

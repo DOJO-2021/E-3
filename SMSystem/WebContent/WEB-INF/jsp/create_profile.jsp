@@ -7,48 +7,48 @@
 <meta charset="UTF-8">
 <title>プロフィール記入 | SMSystem</title>
 <link rel="stylesheet" href="css/common.css">
-<link rel ="stylesheet" href ="css/profile.css">
+<link rel="stylesheet" href="css/profile.css">
 </head>
 <body>
 <jsp:include page="/WEB-INF/jsp/header.jsp" />
 <div class="wrapper">
 <p>プロフィール記入</p>
-	<form id="form" method = "POST" action = "/SMSystem/Create_ProfileServlet">
-	<input type = "hidden" name = "user_id" value = "${userId}">
+	<form id="form" method="POST" action="/SMSystem/Create_ProfileServlet">
+	<input type="hidden" name="user_id" value="${userId}">
 		<table class="profile">
 		<tr>
-			<th><img src ="img/name.png" alt = "氏名"></th>
-			<td><input type = "text" name = "user_name" value = "${userName}" readonly></td>
+			<th><img src="img/name.png" alt="氏名"></th>
+			<td><input type="text" name="user_name" value="${userName}" readonly></td>
 		</tr>
 		<tr>
-			<th><img src ="img/name.png" alt = "氏名かな"></th>
-			<td><input type = "text" name = "user_name_kana" value = "${userNameKana}" readonly></td>
+			<th><img src="img/name.png" alt="氏名かな"></th>
+			<td><input type="text" name="user_name_kana" value="${userNameKana}" readonly></td>
 		</tr>
 
 		<tr>
-			<th><img src ="img/blood.png" alt = "血液型"></th>
-			<td><input type = "text" name = "user_blood" placeholder = "血液型"></td>
+			<th><img src="img/blood.png" alt="血液型"></th>
+			<td><input type="text" name="user_blood" placeholder="血液型"></td>
 		</tr>
 		<tr>
-			<th><img src ="img/career.png" alt = "文理"></th>
-			<td><input type = "text" name = "user_career" placeholder = "文系？理系？"></td>
+			<th><img src="img/career.png" alt="文理"></th>
+			<td><input type="text" name="user_career" placeholder="文系？理系？"></td>
 		</tr>
 		<tr>
-			<th><img src ="img/club.png" alt = "部活"></th>
-			<td><input type = "text" name = "user_club" placeholder = "部活"></td>
+			<th><img src="img/club.png" alt="部活"></th>
+			<td><input type="text" name="user_club" placeholder="部活"></td>
 		</tr>
 		<tr>
-			<th><img src ="img/hobby.png" alt = "趣味"></th>
-			<td><input type = "text" name = "user_hobby" placeholder = "趣味"></td>
+			<th><img src="img/hobby.png" alt="趣味"></th>
+			<td><input type="text" name="user_hobby" placeholder="趣味"></td>
 		</tr>
 		<tr>
-			<th><img src ="img/intro.png" alt = "自己紹介"></th>
-			<td><textarea class ="textlines" name ="user_intro" placeholder = "自己紹介"></textarea></td>
+			<th><img src="img/intro.png" alt="自己紹介"></th>
+			<td><textarea class="textlines" name="user_intro" placeholder="自己紹介"></textarea></td>
 		</tr>
 		</table>
 		<p id="alert"></p>
-		<div class ="button">
-			<input type = "submit" name = "submit_create" value ="登録"><br>
+		<div class="button">
+			<input type="submit" name="submit_create" value="登録"><br>
 		</div>
 	</form>
 </div>

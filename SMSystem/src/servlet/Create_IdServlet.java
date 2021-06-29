@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.regex.Pattern;
 
 import javax.servlet.RequestDispatcher;
@@ -73,6 +74,9 @@ public class Create_IdServlet extends HttpServlet {
 			  if(user_role.equals("0")) {
 				  HttpSession session = request.getSession();
 				  session.setAttribute("id",new LoginUser(user_id));
+				  UserDao UDao = new UserDao();
+				List<User> userInfo= UDao.select_user(new User(0,id,"","","","","","",""));
+				session.setAttribute("userInfo", userInfo);
 				  response.sendRedirect("/SMSystem/Menu_TeacherServlet");
 			  }else if (user_role.equals("1")) {
 				  request.setAttribute("userName", user_name);

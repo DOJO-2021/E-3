@@ -13,24 +13,24 @@
 <jsp:include page="/WEB-INF/jsp/header.jsp" />
 <div class="wrapper">
 	<p>ログイン</p>
-	<form method = "POST" action = "/SMSystem/LoginServlet" id="form">
+	<form method="POST" action="/SMSystem/LoginServlet" id="form">
 		<table class="profile">
 			<tr>
-			<th><img src ="img/id.png" alt = "ID" class="img"></th>
-				<td><input type = "text" name = "user_id" placeholder = "ID"></td>
+			<th><img src="img/id.png" alt="ID" class="img"></th>
+				<td><input type="text" name="user_id" placeholder="ID"></td>
 			</tr>
 			<tr>
-			<th><img src ="img/password.png" alt = "PW" class="img"></th>
-				<td><input type = "password" name = "user_pw" placeholder = "password"></td>
+			<th><img src="img/password.png" alt="PW" class="img"></th>
+				<td><input type="password" name="user_pw" placeholder="password"></td>
 			</tr>
 		</table>
-		<div class = "radio">
+		<div class="radio">
 			<label><input type="radio" name="user_role" value="1">受講者</label>
 			<label><input type="radio" name="user_role" value="0">講師</label>
 		</div>
 		<br>
-		<div class ="button">
-			<input type = "submit" name = "submit_create" value ="ログイン">
+		<div class="button">
+			<input type="submit" name="submit_create" value="ログイン">
 		</div>
 		<p class="regist"><a href="/SMSystem/Create_IdServlet">新規登録はこちら</a></p>
 		<p id="output"></p>
