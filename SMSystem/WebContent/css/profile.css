@@ -1,48 +1,48 @@
 @charset "UTF-8";
 
-/*プロフィール部分を中央に寄せる*//* 確認済 */
+/* プロフィール部分を中央に寄せる *//* 確認済 */
 .profile {
 	margin: 0 auto;
 }
-/*説明？を真ん中に配置*//* 確認済 */
+/* 説明？を真ん中に配置 *//* 確認済 */
 p {
 	text-align:center;
 }
 
-/*画像の大きさ*//* 確認済 */
+/* 画像の大きさ *//* 確認済 */
 img {
 	width: 45.98px;
 }
 
-/*テキスト入力の文字サイズの変更*//* 確認済 */
+/* テキスト入力の文字サイズの変更 *//* 確認済 */
 .profile input[type="text"] {
 	font-size: 20px;
 	width:380px;
 	height:40px;
 	margin: 10px;
 }
-/*テキスト入力時に枠線の色が変わる*//* 確認済 */
+/* テキスト入力時に枠線の色が変わる *//* 確認済 */
 .profile input[type="text"]:focus {
 	border: 4px solid #F4A460;
 	outline:none;
 }
 
-/*textareaの大きさを変更*//* 確認済 */
+/* textareaの大きさを変更 *//* 確認済 */
 textarea {
 	width:380px;
 	height:109px;
 	margin: 10px;
 	font-size: 20px;
 }
-/*テキストエリア入力時に枠線の色が変わる*//* 確認済 */
+/* テキストエリア入力時に枠線の色が変わる *//* 確認済 */
 .profile textarea:focus {
 	border: 4px solid #F4A460;
 	outline:none;
 }
 
-/*登録ボタン 中央配置*//* 確認済 *//* common */
-/*登録ボタンの変更*//* 確認済 *//* common */
-/*登録ボタンにカーソルが触れると色が変わるように変更*//* 確認済 *//* common */
+/* 登録ボタン 中央配置 *//* 確認済 *//* common */
+/* 登録ボタンの変更 *//* 確認済 *//* common */
+/* 登録ボタンにカーソルが触れると色が変わるように変更 *//* 確認済 *//* common */
 
 /* ラジオボタン *//* 確認済 *//* common */
 /* ラジオボタンの色変更 *//* 確認済 *//* common */

@@ -41,12 +41,12 @@ h3 {
 	cursor: default;
 }
 
-/*ジャンル選択欄 サイズ*/
+/* ジャンル選択欄 サイズ */
 select {
 	width:200px;
 	height: 25px;
 }
-/*ジャンル選択時 枠線の色がオレンジに変わる*/
+/* ジャンル選択時 枠線の色がオレンジに変わる */
 select:focus {
 	border: 4px solid #F4A460;
 	outline:none;
@@ -138,7 +138,7 @@ textarea {
 	margin: 0 auto 20px;
 	font-size: 16px;
 }
-/*テキストエリア入力時 枠線の色がオレンジに変わる*/
+/* テキストエリア入力時 枠線の色がオレンジに変わる */
 .answer:focus {
 	border: 4px solid #F4A460;
 	outline:none;
